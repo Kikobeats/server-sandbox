@@ -1,4 +1,4 @@
-echo " Installig bind9..."
+echo " Installing bind9..."
 apt-get install bind9
 
 echo "Configuring local file..."
@@ -32,8 +32,9 @@ echo "
 ;
 @      IN  NS    ns.$DNS_NAME.
 ns     IN  A     $PRIMARY_DNS
+smtp   IN  A     $PRIMARY_DNS
+pop    IN  A     $PRIMARY_DNS
 www    IN  CNAME $DNS_NAME.
-
 " > /etc/bind/db.$DNS_NAME.zone
 
 echo "Restart service..."

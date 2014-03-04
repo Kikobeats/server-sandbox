@@ -11,6 +11,7 @@ help(){
 
 sudo -v
 . $PWD/settings.sh
+SERVICES="$PWD/Services"
 clear
 
 echo " ###############"
@@ -23,21 +24,25 @@ while [ $answer != "yes" -a $answer != "no" ]; do
   read -p " Can you configure DNS? [yes/no]: " answer
 done
 if [ $answer = "yes" ] ; then
-  . $PWD/DNS/$1.sh
+  . $SERVICES/DNS/$1.sh
 fi
 
+if [ $1 = "server" ]; then
 
-# # primary dependencies
-# # sudo apt-get update
-# # sudo apt-get install build-essential
-# # VERSION=`uname -r`
-# # sudo apt-get install linux-headers-$VERSION
+  answer="undefined"
+  while [ $answer != "yes" -a $answer != "no" ]; do
+    read -p " Can you configure SMTP? [yes/no]: " answer
+  done
+  if [ $answer = "yes" ] ; then
+    . $SERVICES/Mail/smtp.sh
+  fi
 
-# # # DNS
-# # sudo apt-get install bind9
-# # service bind9 start
+  answer="undefined"
+  while [ $answer != "yes" -a $answer != "no" ]; do
+    read -p " Can you configure POP3? [yes/no]: " answer
+  done
+  if [ $answer = "yes" ] ; then
+    . $SERVICES/Mail/pop.sh
+  fi
 
-# # # Enjoy
-# # reboot
-
-
+fi
