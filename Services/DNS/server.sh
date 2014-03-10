@@ -9,12 +9,17 @@ echo "zone \"$DNS_NAME.\" IN {
 " > /etc/bind/named.conf.local
 
 echo "Configuring local optiosn..."
-echo "options {
+echo "
+  options {
   directory \"/var/cache/bind\";
   //dnssec-validation auto;
-  auth-nxdomain no;    # conform to RFC1035
+  auth-nxdomain no;          # conform to RFC1035
   listen-on-v6 { any; };
-};
+  };
+
+  forwarders {
+    155.54.1.10;             # UM DNS
+  };
 " > /etc/bind/named.conf.options
 
 echo "Configuring zone file..."
