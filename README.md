@@ -10,5 +10,3 @@
 * IPSEC
 
 Testing in Ubuntu Server 12.04
-
-Work in progres...

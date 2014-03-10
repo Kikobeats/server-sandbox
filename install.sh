@@ -45,6 +45,16 @@ if [ $1 = "server" ]; then
     . $SERVICES/Mail/pop.sh
   fi
 
+  if [ $answer_smtp = "yes" -a $answer_pop = "yest" ]; then
+    answer_testuser = "undefined"
+    while [ $answer_testuser != "yes" -a $answer_testuser != "no" ]; do
+      read -p " Create test users for mail? [yes/no]: " answer_testuser
+    done
+    if [ $answer_testuser = "yes" ] ; then
+      . $SERVICES/Mail/test-user.sh
+    fi
+  fi
+
   echo " Restarting services..."
   . $PWD/Services/restart-services.sh
 
