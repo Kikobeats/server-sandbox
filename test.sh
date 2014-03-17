@@ -5,7 +5,7 @@ help(){
 }
 
 test_ping(){
-  ping -q -c5 $1 > /dev/null
+  ping -q -c5 $1 2&>1 /dev/null
 }
 
 show_status(){
