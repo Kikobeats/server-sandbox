@@ -1,7 +1,7 @@
-echo " Installing SMTP..."
+echo " * Installing SMTP..."
 apt-get install exim4
 
-echo " Configuring..."
+echo " * Configuring..."
 
 echo "
 # /etc/exim4/update-exim4.conf.conf
@@ -36,6 +36,3 @@ dc_hide_mailname=''
 dc_mailname_in_oh='true'
 dc_localdelivery='maildir_home'
 " > /etc/exim4/update-exim4.conf.conf
-
-echo " Restart service..."
-service exim4 restart

@@ -1,0 +1,11 @@
+# Configuración de la base de datos
+dn: olcDatabase=bdb,cn=config
+changetype: add
+objectClass: olcDatabaseConfig
+objectClass: olcBdbConfig
+olcDatabase: bdb
+olcSuffix: o=um,c=es
+olcDbDirectory: /var/lib/ldap
+olcRootDN: cn=admin,o=um,c=es
+olcRootPW: 1234
+olcAccess: to * by * read

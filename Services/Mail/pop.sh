@@ -1,7 +1,7 @@
-echo " Installing POP3..."
+echo " * Installing POP3..."
 apt-get install dovecot-pop3d
 
-echo " Configuring..."
+echo " * Configuring..."
 
 echo "
 ##
@@ -480,6 +480,3 @@ echo "
 # Variables can be truncated, e.g. %{sha256:80} returns only first 80 bits
 #mail_attachment_hash = %{sha1}
 " > /etc/dovecot/conf.d/10-mail.conf
-
-echo " Restart service..."
-service dovecot-pop3d restart
