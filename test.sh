@@ -73,10 +73,13 @@ if [ $1 = "client" ]; then
   test_ping ldap.$DNS_NAME
   show_status
 
-  # TODO:
-  # Desde el cliente, modifica el teléfono de uno de los usuarios
-  # Realiza de forma anónima (sin autenticación) una búsqueda que imprima
-  #todas las direcciones de correo.
+  echo -n " * Check read LDAP..."
+  sudo ldapsearch -x -H ldap://ldap.$DNS_NAME -b "cn=Usuario1,ou=st,o=um,c=es" mobile > /dev/null 2>&1
+  show_status
+
+  # echo -n " * Check modify LDAP..."
+  # sudo ldamodify -x -H ldap://ldap.$DNS_NAME -b "cn=Usuario1,ou=st,o=um,c=es" mobile > /dev/null 2>&1
+  # show_status
 
   echo " [ SMTP ] "
   echo -n " * Connectivity SMTP Server..."

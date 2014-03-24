@@ -13,13 +13,13 @@ description: Asignatura de servicios telemáticos
 dn: cn=Usuario1, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
-sn: Servidor
-correo: usuario1@st.um
+sn: Usuario1
+mail: usuario1@st.um
 mobile: 666203829
 
 dn: cn=Usuario2, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
-sn: Cliente
-correo: usuario2@st.um
+sn: Usuario2
+mail: usuario2@st.um
 mobile: 666203830
