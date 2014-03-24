@@ -1,5 +1,5 @@
 echo " * Installing POP3..."
-apt-get install dovecot-pop3d
+apt-get -y install dovecot-pop3d
 
 echo " * Configuring..."
 

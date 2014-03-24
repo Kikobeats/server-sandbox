@@ -5,6 +5,7 @@ help(){
 }
 
 welcome(){
+  clear
   echo "                                 __           "
   echo "                                / _|          "
   echo " ___  ___ _ ____   _____ _ __  | |_ ___  _ __ "
@@ -26,45 +27,41 @@ welcome(){
 
 . $PWD/settings.sh
 SERVICES="$PWD/Services"
-clear
 welcome
-answer_dns="undefined"
-asnwer_dns_type="undefined"
-answer_smtp="undefined"
-answer_pop="undefined"
-answer_ldap="undefined"
+answer="undefined"
 
 ### MAIN
 # client and server setup
-while [ $answer_dns != "yes" -a $answer_dns != "no" ]; do
-  read -p " Can you configure DNS? [yes/no]: " answer_dns
+while [ $answer != "yes" -a $answer != "no" ]; do
+  read -p " Can you configure DNS? [yes/no]: " answer
 done
-if [ $answer_dns = "yes" ] ; then
+if [ $answer = "yes" ] ; then
   . $SERVICES/DNS/$1.sh
+fi
+
+answer="undefined"
+while [ $answer != "yes" -a $answer != "no" ]; do
+  read -p " Can you configure LDAP? [yes/no]: " answer
+done
+if [ $answer = "yes" ] ; then
+  sh $SERVICES/LDAP/$1.sh
 fi
 
 # Only server setup
 if [ $1 = "server" ]; then
 
-  while [ $answer_smtp != "yes" -a $answer_smtp != "no" ]; do
-    read -p " Can you configure SMTP? [yes/no]: " answer_smtp
+  while [ $answer != "yes" -a $answer != "no" ]; do
+    read -p " Can you configure SMTP? [yes/no]: " answer
   done
-  if [ $answer_smtp = "yes" ] ; then
+  if [ $answer = "yes" ] ; then
     . $SERVICES/Mail/smtp.sh
   fi
 
-  while [ $answer_pop != "yes" -a $answer_pop != "no" ]; do
-    read -p " Can you configure POP3? [yes/no]: " answer_pop
+  while [ $answer != "yes" -a $answer != "no" ]; do
+    read -p " Can you configure POP3? [yes/no]: " answer
   done
-  if [ $answer_pop = "yes" ] ; then
+  if [ $answer = "yes" ] ; then
     . $SERVICES/Mail/pop.sh
-  fi
-
-  while [ $answer_ldap != "yes" -a $answer_ldap != "no" ]; do
-    read -p " Can you configure LDAP? [yes/no]: " answer_ldap
-  done
-  if [ $answer_ldap = "yes" ] ; then
-    sh $SERVICES/LDAP/ldap.sh
   fi
 
   echo " Restarting services..."

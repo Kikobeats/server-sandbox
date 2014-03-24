@@ -53,12 +53,13 @@ echo "options {
 
 ### Main
 echo " * Installing DNS..."
-apt-get install bind9
+apt-get -y install bind9
 
-while [ $asnwer_dns_type != "primary" -a $asnwer_dns_type != "secondary" ]; do
-  read -p " Can you configure DNS? [primary/secondary]: " asnwer_dns_type
+answer="undefined"
+while [ $answer != "primary" -a $answer != "secondary" ]; do
+  read -p " Can you configure DNS? [primary/secondary]: " answer
 done
-if [ $asnwer_dns_type = "primary" ] ; then
+if [ $answer = "primary" ] ; then
 
   echo " * Configuring local file..."
   write_config_local_server

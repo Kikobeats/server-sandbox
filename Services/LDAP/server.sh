@@ -4,7 +4,7 @@ DIRNAME=`dirname $0`
 DIR="$DIRNAME"
 
 echo " * Installing LDAP..."
-apt-get install slapd ldap-utils
+apt-get -y install slapd ldap-utils
 
 echo " * Adding LDAP database..."
 # Habilitamos la carga de bases de datos tipo DBD

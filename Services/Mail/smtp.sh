@@ -1,5 +1,5 @@
 echo " * Installing SMTP..."
-apt-get install exim4
+apt-get -y install exim4
 
 echo " * Configuring..."
 

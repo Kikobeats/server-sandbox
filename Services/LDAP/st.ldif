@@ -10,16 +10,16 @@ objectclass: organizationalunit
 description: Asignatura de servicios telemáticos
 
 # Segundo nivel de la jerarquía users
-dn: cn=Ordenador Servidor, ou=st, o=um,c=es
+dn: cn=Usuario1, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
 sn: Servidor
-correo: servidor@st.um
-mobile: 627182818
+correo: usuario1@st.um
+mobile: 666203829
 
-dn: cn=Ordenador Cliente, ou=st, o=um,c=es
+dn: cn=Usuario2, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
 sn: Cliente
-correo: cliente@st.um
-mobile: 627182819
+correo: usuario2@st.um
+mobile: 666203830

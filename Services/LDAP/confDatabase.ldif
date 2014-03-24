@@ -7,5 +7,5 @@ olcDatabase: bdb
 olcSuffix: o=um,c=es
 olcDbDirectory: /var/lib/ldap
 olcRootDN: cn=admin,o=um,c=es
-olcRootPW: 1234
+olcRootPW: password
 olcAccess: to * by * read
