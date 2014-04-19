@@ -17,7 +17,7 @@ welcome(){
 }
 
 finish() {
-  read -p " $1 finished. Press any key to continue...."
+  read -p " $1 finished. Press any key to continue..." null
   clear
 }
 
@@ -31,6 +31,7 @@ menu(){
    echo " 0. Exit"
    read -p " : " opt
    case $opt in
+
     1)
       while [ "$answer" != "client" -a "$answer" != "server" ]; do
         read -p " client or server? [client/server]: " answer
@@ -51,6 +52,7 @@ menu(){
     0)
       echo " Good day (night)" && exit 0;;
     *) welcome
+
    esac
    welcome
   done

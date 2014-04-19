@@ -1,4 +1,4 @@
-# Free Server
+# Server for Dummies
 
 | Services                     | Package                |
 | -----------------------------|:----------------------:|

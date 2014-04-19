@@ -18,7 +18,7 @@ smtp          IN      CNAME      $DNS_NAME.
 pop           IN      CNAME      $DNS_NAME.
 ldap          IN      CNAME      $DNS_NAME.
 www           IN      CNAME      $DNS_NAME.
-" > /etc/bind/db.$DNS_NAME.zone
+" > /etc/bind/db."$DNS_NAME".zone
 }
 
 write_config_local_server(){
@@ -55,11 +55,10 @@ echo "options {
 echo " * Installing DNS..."
 apt-get -y install bind9
 
-answer="undefined"
-while [ $answer != "primary" -a $answer != "secondary" ]; do
+while [ "$answer" != "primary" -a "$answer" != "secondary" ]; do
   read -p " Can you configure DNS? [primary/secondary]: " answer
 done
-if [ $answer = "primary" ] ; then
+if [ "$answer" = "primary" ] ; then
 
   echo " * Configuring local file..."
   write_config_local_server

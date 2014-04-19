@@ -1,24 +1,32 @@
 remove_SMTP() {
-  apt-get -y purge exim4
+  echo " * Removing Packages..."
+  sudo apt-get -y purge exim4
 }
 
 remove_POP() {
-  apt-get -y purge dovecot-pop3d
+  echo " * Removing Packages..."
+  sudo apt-get -y purge dovecot-pop3d
 }
 
 remove_DNS() {
-  apt-get -y purge bind9
-  rm -rf /var/cache/bind9 /usr/share/bind9 /etc/bind
+  echo " * Removing Packages..."
+  sudo apt-get -y purge bind9
+  echo " * Removing folders..."
+  sudo rm -rf /var/cache/bind9 /usr/share/bind9 /etc/bind
 }
 
 remove_LDAP() {
-  apt-get -y purge slapd ldap-utils
-  rm -rf /var/lib/ldap/
+  echo " * Removing Packages..."
+  sudo apt-get -y purge slapd ldap-utils
+  echo " * Removing folders..."
+  sudo rm -rf f /etc/apache2/
 }
 
 remove_HTTP() {
-  apt-get -y purge apache2 php5
-  rm -rf f /etc/apache2/
+  echo " * Removing Packages..."
+  sudo apt-get -y purge apache2 php5
+  echo " * Removing folders..."
+  sudo rm -rf f /etc/apache2/
 }
 
 remove_all() {
@@ -75,4 +83,5 @@ else
 
 fi
 
-apt-get autoremove
+echo " * Removing temporals files..."
+sudo apt-get autoremove
