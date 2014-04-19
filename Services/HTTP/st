@@ -1,0 +1,41 @@
+<VirtualHost *:80>
+	ServerAdmin servidor@st.um
+	ServerName www.st.um
+	DocumentRoot /var/www/web
+	<Directory /var/www/web>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+</VirtualHost>
+
+<VirtualHost *:443>
+
+	ServerAdmin servidor@st.um
+	ServerName www.st.um
+	DocumentRoot /var/www/web3
+	<Directory /var/www/web3>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	SSLEngine on
+	SSLCertificateFile	/home/alumno/demoCA/servercert.pem
+	SSLCertificateKeyFile	/home/alumno/demoCA/serverkey.pem
+	SSLCACertificateFile	/home/alumno/demoCA/cacert.pem
+	<FilesMatch "\.(cgi|shtml|phtml|php)$">
+		SSLOptions +StdEnvVars
+	</FilesMatch>
+
+	BrowserMatch "MSIE [2-6]" \
+		nokeepalive ssl-unclean-shutdown \
+		downgrade-1.0 force-response-1.0
+	# MSIE 7 and newer should be able to use keepalive
+	BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+	SSLVerifyClient require
+	SSLVerifyDepth 10
+</VirtualHost>

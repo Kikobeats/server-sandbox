@@ -4,17 +4,6 @@ help(){
   echo " Use: $0 <client/server>"
 }
 
-welcome(){
-clear
-echo "   _____ _____ _____ _____ _____ _   _ _____ "
-echo "  |_   _|  ___/  ___|_   _|_   _| \ | |  __ \ "
-echo "    | | | |__ \ \`--.  | |   | | |  \| | |  \/ "
-echo "    | | |  __| \`--. \ | |   | | | . \` | | __  "
-echo "    | | | |___/\__/ / | |  _| |_| |\  | |_\ \ "
-echo "    \_/ \____/\____/  \_/  \___/\_| \_/\____/"
-echo
-}
-
 test_ping(){
   ping -q -c5 $1 > /dev/null 2>&1
 }
@@ -24,7 +13,7 @@ show_status(){
   then
     echo "OK"
   else
-    echo "Fail"
+    echo "Failed"
   fi
 }
 
@@ -89,6 +78,11 @@ if [ $1 = "client" ]; then
   echo " [ POP ] "
   echo -n " * Connectivity POP Server..."
   test_ping pop.$DNS_NAME
+  show_status
+
+  echo " [ HTTP ] "
+  echo -n " * Connectivity HTTP Server..."
+  test_ping www.$DNS_NAME
   show_status
 
 
