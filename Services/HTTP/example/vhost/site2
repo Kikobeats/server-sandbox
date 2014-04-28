@@ -2,7 +2,7 @@
 	ServerAdmin servidor@st.um
 	ServerName www.st2.um
 	DocumentRoot /var/www/web2
-	<Directory /var/www/web2>
+	<Directory /var/www/site2>
 		AllowOverride AuthConfig
 		AuthType Basic
 		AuthName "Acceso restringido a usuarios de ST dentro de la subred"

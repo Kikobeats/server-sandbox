@@ -24,7 +24,7 @@ remove_LDAP() {
 
 remove_HTTP() {
   echo " * Removing Packages..."
-  sudo apt-get -y purge apache2 php5
+  sudo apt-get -y purge apache2 apache2.2-common php5
   echo " * Removing folders..."
   sudo rm -rf f /etc/apache2/
 }

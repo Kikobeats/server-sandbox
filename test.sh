@@ -26,21 +26,13 @@ show_status(){
 ## Client Test
 if [ "$1" = "client" ]; then
 
-  echo " [ PING ] "
+  echo " [ Private Cloud ] "
   echo -n " * Connectivity Primary DNS Private Cloud..."
   test_ping "$PRIMARY_DNS"
   show_status
 
   echo -n " * Connectivity Secundary DNS Private Cloud..."
   test_ping "$SECUNDARY_DNS"
-  show_status
-
-  echo -n " * Connectivity Primary DNS Nameserver..."
-  test_ping ns1."$DNS_NAME"
-  show_status
-
-  echo -n " * Connectivity Secundary DNS Nameserver..."
-  test_ping ns2."$DNS_NAME"
   show_status
 
   echo " [ DNS ] "
@@ -84,6 +76,13 @@ if [ "$1" = "client" ]; then
   test_ping www."$DNS_NAME"
   show_status
 
+  echo -n " * Connectivity www.st.um..."
+  test_ping www.st.um
+  show_status
+
+  echo -n " * Connectivity www.st2.um..."
+  test_ping www.st.um
+  show_status
 
 ## Server Test
 else

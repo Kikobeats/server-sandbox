@@ -10,7 +10,7 @@ objectclass: organizationalunit
 description: Asignatura de servicios telemáticos
 
 # Segundo nivel de la jerarquía users
-dn: cn=Ordenador Servidor, ou=st, o=um,c=es
+dn: cn=wr, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
 sn: Servidor

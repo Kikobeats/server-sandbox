@@ -1,8 +1,8 @@
 <VirtualHost *:80>
 	ServerAdmin servidor@st.um
 	ServerName www.st.um
-	DocumentRoot /var/www/web
-	<Directory /var/www/web>
+	DocumentRoot /var/www/web1
+	<Directory /var/www/web1>
 		Options Indexes FollowSymLinks MultiViews
 		AllowOverride None
 		Order allow,deny
