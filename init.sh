@@ -1,5 +1,10 @@
 #!/bin/bash
 
+reset(){
+  welcome
+  answer="undefined"
+}
+
 welcome(){
   echo "                                 __           "
   echo "                                / _|          "
@@ -14,6 +19,7 @@ welcome(){
   echo "| (_| | |_| | | | | | | | | | | | |  __/\__ \ "
   echo " \__,_|\__,_|_| |_| |_|_| |_| |_|_|\___||___/ "
   echo
+
 }
 
 finish() {
@@ -22,7 +28,7 @@ finish() {
 }
 
 menu(){
-  welcome
+  reset
   while [ "$opt" != 0 ]; do
    echo " 1. Install Services"
    echo " 2. Remove Services"
@@ -51,10 +57,10 @@ menu(){
       sh "$PWD"/test.sh "$answer" && finish "Test";;
     0)
       echo " Good day (night)" && exit 0;;
-    *) welcome
+    *) reset
 
    esac
-   welcome
+   reset
   done
 }
 
