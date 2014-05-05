@@ -7,3 +7,6 @@ FORWARDERS="155.54.1.10;"
 ## SMTP Settings
 LOCAL_NETWORK="172.16.22.0/24"
 RELAY_DOMAINS="$DNS_NAME; um.es"
+
+## OPENSSL Settings
+USERNAME="josefranciscoverdugambin"
