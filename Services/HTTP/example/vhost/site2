@@ -1,17 +1,17 @@
 <VirtualHost *:80>
 	ServerAdmin servidor@st.um
-	ServerName www.st2.um
+	ServerName www2.st.um
 	DocumentRoot /var/www/web2
-	<Directory /var/www/site2>
+	<Directory /var/www/web2>
 		AllowOverride AuthConfig
 		AuthType Basic
-		AuthName "Acceso restringido a usuarios de ST dentro de la subred"
+		AuthName "Acceso restringido"
 		AuthBasicProvider file
 		AuthUserFile /etc/apache2/passwords
 		AuthGroupFile /etc/apache2/groups
 		Require group usuariosST
 		Order deny,allow
 		Deny from all
-		Allow from 192.168.2.0/24
+		Allow from 172.16.22.0/24
 	</Directory>
 </VirtualHost>

@@ -26,8 +26,9 @@ cp -r "$VHOST"/* /etc/apache2/sites-available
 cp -r "$SITES"/* /var/www/
 cp -R "$GROUPS" /etc/apache2/groups
 
-echo "Password for admin @ www.site2.um"
+echo "Password for admin @ www2.st.um"
 htpasswd -c /etc/apache2/passwords admin
 
 a2ensite site1
 a2ensite site2
+a2ensite site3

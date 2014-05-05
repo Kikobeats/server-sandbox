@@ -80,7 +80,15 @@ if [ "$1" = "client" ]; then
   test_ping www.st.um
   show_status
 
-  echo -n " * Connectivity www.st2.um..."
+  echo -n " * Connectivity www1.st.um..."
+  test_ping www.st.um
+  show_status
+
+  echo -n " * Connectivity www2.st.um..."
+  test_ping www.st.um
+  show_status
+
+  echo -n " * Connectivity www3.st.um..."
   test_ping www.st.um
   show_status
 

@@ -1,6 +1,13 @@
-<html><body><h1>Soy el servidor www.st.um</h1>
-<?php
-echo "Practica de SSTT de Tony Wang con certificado SSL";
-?>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Server for Dummies</title>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+  <h2>Basic web with SSL</h2>
+  <p>Server for dummies is works.</p>
+</body>
+</html>
 

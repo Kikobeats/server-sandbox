@@ -18,6 +18,9 @@ smtp          IN      CNAME      $DNS_NAME.
 pop           IN      CNAME      $DNS_NAME.
 ldap          IN      CNAME      $DNS_NAME.
 www           IN      CNAME      $DNS_NAME.
+www1          IN      CNAME      $DNS_NAME.
+www2          IN      CNAME      $DNS_NAME.
+www3          IN      CNAME      $DNS_NAME.
 " > /etc/bind/db."$DNS_NAME".zone
 }
 
