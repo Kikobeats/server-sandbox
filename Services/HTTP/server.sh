@@ -372,12 +372,8 @@ generate_certificate(){
   echo "01" > "$ROUTE"/serial
   mkdir -p "$ROUTE/newcerts"
   mkdir -p "$ROUTE/certs"
-
-  openssl req -x509 -newkey rsa:2048 -keyout "$ROUTE/"cakey.pem -days 3650 -out "$ROUTE/"cacert.pem
-
   mkdir -p "$ROUTE/private"
-  mv "$ROUTE/cakey.pem" "$ROUTE/private"
-
+  sudo openssl req -x509 -newkey rsa:2048 -keyout "$ROUTE"/private/cakey.pem -days 3650 -out "$ROUTE"/cacert.pem
 }
 
 echo " * Installing HTTP..."
@@ -403,10 +399,10 @@ else
 fi
 
 echo " * Generate server certificate"
-openssl req -new -nodes -newkey rsa:1024 -keyout "$ROUTE"/serverkey.pem -out "$ROUTE"/servercsr.pem
+sudo openssl req -new -nodes -newkey rsa:1024 -keyout "$ROUTE"/serverkey.pem -out "$ROUTE"/servercsr.pem
 
 echo " * Signin certificate for server..."
-openssl ca –keyfile "$ROUTE"/private/cakey.pem -in "$ROUTE"/servercsr.pem -out "$ROUTE"/servercert.pem
+sudo openssl ca –keyfile "$ROUTE"/private/cakey.pem -in "$ROUTE"/servercsr.pem -out "$ROUTE"/servercert.pem
 
 echo " * Update OpenSSL Database..."
 openssl database &> /dev/null
