@@ -7,7 +7,6 @@ VHOST="$DIR/example/vhost"
 SITES="$DIR/example/sites"
 DEMOCA="$DIR/example/demoCA"
 GROUPS="$DIR/groups"
-ROUTE="/home/$USERNAME/demoCA"
 
 openssl_config(){
 echo "
@@ -38,7 +37,7 @@ oid_section   = new_oids
 # Add a simple OID like this:
 # testoid1=1.2.3.4
 # Or use config file substitution like this:
-# testoid2=${testoid1}.5.6
+# testoid2=\${testoid1}.5.6
 
 # Policies used by the TSA examples.
 tsa_policy1 = 1.2.3.4.1
@@ -52,21 +51,21 @@ default_ca  = CA_default    # The default ca section
 ####################################################################
 [ CA_default ]
 
-dir   = /home/$USERNAME/demoCA # Where everything is kept
-certs   = $dir/certs    # Where the issued certs are kept
-crl_dir   = $dir/crl    # Where the issued crl are kept
-database  = $dir/index.txt  # database index file.
+dir   = /home/"$USERNAME"/demoCA # Where everything is kept
+certs   = \$dir/certs    # Where the issued certs are kept
+crl_dir   = \$dir/crl    # Where the issued crl are kept
+database  = \$dir/index.txt  # database index file.
 #unique_subject = no      # Set to 'no' to allow creation of
           # several ctificates with same subject.
-new_certs_dir = $dir/newcerts   # default place for new certs.
+new_certs_dir = \$dir/newcerts   # default place for new certs.
 
-certificate = $dir/cacert.pem   # The CA certificate
-serial    = $dir/serial     # The current serial number
-crlnumber = $dir/crlnumber  # the current crl number
+certificate = \$dir/cacert.pem   # The CA certificate
+serial    = \$dir/serial     # The current serial number
+crlnumber = \$dir/crlnumber  # the current crl number
           # must be commented out to leave a V1 CRL
-crl   = $dir/crl.pem    # The current CRL
-private_key = $dir/private/cakey.pem# The private key
-RANDFILE  = $dir/private/.rand  # private random number file
+crl   = \$dir/crl.pem    # The current CRL
+private_key = \$dir/private/cakey.pem# The private key
+RANDFILE  = \$dir/private/.rand  # private random number file
 
 x509_extensions = usr_cert    # The extentions to add to the cert
 
@@ -341,13 +340,13 @@ default_tsa = tsa_config1 # the default TSA section
 
 # These are used by the TSA reply generation only.
 dir   = ./demoCA    # TSA root directory
-serial    = $dir/tsaserial  # The current serial number (mandatory)
+serial    = \$dir/tsaserial  # The current serial number (mandatory)
 crypto_device = builtin   # OpenSSL engine to use for signing
-signer_cert = $dir/tsacert.pem  # The TSA signing certificate
+signer_cert = \$dir/tsacert.pem  # The TSA signing certificate
           # (optional)
-certs   = $dir/cacert.pem # Certificate chain to include in reply
+certs   = \$dir/cacert.pem # Certificate chain to include in reply
           # (optional)
-signer_key  = $dir/private/tsakey.pem # The TSA private key (optional)
+signer_key  = \$dir/private/tsakey.pem # The TSA private key (optional)
 
 default_policy  = tsa_policy1   # Policy if request did not specify it
           # (optional)
@@ -361,19 +360,8 @@ tsa_name    = yes # Must the TSA name be included in the reply?
         # (optional, default: no)
 ess_cert_id_chain = no  # Must the ESS cert id chain be included?
         # (optional, default: no)
-" > /usr/lib/ssl/openssl.cnf
-}
 
-generate_certificate(){
-  rm -rf "$ROUTE"
-  mkdir -p "$ROUTE"
-  echo "00" > "$ROUTE"/generacrlnumber
-  touch "$ROUTE"/index.txt
-  echo "01" > "$ROUTE"/serial
-  mkdir -p "$ROUTE/newcerts"
-  mkdir -p "$ROUTE/certs"
-  mkdir -p "$ROUTE/private"
-  sudo openssl req -x509 -newkey rsa:2048 -keyout "$ROUTE"/private/cakey.pem -days 3650 -out "$ROUTE"/cacert.pem
+" > /usr/lib/ssl/openssl.cnf
 }
 
 echo " * Installing HTTP..."
@@ -387,33 +375,16 @@ echo " * Activating SSL..."
 a2enmod ssl
 openssl_config
 
-while [ "$answer" != "yes" -a "$answer" != "no" ]; do
-  read -p " Generate CA Certificate? [yes/no]: " answer
-done
-if [ "$answer" = "yes" ] ; then
-  echo " * Generating auto-sign certificate..."
-  generate_certificate
-else
-  echo " * Copying auto-sign certificate..."
-  cp -r "$DEMOCA" /home/alumno
-fi
-
-echo " * Generate server certificate"
-sudo openssl req -new -nodes -newkey rsa:1024 -keyout "$ROUTE"/serverkey.pem -out "$ROUTE"/servercsr.pem
-
-echo " * Signin certificate for server..."
-sudo openssl ca –keyfile "$ROUTE"/private/cakey.pem -in "$ROUTE"/servercsr.pem -out "$ROUTE"/servercert.pem
-
-echo " * Update OpenSSL Database..."
-openssl database &> /dev/null
+echo " * Copying example certificate..."
+cp -r "$DEMOCA" /home/"$USERNAME"
 
 echo " * Creating local environment..."
 cp -r "$VHOST"/* /etc/apache2/sites-available
 cp -r "$SITES"/* /var/www/
 cp -R "$GROUPS" /etc/apache2/groups
 
-echo "Password for admin @ www2.st.um"
-htpasswd -c /etc/apache2/passwords admin
+echo "Password for user1 @ www2.st.um"
+htpasswd -c /etc/apache2/passwords user1
 
 a2ensite site1
 a2ensite site2

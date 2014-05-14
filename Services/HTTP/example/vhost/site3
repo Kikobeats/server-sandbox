@@ -1,4 +1,4 @@
-<VirtualHost *:80>
+  <VirtualHost *:443>
   ServerAdmin servidor@st.um
   ServerName www3.st.um
   DocumentRoot /var/www/web3
@@ -10,9 +10,9 @@
   </Directory>
 
   SSLEngine on
-  SSLCertificateFile  /home/alumno/demoCA/servercert.pem
-  SSLCertificateKeyFile /home/alumno/demoCA/serverkey.pem
-  SSLCACertificateFile  /home/alumno/demoCA/cacert.pem
+  SSLCertificateFile  /home/josefranciscoverdugambin/demoCA/servercert.pem
+  SSLCertificateKeyFile /home/josefranciscoverdugambin/demoCA/serverkey.pem
+  SSLCACertificateFile  /home/josefranciscoverdugambin/demoCA/clientcert.pem
   <FilesMatch "\.(cgi|shtml|phtml|php)$">
     SSLOptions +StdEnvVars
   </FilesMatch>

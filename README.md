@@ -1,16 +1,34 @@
-# Server for Dummies
+```
+                                 __
+                                / _|
+ ___  ___ _ ____   _____ _ __  | |_ ___  _ __
+/ __|/ _ \ '__\ \ / / _ \ '__| |  _/ _ \| '__|
+\__ \  __/ |   \ V /  __/ |    | || (_) | |
+|___/\___|_|    \_/ \___|_|    |_| \___/|_|
+     _                           _
+    | |                         (_)
+  __| |_   _ _ __ ___  _ __ ___  _  ___  ___
+ / _` | | | | '_ ` _ \| '_ ` _ \| |/ _ \/ __|
+| (_| | |_| | | | | | | | | | | | |  __/\__ \
+ \__,_|\__,_|_| |_| |_|_| |_| |_|_|\___||___/
+ 
+ ```
+
+
+Testing in Ubuntu Server 12.04
+
 
 | Services                     | Package                |
 | -----------------------------|:----------------------:|
 | DNS (Primary and secundary)  | bind9
-| SMTP 	    					        | exim4
-| POP   	  					         | dovecot-pop3
-| IMAP 							          | -
-| LDAP		 					          | slapd, ldap-utils
-| HTTP/HTTPS 				          | apache2, php5
-| SSH 							           | -
-| FTP 	   			              | -
-| IPSEC	 		 	              | -
+| SMTP							| exim4
+| POP							| dovecot-pop3
+| IMAP							| -
+| LDAP							| slapd, ldap-utils
+| HTTP/HTTPS					| apache2, php5
+| SSH							| -
+| FTP							| -
+| IPSEC							| -
 
 
-Testing in Ubuntu Server 12.04
+
