@@ -1,21 +1,4 @@
-```
-                                 __
-                                / _|
- ___  ___ _ ____   _____ _ __  | |_ ___  _ __
-/ __|/ _ \ '__\ \ / / _ \ '__| |  _/ _ \| '__|
-\__ \  __/ |   \ V /  __/ |    | || (_) | |
-|___/\___|_|    \_/ \___|_|    |_| \___/|_|
-     _                           _
-    | |                         (_)
-  __| |_   _ _ __ ___  _ __ ___  _  ___  ___
- / _` | | | | '_ ` _ \| '_ ` _ \| |/ _ \/ __|
-| (_| | |_| | | | | | | | | | | | |  __/\__ \
- \__,_|\__,_|_| |_| |_|_| |_| |_|_|\___||___/
-
- ```
-
-
-Tested in Ubuntu Server 12.04
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/examples/main.png)
 
 
 | Services                     | Package                |
@@ -23,12 +6,27 @@ Tested in Ubuntu Server 12.04
 | DNS (Primary and secundary)  | bind9
 | SMTP							           | exim4
 | POP							             | dovecot-pop3
-| IMAP							           | -
+| IMAP							           | soon
 | LDAP							           | slapd, ldap-utils
 | HTTP/HTTPS					         | apache2, php5
 | SSH							             | openssh
-| FTP							             | -
-| IPSEC							           | -
+| FTP							             | soon
+| IPSEC							           | soon
+
+
+Tested in Ubuntu Server 12.04
+
+### Example SSL 
+
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/example/https.png)
+
+### Example Mails 
+
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/example/mail.png)
+
+### Example SSH
+
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/example/ssh.png)
 
 
 
