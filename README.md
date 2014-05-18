@@ -2,7 +2,7 @@
 
 Example of server with basics service for the web!
 
-**NOTE:** This is only a educational example. Don't use in production
+**NOTE:** This is only a educational example. Don't use in production.
 
 # How to use
 
