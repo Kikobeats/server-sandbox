@@ -15,7 +15,7 @@ ns2           IN      A          $SECONDARY_DNS
 $DNS_NAME.    IN      A          $PRIMARY_DNS
 
 smtp          IN      CNAME      $DNS_NAME.
-pop           IN      CNAME      $DNS_NAME.
+pop3          IN      CNAME      $DNS_NAME.
 ldap          IN      CNAME      $DNS_NAME.
 www           IN      CNAME      $DNS_NAME.
 www1          IN      CNAME      $DNS_NAME.
@@ -72,7 +72,7 @@ done
 if [ "$answer" = "primary" ] ; then
 
   echo " * Configuring local resolv..."
-  write_config_local_resolv $PRIMARY_DNS
+  write_config_local_resolv "$PRIMARY_DNS"
 
   echo " * Configuring local file..."
   write_config_local_server
@@ -86,7 +86,7 @@ if [ "$answer" = "primary" ] ; then
 else
 
   echo " * Configuring local resolv..."
-  write_config_local_resolv $SECONDARY_DNS
+  write_config_local_resolv "$SECONDARY_DNS"
 
   echo " * Configuring local file..."
   write_config_local_client

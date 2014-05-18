@@ -29,16 +29,22 @@ remove_HTTP() {
   sudo rm -rf f /etc/apache2/
 }
 
+remove_SSH() {
+  echo " * Removing Packages..."
+  apt-get -y purge openssh-server
+  apt-get -y purge openssh-client
+}
+
 remove_all() {
   remove_SMTP
   remove_POP
   remove_DNS
   remove_LDAP
   remove_HTTP
+  remove_SSH
 }
 
 [ "$(id -u)" != "0" ] && echo " Error. This script must be run as root" 1>&2 && exit 1
-
 ALL=$1
 
 if [ "$ALL" = "yes" ]; then
@@ -80,6 +86,13 @@ else
   done
 
   [ "$answer" = "yes" ] && remove_HTTP
+
+  unset answer
+  while [ "$answer" != "yes" -a "$answer" != "no" ]; do
+    read -p " Remove SSH? [yes/no]: " answer
+  done
+
+  [ "$answer" = "yes" ] && remove_SSH
 
 fi
 

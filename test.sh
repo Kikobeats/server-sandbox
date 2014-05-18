@@ -5,7 +5,7 @@ help(){
 }
 
 test_ping(){
-  ping -q -c5 "$1" > /dev/null 2>&1
+  ping -q -c4 "$1" > /dev/null 2>&1
 }
 
 show_status(){
@@ -22,17 +22,16 @@ show_status(){
 [ "$1" != "client" -a "$1" != "server" ] && help && exit 2
 . "$PWD"/settings.sh
 
-### MAIN
-## Client Test
+# client test
 if [ "$1" = "client" ]; then
-
+  echo ""
   echo " [ Private Cloud ] "
   echo -n " * Connectivity Primary DNS Private Cloud..."
   test_ping "$PRIMARY_DNS"
   show_status
 
   echo -n " * Connectivity Secundary DNS Private Cloud..."
-  test_ping "$SECUNDARY_DNS"
+  test_ping "$SECONDARY_DNS"
   show_status
 
   echo " [ DNS ] "
@@ -57,10 +56,6 @@ if [ "$1" = "client" ]; then
   sudo ldapsearch -x -H ldap://ldap."$DNS_NAME" -b "cn=Ordenador Servidor,ou=st,o=um,c=es" mobile > /dev/null 2>&1
   show_status
 
-  # echo -n " * Check modify LDAP..."
-  # sudo ldamodify -x -H ldap://ldap."$DNS_NAME" -b "cn=Usuario1,ou=st,o=um,c=es" mobile > /dev/null 2>&1
-  # show_status
-
   echo " [ SMTP ] "
   echo -n " * Connectivity SMTP Server..."
   test_ping smtp."$DNS_NAME"
@@ -68,7 +63,7 @@ if [ "$1" = "client" ]; then
 
   echo " [ POP ] "
   echo -n " * Connectivity POP Server..."
-  test_ping pop."$DNS_NAME"
+  test_ping pop3."$DNS_NAME"
   show_status
 
   echo " [ HTTP ] "
@@ -92,23 +87,27 @@ if [ "$1" = "client" ]; then
   test_ping www.st.um
   show_status
 
-## Server Test
+# Server test
 else
   echo " [ BIND Check Files ] "
   echo -n " * Check Config file..."
   named-checkconf
   show_status
-  # echo -n " * Check Database file..."
-  # named-checkzone /var/cache/bind/db."$DNS_NAME".zone
-  # show_status
 
+  echo -n " * Check Database file..."
+  named-checkzone cat /etc/bind/db."$DNS_NAME".um.zone
+  show_status
+
+  user1="user1"
   echo " [ MAIL ] "
-  echo " * Creating usuario1..."
-  useradd usuario1 -m
-  passwd usuario1
-  echo " * Creating usuario2..."
-  useradd usuario2 -m
-  passwd usuario2
+  echo " * Creating $user1..."
+  useradd $user1 -m
+  passwd $user1
+
+  user2="user2"
+  echo " * Creating $user2..."
+  useradd $user2 -m
+  passwd $user2
 
   echo " [ LDAP ]"
   echo -n " * Connectivity LDAP local..."

@@ -5,11 +5,11 @@
 	<Directory /var/www/web2>
 		AllowOverride AuthConfig
 		AuthType Basic
-		AuthName "Acceso restringido"
+		AuthName "Acces only for dummies users"
 		AuthBasicProvider file
 		AuthUserFile /etc/apache2/passwords
 		AuthGroupFile /etc/apache2/groups
-		Require group usuariosST
+		Require group dummies
 		Order deny,allow
 		Deny from all
 		Allow from 172.16.22.0/24

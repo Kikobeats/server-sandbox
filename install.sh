@@ -10,46 +10,52 @@ help(){
 
 . "$PWD"/settings.sh
 SERVICES="$PWD/Services"
-answer="undefined"
 
-### MAIN
 # client and server setup
-while [ $answer != "yes" -a $answer != "no" ]; do
+while [ "$answer" != "yes" -a "$answer" != "no" ]; do
   read -p " Can you configure DNS? [yes/no]: " answer
 done
 if [ "$answer" = "yes" ] ; then
   . "$SERVICES"/DNS/"$1".sh
 fi
 
-answer="undefined"
-while [ $answer != "yes" -a $answer != "no" ]; do
+unset answer
+while [ "$answer" != "yes" -a "$answer" != "no" ]; do
   read -p " Can you configure LDAP? [yes/no]: " answer
 done
 if [ "$answer" = "yes" ] ; then
   sh "$SERVICES"/LDAP/"$1".sh
 fi
 
+unset answer
+while [ "$answer" != "yes" -a "$answer" != "no" ]; do
+  read -p " Can you configure SSH? [yes/no]: " answer
+done
+if [ "$answer" = "yes" ] ; then
+  sh "$SERVICES"/SSH/"$1".sh
+fi
+
 # Only server setup
+unset answer
 if [ "$1" = "server" ]; then
 
-  answer="undefined"
-  while [ $answer != "yes" -a $answer != "no" ]; do
+  while [ "$answer" != "yes" -a "$answer" != "no" ]; do
     read -p " Can you configure SMTP? [yes/no]: " answer
   done
   if [ "$answer" = "yes" ] ; then
     . "$SERVICES"/Mail/smtp.sh
   fi
 
-  answer="undefined"
-  while [ $answer != "yes" -a $answer != "no" ]; do
+  unset answer
+  while [ "$answer" != "yes" -a "$answer" != "no" ]; do
     read -p " Can you configure POP3? [yes/no]: " answer
   done
   if [ "$answer" = "yes" ] ; then
     . "$SERVICES"/Mail/pop.sh
   fi
 
-  answer="undefined"
-  while [ $answer != "yes" -a $answer != "no" ]; do
+  unset answer
+  while [ "$answer" != "yes" -a "$answer" != "no" ]; do
     read -p " Can you configure HTTP? [yes/no]: " answer
   done
   if [ "$answer" = "yes" ] ; then

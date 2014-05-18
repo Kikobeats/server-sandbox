@@ -11,24 +11,24 @@
  / _` | | | | '_ ` _ \| '_ ` _ \| |/ _ \/ __|
 | (_| | |_| | | | | | | | | | | | |  __/\__ \
  \__,_|\__,_|_| |_| |_|_| |_| |_|_|\___||___/
- 
+
  ```
 
 
-Testing in Ubuntu Server 12.04
+Tested in Ubuntu Server 12.04
 
 
 | Services                     | Package                |
 | -----------------------------|:----------------------:|
 | DNS (Primary and secundary)  | bind9
-| SMTP							| exim4
-| POP							| dovecot-pop3
-| IMAP							| -
-| LDAP							| slapd, ldap-utils
-| HTTP/HTTPS					| apache2, php5
-| SSH							| -
-| FTP							| -
-| IPSEC							| -
+| SMTP							           | exim4
+| POP							             | dovecot-pop3
+| IMAP							           | -
+| LDAP							           | slapd, ldap-utils
+| HTTP/HTTPS					         | apache2, php5
+| SSH							             | openssh
+| FTP							             | -
+| IPSEC							           | -
 
 
 
