@@ -6,7 +6,30 @@ Example of server with basics service for the web!
 
 # How to use
 
-`git clone https://github.com/Kikobeats/server-for-dummies.git && cd server-for-dummies && sudo sh init.sh`
+1) Clone the repo:
+
+`git clone https://github.com/Kikobeats/server-for-dummies.git`
+
+2) go to folder `server-for-dummies` and edit `settings.sh` with your options:
+
+```
+## DNS Settings
+DNS_NAME="st.um" 
+PRIMARY_DNS="172.16.22.135"
+SECONDARY_DNS="172.16.22.137"
+FORWARDERS="155.54.1.10;"
+
+## SMTP Settings
+LOCAL_NETWORK="172.16.22.0/24"
+RELAY_DOMAINS="$DNS_NAME; um.es"
+
+## OPENSSL Settings
+USERNAME="josefranciscoverdugambin"
+```
+
+3) Run it with admin account!
+
+`sudo sh init.sh`
 
 ![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/main.png)
 
