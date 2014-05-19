@@ -8,7 +8,7 @@ Example of server with basics service for the web!
 
 `cd server-for-dummies && sudo sh init.sh`
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/examples/main.png)
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/main.png)
 
 # List of services
 
@@ -30,7 +30,7 @@ All services are tested in Ubuntu Server 12.04.
 
 For test services connectivity run 'Test services'
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/examples/testing.png)
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/testing.png)
 
 
 # Examples
@@ -47,15 +47,15 @@ Include:
 
 ### Example SSL 
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/examples/https.png)
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/https.png)
 
 ### Example Mails 
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/examples/mail.png)
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/mail.png)
 
 ### Example SSH
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/examples/ssh.png)
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/ssh.png)
 
 
 
