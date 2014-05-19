@@ -39,7 +39,6 @@ echo "zone \"$DNS_NAME.\" IN {
   file \"/etc/bind/db.$DNS_NAME.zone\";
   allow-transfer {$SECONDARY_DNS;};
   }; " > /etc/bind/named.conf.local
-
 }
 
 write_config_local_client(){
