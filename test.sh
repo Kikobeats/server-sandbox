@@ -47,6 +47,10 @@ if [ "$1" = "client" ]; then
   test_ping ns2."$DNS_NAME"
   show_status
 
+  echo -n " * Connectivity External Query..."
+  test_ping google.com
+  show_status
+
   echo " [ LDAP ] "
   echo -n " * Connectivity LDAP Server..."
   test_ping ldap."$DNS_NAME"
