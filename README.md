@@ -6,7 +6,7 @@ Example of server with basics service for the web!
 
 # How to use
 
-`cd server-for-dummies && sudo sh init.sh`
+`git clone https://github.com/Kikobeats/server-for-dummies.git && cd server-for-dummies && sudo sh init.sh`
 
 ![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/main.png)
 
@@ -26,7 +26,11 @@ Example of server with basics service for the web!
 	
 # Test services
 
-All services are tested in Ubuntu Server 12.04.
+All services have been tested in VM VMWare under Ubuntu Server 12.04:
+
+* VM 1 – Main client
+* VM 2 – Primary DNS
+* VM 3 – Secondary DNS
 
 For test services connectivity run 'Test services'
 
@@ -39,10 +43,14 @@ Include:
 
 * 3 example of domains
 	* www1.st.um – Basic domain
-	* www2.st.um – Domain with HTTP authentication
-	* www3.st.um – Domain with HTTPS
+	* www2.st.um – Domain with HTTP authentication ([authorized users here](https://github.com/Kikobeats/server-for-dummies/blob/master/Services/HTTP/groups))
+	* www3.st.um – Domain with HTTPS (check you are visiting https in the browser!)
 	
 * 2 mails accounts examples
+	* run `./Services/Mail/account.sh` to create it at first time 
+	
+* LDAP 
+	* Sample data for check read and modify operations ([check here](https://github.com/Kikobeats/server-for-dummies/tree/master/Services/LDAP))	 
 	
 
 ### Example SSL 
