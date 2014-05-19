@@ -1,4 +1,4 @@
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/examples/main.png)
+# Server for Dummies
 
 Example of server with basics service for the web!
 
@@ -8,8 +8,9 @@ Example of server with basics service for the web!
 
 `cd server-for-dummies && sudo sh init.sh`
 
-# List of services
+![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/examples/main.png)
 
+# List of services
 
 | Services                     | Package                |
 | -----------------------------|:----------------------:|
