@@ -31,7 +31,7 @@ USERNAME="josefranciscoverdugambin"
 
 `sudo sh init.sh`
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/main.png)
+![image](assets/img/main.png)
 
 # List of services
 
@@ -57,7 +57,7 @@ All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
 For test services connectivity run 'Test services'
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/testing.png)
+![image](assets/img/testing.png)
 
 
 # Examples
@@ -78,7 +78,7 @@ Include:
 
 ### Example SSL 
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/https.png)
+![image](assets/img/https.png)
 
 ### Example Mails 
 
@@ -86,7 +86,7 @@ Include:
 
 ### Example SSH
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/ssh.png)
+![image](assets/img/ssh.png)
 
 
 
