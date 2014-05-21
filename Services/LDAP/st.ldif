@@ -1,25 +1,25 @@
-# Crea entrada en el sufijo
+# Create sufix entry
 dn: o=um,c=es
 changetype: add
 objectclass: organization
 
-# Primer nivel de la jerarquía, asignatura ST
+# First level of the hierarchy (Organization)
 dn: ou=st, o=um,c=es
 changetype: add
 objectclass: organizationalunit
-description: Asignatura de servicios telemáticos
+description: Server for dummies
 
-# Segundo nivel de la jerarquía users
-dn: cn=wr, ou=st, o=um,c=es
+# Second level of the hierarchy (Users)
+dn: cn=Server Administrator, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
-sn: Servidor
-correo: servidor@st.um
-mobile: 627182818
+sn: Server
+correo: user1@st.um
+mobile: 611111111
 
-dn: cn=Ordenador Cliente, ou=st, o=um,c=es
+dn: cn=Client Administrator, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
-sn: Cliente
-correo: cliente@st.um
-mobile: 627182819
+sn: Client
+correo: user2@st.um
+mobile: 622222222

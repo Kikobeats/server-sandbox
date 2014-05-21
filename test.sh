@@ -57,7 +57,7 @@ if [ "$1" = "client" ]; then
   show_status
 
   echo -n " * Check read LDAP..."
-  sudo ldapsearch -x -H ldap://ldap."$DNS_NAME" -b "cn=Ordenador Servidor,ou=st,o=um,c=es" mobile > /dev/null 2>&1
+  sudo ldapsearch -x -H ldap://ldap."$DNS_NAME" -b "cn=Server Administrator,ou=st,o=um,c=es" mobile > /dev/null 2>&1
   show_status
 
   echo " [ SMTP ] "

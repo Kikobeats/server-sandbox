@@ -7,22 +7,22 @@ echo " * Installing LDAP..."
 apt-get -y install slapd ldap-utils
 
 echo " * Adding LDAP database..."
-# Habilitamos la carga de bases de datos tipo DBD
+# Load database
 sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f "$DIR"/loadDBD.ldif;
 
 echo " * Loading LDAP example schema..."
-# Cargar esquemas que pide la practica para los atributos necesarios
+# Load database models schema
 sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif;
 sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif;
 
 echo " * Adding LDAP custom schema ..."
-# Cargamos un esquema propio de la asignatura para añadir mas atributos
+# Load own schema for the example
 sudo ldapadd -Y EXTERNAL -H ldapi:/// -f "$DIR"/stSchema.ldif;
 
 echo " * Configuring LDAP database..."
-# Indicamos tipo de base de datos, sufijo, administrador, clave y política de acceso.
+# Load database configuration
 sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f "$DIR"/confDatabase.ldif;
 
 echo " * Inserting LDAP data..."
-# Insertar entradas pedidas
+# Insert fake data for the example
 sudo ldapmodify -D "cn=admin,o=um,c=es" -W -H ldap:/// -f "$DIR"/st.ldif;
