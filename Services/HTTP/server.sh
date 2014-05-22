@@ -6,7 +6,7 @@ APACHE="$DIR/apache2"
 VHOST="$DIR/example/vhost"
 SITES="$DIR/example/sites"
 DEMOCA="$DIR/example/demoCA"
-GROUPS="$DIR/groups"
+GROUPS="$DIR/example/groups"
 
 openssl_config(){
 echo "
