@@ -1,9 +1,10 @@
 # Server for Dummies
 
-![](Documentation/cover.jpg)
+![](Documentation/img/cover.jpg)
 
 
-[Website](http://) | [Online](http://) | [eBook](http://) | [PDF](http://)
+[Online](http://server-dummies.herokuapp.com) | [EPUB](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.epub) | [MOBI](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.mobi) | [PDF](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/pdf/server-for-dummies.pdf) | [Github](https://github.com/Kikobeats/server-for-dummies)
+
 
 Example of server with basics service for the web!
 
