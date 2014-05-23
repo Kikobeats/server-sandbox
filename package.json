@@ -2,7 +2,7 @@
   "name": "server-for-dummies",
   "version": "0.9.0",
   "description": "Typical services for the web!",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
