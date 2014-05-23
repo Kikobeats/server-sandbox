@@ -3,7 +3,7 @@
 
 <img src="img/cover.jpg" alt="" style="width: 50%;">
 
-[Online](http://kikobeats.com/server-for-dummies) | [EPUB](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.epub) | [MOBI](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.mobi) | [PDF](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/pdf/server-for-dummies.pdf) | [Github](https://github.com/Kikobeats/server-for-dummies)
+[Online](http://server-dummies.herokuapp.com) | [EPUB](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.epub) | [MOBI](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.mobi) | [PDF](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/pdf/server-for-dummies.pdf) | [Github](https://github.com/Kikobeats/server-for-dummies)
 
 `server for dummies` is an educational project to understand how typical web services work. It's focused in the application layout services, like:
 
@@ -399,37 +399,37 @@ We go to explain **Handshake** process:
 	* What MAC algorythm use ([SHA](https://en.wikipedia.org/wiki/Secure_Hash_Algorithm)).
 
 
-	Why select simetric and asimetric algorythm? Why not use only one?
+Why select simetric and asimetric algorythm? Why not use only one?
 
-	When client finally send data to the server, they use simetric algorythm, but first, to get it, they need to negotiate and 	exchange confidence information. This proceed is known as **Pre Master Key**.
+When client finally send data to the server, they use simetric algorythm, but first, to get it, they need to negotiate and exchange confidence information. This proceed is known as **Pre Master Key**.
 
-	There are two ways to do Pre Master Key process:
+There are two ways to do Pre Master Key process:
 
-	1. With **Diffie-Helman**: Client and server exchange `SERVER_KEY_EXCHANGE` and `CLIENT_KEY_EXCHANGE` and both parts know 	the information to operate with simetric algorythm.
+1. With **Diffie-Helman**: Client and server exchange `SERVER_KEY_EXCHANGE` and `CLIENT_KEY_EXCHANGE` and both parts know 	the information to operate with simetric algorythm.
 
-	2. With **RSA**: The client catch the public key of the Server Certificate (message `CERTIFICATE`)and encrypted the master 	key. Only the server can desncrypted this with her private key.
+2. With **RSA**: The client catch the public key of the Server Certificate (message `CERTIFICATE`)and encrypted the master key. Only the server can desncrypted this with her private key.
 
-	And send to the client `serverHello` with this options, distinctive server number and their certificates to check the 	identify of the server domain.
+And send to the client `serverHello` with this options, distinctive server number and their certificates to check the identify of the server domain.
 
 
-	But, one moment... Why am I going to trust the server? and if not who he claims to be?
+But, one moment... Why am I going to trust the server? and if not who he claims to be?
 
-	Before Pre Master Key process is necessary for the server to authenticate it, for do it is also necessay asimetric 	algorythm, normally with RSA. And then, thec MAC algorythm is use to verify that data of the session is authenticathed.
+Before Pre Master Key process is necessary for the server to authenticate it, for do it is also necessay asimetric algorythm, normally with RSA. And then, thec MAC algorythm is use to verify that data of the session is authenticathed.
 
-	We can resume all the process with two variants of message:
+We can resume all the process with two variants of message:
 
-	* **TLSv1_RSA_WITH_AES_128_CBC_SHA**
-		- **TLSv1**: version of TLS (SSL protocol)
-		- **RSA**: For server authentication and pre master key process.
-		- **AES**: For simetric algorythm after master key
-		- **SHA**: For MAC encryptation
+* **TLSv1_RSA_WITH_AES_128_CBC_SHA**
+	- **TLSv1**: version of TLS (SSL protocol)
+	- **RSA**: For server authentication and pre master key process.
+	- **AES**: For simetric algorythm after master key
+	- **SHA**: For MAC encryptation
 
-	* **TLSv1_DHE_RSA_WITH_AES_256_CBC_SHA**
-		- **TLSv1**: version of TLS (SSL protocol)
-		- **DHE**: For server authentication based of Diffie-Helman for pre master key.
-		- **RSA**: For server authentication.
-		- **AES**: For simetric algorythm after master key.
-		- **SHA**: For MAC encryptation.
+* **TLSv1_DHE_RSA_WITH_AES_256_CBC_SHA**
+	- **TLSv1**: version of TLS (SSL protocol)
+	- **DHE**: For server authentication based of Diffie-Helman for pre master key.
+	- **RSA**: For server authentication.
+	- **AES**: For simetric algorythm after master key.
+	- **SHA**: For MAC encryptation.
 
 The resume of the process in one image:
 
