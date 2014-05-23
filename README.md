@@ -1,5 +1,10 @@
 # Server for Dummies
 
+![](Documentation/cover.jpg)
+
+
+[Website](http://) | [Online](http://) | [eBook](http://) | [PDF](http://)
+
 Example of server with basics service for the web!
 
 **NOTE:** This is only a educational example. Don't use in production.
@@ -31,7 +36,7 @@ USERNAME="josefranciscoverdugambin"
 
 `sudo sh init.sh`
 
-![image](assets/img/main.png)
+![image](Documentation/img/readme-main.png)
 
 # List of services
 
@@ -57,7 +62,7 @@ All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
 For test services connectivity run 'Test services'
 
-![image](assets/img/testing.png)
+![image](Documentation/img/readme-testing.png)
 
 
 # Examples
@@ -78,15 +83,15 @@ Include:
 
 ### Example SSL 
 
-![image](assets/img/https.png)
+![image](Documentation/img/readme-https.png)
 
 ### Example Mails 
 
-![image](https://raw.githubusercontent.com/Kikobeats/server-for-dummies/master/doc/examples/mail.png)
+![image](Documentation/img/readme-mail.png)
 
 ### Example SSH
 
-![image](assets/img/ssh.png)
+![image](Documentation/img/readme-ssh.png)
 
 
 

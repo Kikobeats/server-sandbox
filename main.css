@@ -1,0 +1,308 @@
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+.animated.hinge {
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+}
+
+@-webkit-keyframes tada {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	10%, 20% {
+		-webkit-transform: scale(0.9) rotate(-3deg);
+	}
+
+	30%, 50%, 70%, 90% {
+		-webkit-transform: scale(1.1) rotate(3deg);
+	}
+
+	40%, 60%, 80% {
+		-webkit-transform: scale(1.1) rotate(-3deg);
+	}
+
+	100% {
+		-webkit-transform: scale(1) rotate(0);
+	}
+}
+
+@keyframes tada {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+
+	10%, 20% {
+		-webkit-transform: scale(0.9) rotate(-3deg);
+		transform: scale(0.9) rotate(-3deg);
+	}
+
+	30%, 50%, 70%, 90% {
+		-webkit-transform: scale(1.1) rotate(3deg);
+		transform: scale(1.1) rotate(3deg);
+	}
+
+	40%, 60%, 80% {
+		-webkit-transform: scale(1.1) rotate(-3deg);
+		transform: scale(1.1) rotate(-3deg);
+	}
+
+	100% {
+		-webkit-transform: scale(1) rotate(0);
+		transform: scale(1) rotate(0);
+	}
+}
+
+.tada {
+	-webkit-animation-name: tada;
+	animation-name: tada;
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		box-shadow: 0 0 5px rgba(77, 173, 208, 0.1);
+	}
+
+	50% {
+		box-shadow: 0 0 60px rgba(77, 173, 208, 0.8);
+	}
+
+	100% {
+		box-shadow: 0 0 5px rgba(77, 173, 208, 0.1);
+	}
+}
+
+html {
+	background: #badbc9 url(bg.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+body {
+	background: none;
+	color: #fff;
+	font-family: Lato, 'Helvetica Neue';
+	-webkit-font-smoothing: antialiased;
+	-webkit-backface-visibility: hidden;
+	font-weight: 300;
+}
+
+/* override bootstrap defaults */
+.container {
+	padding: 0;
+}
+
+.row {
+	margin: 0;
+}
+/* */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: inherit;
+}
+
+h2 {
+	font-size: 40px;
+	font-weight: 300;
+	text-indent: 2px;
+	text-transform: uppercase;
+}
+
+a {
+	color: #ecf0f1;
+}
+
+.container {
+	text-align: center;
+	margin-top: 100px;
+}
+
+.about {
+	margin: 40px auto;
+	font-size: 28px;
+	line-height: 1.2;
+	max-width: 660px;
+	font-weight: 300;
+}
+
+.about span {
+	opacity: 0.3;
+}
+
+.about a {
+	transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+}
+
+.about a:hover {
+	color: #9b59b6;
+	text-decoration: none;
+	text-shadow: 0 0 30px rgba(77, 173, 208, 0.5);
+}
+
+.profile {
+	position: relative;
+}
+
+.profile .name {
+	font-size: 70px;
+	font-weight: 300;
+	position: absolute;
+	top: 20px;
+	width: 100%;
+}
+
+.profile .name span {
+	margin: 0 40px;
+	opacity: 0;
+	transition: all 0.6s ease-out;
+	-webkit-transition: all 0.6s ease-out;
+}
+
+.profile a {
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+}
+
+.profile img {
+	margin-right: 3px;
+	border-radius: 150px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	-webkit-animation: pulse 2.2s infinite ease-in-out;
+	opacity: 0.9;
+}
+
+.credit.activate .name span {
+	opacity: 1;
+}
+
+.credit.activate .name span:first-child {
+	padding-left: 10px;
+	margin-right: 110px;
+}
+
+.credit.activate .name span:last-child {
+	margin-left: 110px;
+}
+
+.message {
+	text-align: center;
+}
+
+.links {
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	top: 93%;
+	left: 0;
+	right: 0;
+	margin-top: 10px;
+}
+
+.links li {
+	display: inline-block;
+	margin: 0 10px;
+	position: relative;
+}
+
+.links a {
+	font-size: 20px;
+	color: #fff;
+}
+
+.more {
+	position: absolute;
+	top: 120%;
+	left: 0;
+	right: 0;
+	padding-bottom: 250px;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.app-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.app-list li {
+	display: inline-block;
+	margin: 40px;
+}
+
+.app-list li a {
+	display: block;
+}
+
+.app-list h3 {
+	line-height: 50px;
+	color: black;
+}
+
+.app-list img {
+	display: block;
+	filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+	-webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+}
+
+@media (max-width: 767px) {
+	.profile .name {
+		font-size: 40px;
+		top: 40px;
+	}
+}
+
+@media (max-width: 650px) {
+	.profile .name {
+		position: static;
+		margin-top: 20px;
+	}
+
+	.profile .name span {
+		padding: 0 !important;
+		margin: 8px !important;
+		margin-top: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	h2 {
+		font-size: 30px;
+		line-height: 20px;
+	}
+
+	.container {
+		margin-top: 20px;
+	}
+
+	.about {
+		font-size: 30px;
+		line-height: 50px;
+	}
+
+	.about span {
+		visibility: hidden;
+	}
+
+	.links {
+		position: static;
+	}
+
+	.more {
+		padding-bottom: 100px;
+	}
+}
