@@ -24,7 +24,7 @@ epub:
 	pandoc -s $(markdown)/$(filename).md --normalize --smart -t epub -o $(epub)/$(filename).epub \
 		--epub-metadata Documentation/metadata.xml \
 		--epub-stylesheet Documentation/css/epub.css \
-		--epub-cover-image Documentation/cover.jpg \
+		--epub-cover-image Documentation/img/cover.jpg \
 		--title-prefix $(title) \
 		--normalize \
 		--smart \

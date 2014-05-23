@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Kikobeats/server-for-dummies/issues"
   },
-  "homepage": "http://Kikobeats.com/server-for-dummies"
+  "homepage": "http://Kikobeats.com/server-for-dummies",
+  "dependencies": {
+    "express": "^4.3.0"
+  }
 }

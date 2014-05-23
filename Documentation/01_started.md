@@ -1,6 +1,6 @@
 # 1. Get Started
 
-![](img/cover.jpg)
+<img src="img/cover.jpg" alt="" style="width: 50%;">
 
 [Online](http://kikobeats.com/server-for-dummies) | [EPUB](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.epub) | [MOBI](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.mobi) | [PDF](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/pdf/server-for-dummies.pdf) | [Github](https://github.com/Kikobeats/server-for-dummies)
 
