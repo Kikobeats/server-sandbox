@@ -1,0 +1,19 @@
+{
+  "name": "server-for-dummies",
+  "version": "0.9.0",
+  "description": "Typical services for the web!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://Kikobeats@github.com/Kikobeats/server-for-dummies"
+  },
+  "author": "Kiko Beats",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kikobeats/server-for-dummies/issues"
+  },
+  "homepage": "http://Kikobeats.com/server-for-dummies"
+}
