@@ -6,15 +6,30 @@ LDAP *(Lightweight Directory Protocol)* concept is similar to use a address book
 
 As Internet, LDAP is your adress book. And you can use LDAP for this. Your Adress book online!
 
-LDAP is like database, but is specially designed for queries and put public information about employees of an organization or similar.
-
-LDAP also defines:
-
-* **Permissions**, set by the administrator to allow only certain people to access the LDAP database, and optionally keep certain data private.
-* **Schema**: a way to describe the format and attributes of data in the server. For example: a schema entered in an LDAP server might define a "groovyPerson" entry type, which has attributes of "instantMessageAddress", and "coffeeRoastPreference". The normal attributes of name, email address, etc., would be inherited from one of the standard schemas, which are rooted in X.500 (see below).
+LDAP is like database, but is specially designed for queries and put public information about employees of an organization or similar. The tree structure of a LDAP is known as **Directory Information Tree** (*DIT*):
 
 ![](img/ldap-node.png)
 
+LDAP object are referenced  by its **Distinguished Name** (*DN*). A DN is a sequence of **Relative Distinguished Names** (*RDN*) connected by commas.
+
+An RDN is an attribute with an associated value in the form attribute=value; normally expressed in a UTF-8 string format.
+
+![](img/ldap-tree.png)
+
+**Commonly Used Attributes**
+
+<table>
+<tbody><tr><th>String</th><th>Attribute type</th></tr>
+<tr><td><strong>DC</strong></td><td>domainComponent</td></tr>
+<tr><td><strong>CN</strong></td><td>commonName</td></tr>
+<tr><td><strong>OU</strong></td><td>organizationalUnitName</td></tr>
+<tr><td><strong>O</strong></td><td>organizationName</td></tr>
+<tr><td><strong>STREET</strong></td><td>streetAddress</td></tr>
+<tr><td><strong>L</strong></td><td>localityName</td></tr>
+<tr><td><strong>ST</strong></td><td>stateOrProvinceName</td></tr>
+<tr><td><strong>C</strong></td><td>countryName</td></tr>
+<tr><td><strong>UID</strong></td><td>userid</td></tr>
+</tbody></table>
 
 ## 6.1 Information
 
@@ -67,6 +82,8 @@ sudo ldapmodify -D "cn=admin,o=um,c=es" -W -H ldap:/// -f "$DIR"/st.ldif;
 ![](img/ldap-search.png)
 
 ## 6.4 How LDAP works
+
+![](img/ldap-iteration.png)
 
 Resume:
 

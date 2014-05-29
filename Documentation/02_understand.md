@@ -25,80 +25,76 @@ Now, is time to take action!
 
 ## 2.1 Important Files
 
-### DNS
+**DNS**
 
 * `/etc/resolv.conf`
 * `/etc/bind/named.conf.options`
 * `/etc/bind/named.conf.local`
 * `/etc/bind/db."$DNS_NAME".zone`
 
-### SMTP
+**SMTP**
 
 * `/etc/exim4/update-exim4.conf.conf` # Exim4 settings
 
-### POP
+**POP**
 
 * `/etc/dovecot/conf.d/10-mail.conf` # Dovecot settings
 * `/etc/dovecot/conf.d/10-auth.conf` # Dovecot settings
 
-### LDAP
+**LDAP**
 
 * `ldapmodify -Y EXTERNAL -H ldapi:/// -f FILE` # Modify LDAP settings
 * `ldapadd -Y EXTERNAL -H ldapi:/// -f FILE` # Load database data
 
-### HTTP
+**HTTP**
 
 * `/etc/apache2/sites-available` # Apache virtual hosts
 * `/var/www/` # Apache websites data
 * `/etc/apache2/groups` # Apache authentication
 
-### SSL
+**SSL**
 
 * `usr/lib/ssl/openssl.cnf` # Configuration file of SSL
 
-### SSH
+**SSH**
 
 * `~/.ssh` # Content SSH keys
 
 
 ## 2.2 Most use commands
 
-### General
+**General**
 
 `netstat -a | more` # show ports and services that you are using.
 
-### DNS
+**DNS**
 
 * `dig www.domain.com` # do DNS query
 * `host www.domain.com` # know the IP of a name
-* `nslookup www.domain.com` # check if DNS is resolve correctly 
+* `nslookup www.domain.com` # check if DNS is resolve correctly
 
-### SMTP
+**SMTP**
 
 * `telnet xxx.xxx.xxx.xxx 25` # basic query to SMTP service
 
-### POP
+**POP**
 
 * `telnet xxx.xxx.xxx.xxx 110` # basic query to POP service
 
-### LDAP
+**LDAP**
 
 * `ldapsearch -x -H ldap://LDAP_IP -b "cn='',ou='',o='',c=''" FIELD` # Search in the LDAP IP
 
-### HTTP
+**HTTP**
 
 *  `curl www.domain.com` # get HTTP source code of a domain
 
-### SSL
+**SSL**
 
 * `openssl version -d` # report your SSL directory
-* `openssl req -x509 -newkey rsa:2048 -keyout cakey.pem -days 3650 -out cacert.pem` # generate CA autosign in the server* `openssl x509 -in cacert.perm -text` # Check that your server certificate is standard by x509* `openssl rsa -in cakey.perm -text` # Cehck taht your server certificate is RSA correct* `openssl req -new -nodes -newkey rsa:1024 -keyout serverkey.pem -out servercsr.pem` # Generate certificate client* `openssl ca –keyfile cakey.pem -in servercsr.pem -out servercert.pem` # Sign certificate client by the server* `openssl s_server -cert servercert.pem -key serverkey.pem -www` # Check that your client certificate is valid
-
-
-
-
-
-
-
-
-
+* `openssl req -x509 -newkey rsa:2048 -keyout cakey.pem -days 3650 -out cacert.pem` # generate CA autosign in the server
+* `openssl x509 -in cacert.perm -text` # Check that your server certificate is standard by x509
+* `openssl rsa -in cakey.perm -text` # Cehck taht your server certificate is RSA correct
+* `openssl req -new -nodes -newkey rsa:1024 -keyout serverkey.pem -out servercsr.pem` # Generate certificate client
+* `openssl ca –keyfile cakey.pem -in servercsr.pem -out servercert.pem` # Sign certificate client by the server
+* `openssl s_server -cert servercert.pem -key serverkey.pem -www` # Check that your client certificate is valid

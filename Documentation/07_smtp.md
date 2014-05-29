@@ -1,14 +1,59 @@
-# 7. SMTP/POP
+# 7. Mail
 
 Mail is the basic, oldest and most popular service of the internet.
-
-For support mail, you need support DNS before. This is because mail is based on mailbox concept: All mail accounts need a mailbox for send (SMTP) and receive (POP3/IMAP).
 
 ![](img/mail-resume.png)
 
 When you want to send a mail, you going to deposit the mail in the receive mailbox of the receiver, but have a little problem: don't know the adress of the destination mailbox.
 
 For know it, you need to use DNS query of the server name of the mailbox adress, and he say you the direction where you cand send the mail. And also the process is similar when you want to check your mail account. You can see this more later when We analyze the traffic with wireshark.
+
+For support mail, you need support DNS before. This is because mail is based on mailbox concept: All mail accounts need a mailbox for send (**SMTP**) and receive (**POP3** or **IMAP**).
+
+**SMTP**
+
+Define the protocol necessary that transmit the message to the mailbox. 
+
+![image](img/smtp-travel.jpg)
+
+The options about how the message have to be interpreted is described in the **MIME** header.
+
+![](img/smtp-mime.jpg)
+
+`Content-Transfer-Encoding` s to avoid problems relaying the message for differents MTA. Can be:
+
+* base64
+* quoted-printable
+* 7bit
+* 8bit
+* binary
+
+The `Content-Type` can be:
+
+* text
+* image
+* audio
+* video
+* applitacion
+* message
+* multipart
+
+Is necesary define `Content-Type` for multipart messages that contains different type (for example text and attachment)
+
+![](img/smtp-multipart.png)
+
+**POP3**
+
+![](img/pop-state.png)
+
+**IMAP**
+
+IMAP keep more stuff in the server, for example, structure of folders and messages that you want to recovery for read it.
+
+The protocol established different states for the connection. Internally, when the connection is established, the server interprets the command that is contained in the messages and do the actions:
+
+![](img/imap-state.png)
+
 
 ## 7.1 Information
 
@@ -19,8 +64,6 @@ For know it, you need to use DNS query of the server name of the mailbox adress,
 | Transport		|	TCP
 | Network		|   IPv4/IPv6
 | Ports			|	25/TCP, 587/TCP (alternative), 465/TCP (SMTPS)
-
-
 
 | Description  | Service
 | -------------	|:-------------

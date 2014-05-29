@@ -1,4 +1,3 @@
-# Carga módulo dinámico del backend tipo DBD
 dn: cn=module,cn=config
 changetype: add
 objectClass: olcModuleList
