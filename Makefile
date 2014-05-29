@@ -46,16 +46,17 @@ pdf:
 		--toc \
 		--latex-engine=`which xelatex`
 
-mobi: epub
+mobi:
 	# Download: http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211
 	# Symlink bin: ln -s /path/to/kindlegen /usr/local/bin
 	kindlegen $(epub)/$(filename).epub
 
 finish:
-	rm -rf img
+	rm -rf img/
 
 clean:
 	rm -rf img
 	rm -r $(markdown)
 	rm -r $(epub)
 	rm -rf $(pdf)
+	rm README.md

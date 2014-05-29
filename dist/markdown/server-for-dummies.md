@@ -3,17 +3,27 @@
 
 <img src="img/cover.jpg" alt="" style="width: 50%;">
 
+
+![](https://api.travis-ci.org/Kikobeats/server-for-dummies.png)
+![](http://imgur.com/7Xir0aL.png)
+
 [Online](http://server-dummies.herokuapp.com) | [EPUB](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.epub) | [MOBI](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.mobi) | [PDF](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/pdf/server-for-dummies.pdf) | [Github](https://github.com/Kikobeats/server-for-dummies)
 
 `server for dummies` is an educational project to understand how typical web services work. It's focused in the application layout services, like:
 
-* DNS
-* SMTP
-* POP
-* IMAP
-* LDAP
-* SSH
-* ... and more!
+| Services                     | Transport | Port | Package |
+| -----------------------------|:----------|:-----|:--------|
+| DNS (Primary and secundary)  | TCP/UDP | 53/UDP <br/> 53/TCP | bind9
+| SMTP							| TCP | 25/TCP <br/> 587/TCP (alternative) <br/> 465/TCP (SMTPS) | exim4
+| POP3							| TCP | 110/TCP <br/> 995/TCP (encrypted) | dovecot-pop3
+| IMAP						    | TCP | 143/TCP <br/> 220/TCP (IMAP3) <br/> 993/TCP (IMAPS) | soon
+| LDAP						    | TCP/UDP| 389 (TCP/UDP) | slapd <br/> ldap-utils
+| HTTP/HTTPS   				    | TCP | 80 | apache2 <br/> php5
+| SSH						    | TCP | 21 | openssh
+| FTP						    | TCP | 20/TCP DATA Port <br/> 21/TCP Control Port| soon
+| IPSEC						    | | | soon
+| TELNET					    | TCP | 23 | soon
+| DHCP							| UDP | 67 (server) <br/>68 (client) | soon
 
 For installing all services and get ready your machine for the action, this project has a repository with the original source coude and it is available for everyone.
 
@@ -49,22 +59,8 @@ USERNAME="josefranciscoverdugambin"
 `sudo sh init.sh`
 
 ![](img/readme-main.png)
-
-## 1.2 List of services
-
-| Services                     | Package                |
-| -----------------------------|:----------------------:|
-| DNS (Primary and secundary)  | bind9
-| SMTP							           | exim4
-| POP							             | dovecot-pop3
-| IMAP							           | soon
-| LDAP							           | slapd, ldap-utils
-| HTTP/HTTPS					         | apache2, php5
-| SSH							             | openssh
-| FTP							             | soon
-| IPSEC							           | soon
 	
-## 1.3 Test services
+## 1.2 Test services
 
 All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
@@ -77,7 +73,7 @@ For test services connectivity run 'Test services'
 ![](img/readme-testing.png)
 
 
-## 1.4 Examples
+## 1.3 Examples
 
 Include:
 
@@ -129,6 +125,79 @@ The services that you intend to use belong to the application layer. As I said b
 At the end, all is a stack of abstraction. The purpose is having an application layer available, secure and operative.
 
 Now, is time to take action!
+
+## 2.1 Important Files
+
+### DNS
+
+* `/etc/resolv.conf`
+* `/etc/bind/named.conf.options`
+* `/etc/bind/named.conf.local`
+* `/etc/bind/db."$DNS_NAME".zone`
+
+### SMTP
+
+* `/etc/exim4/update-exim4.conf.conf` # Exim4 settings
+
+### POP
+
+* `/etc/dovecot/conf.d/10-mail.conf` # Dovecot settings
+* `/etc/dovecot/conf.d/10-auth.conf` # Dovecot settings
+
+### LDAP
+
+* `ldapmodify -Y EXTERNAL -H ldapi:/// -f FILE` # Modify LDAP settings
+* `ldapadd -Y EXTERNAL -H ldapi:/// -f FILE` # Load database data
+
+### HTTP
+
+* `/etc/apache2/sites-available` # Apache virtual hosts
+* `/var/www/` # Apache websites data
+* `/etc/apache2/groups` # Apache authentication
+
+### SSL
+
+* `usr/lib/ssl/openssl.cnf` # Configuration file of SSL
+
+### SSH
+
+* `~/.ssh` # Content SSH keys
+
+
+## 2.2 Most use commands
+
+### General
+
+`netstat -a | more` # show ports and services that you are using.
+
+### DNS
+
+* `dig www.domain.com` # do DNS query
+* `host www.domain.com` # know the IP of a name
+* `nslookup www.domain.com` # check if DNS is resolve correctly 
+
+### SMTP
+
+* `telnet xxx.xxx.xxx.xxx 25` # basic query to SMTP service
+
+### POP
+
+* `telnet xxx.xxx.xxx.xxx 110` # basic query to POP service
+
+### LDAP
+
+* `ldapsearch -x -H ldap://LDAP_IP -b "cn='',ou='',o='',c=''" FIELD` # Search in the LDAP IP
+
+### HTTP
+
+*  `curl www.domain.com` # get HTTP source code of a domain
+
+### SSL
+
+* `openssl version -d` # report your SSL directory
+* `openssl req -x509 -newkey rsa:2048 -keyout cakey.pem -days 3650 -out cacert.pem` # generate CA autosign in the server* `openssl x509 -in cacert.perm -text` # Check that your server certificate is standard by x509* `openssl rsa -in cakey.perm -text` # Cehck taht your server certificate is RSA correct* `openssl req -new -nodes -newkey rsa:1024 -keyout serverkey.pem -out servercsr.pem` # Generate certificate client* `openssl ca –keyfile cakey.pem -in servercsr.pem -out servercert.pem` # Sign certificate client by the server* `openssl s_server -cert servercert.pem -key serverkey.pem -www` # Check that your client certificate is valid
+
+
 
 
 
@@ -1109,73 +1178,31 @@ Resume of messages:
 
 ![](img/ssh-7.png)
 
-# 9. Most use commands
+# 9. DHCP
 
-## General
+Order of messages of the procotol are:
 
-`netstat -a | more` # show ports and services that you are using.
+**DHCP discovery**
+**DHCP offer**
+**DHCP request**
+**DHCP acknowledgement**
+**DHCP information**
+**DHCP releasing**
 
-## DNS
+Other importants points about DHCP:
 
-* `dig www.domain.com` # do DNS query
-* `host www.domain.com` # know the IP of a name
-* `nslookup www.domain.com` # check if DNS is resolve correctly 
+**DHCP realy**
 
-## SMTP
-
-* `telnet xxx.xxx.xxx.xxx 25` # basic query to SMTP service
-
-## POP
-
-* `telnet xxx.xxx.xxx.xxx 110` # basic query to POP service
-
-## LDAP
-
-* `ldapsearch -x -H ldap://LDAP_IP -b "cn='',ou='',o='',c=''" FIELD` # Search in the LDAP IP
-
-## HTTP
-
-*  `curl www.domain.com` # get HTTP source code of a domain
-
-## SSL
-
-* `openssl version -d` # report your SSL directory
-* `openssl req -x509 -newkey rsa:2048 -keyout cakey.pem -days 3650 -out cacert.pem` # generate CA autosign in the server* `openssl x509 -in cacert.perm -text` # Check that your server certificate is standard by x509* `openssl rsa -in cakey.perm -text` # Cehck taht your server certificate is RSA correct* `openssl req -new -nodes -newkey rsa:1024 -keyout serverkey.pem -out servercsr.pem` # Generate certificate client* `openssl ca –keyfile cakey.pem -in servercsr.pem -out servercert.pem` # Sign certificate client by the server* `openssl s_server -cert servercert.pem -key serverkey.pem -www` # Check that your client certificate is valid
-
-# 10. Important Files
-
-## DNS
-
-* `/etc/resolv.conf`
-* `/etc/bind/named.conf.options`
-* `/etc/bind/named.conf.local`
-* `/etc/bind/db."$DNS_NAME".zone`
-
-## SMTP
-
-* `/etc/exim4/update-exim4.conf.conf` # Exim4 settings
+![image](img/dhcp-resume.png)
 
 
-## POP
+## 9.1 Information
 
-* `/etc/dovecot/conf.d/10-mail.conf` # Dovecot settings
-* `/etc/dovecot/conf.d/10-auth.conf` # Dovecot settings
+| Description  | Service
+| -------------	|:-------------
+| Aplication	|	DHCP
+| Transport		|	UDP
+| Network		|   IPv4/IPv6
+| Port			|	68 (client) 67 (server)
 
-## LDAP
-
-* `ldapmodify -Y EXTERNAL -H ldapi:/// -f FILE` # Modify LDAP settings
-* `ldapadd -Y EXTERNAL -H ldapi:/// -f FILE` # Load database data
-
-## HTTP
-
-* `/etc/apache2/sites-available` # Apache virtual hosts
-* `/var/www/` # Apache websites data
-* `/etc/apache2/groups` # Apache authentication
-
-## SSL
-
-* `usr/lib/ssl/openssl.cnf` # Configuration file of SSL
-
-## SSH
-
-* `~/.ssh` # Content SSH keys
+## 9.3 How SSH works

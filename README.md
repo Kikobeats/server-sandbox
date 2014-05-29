@@ -3,8 +3,8 @@
 <img src="img/cover.jpg" alt="" style="width: 50%;">
 
 
-![](https://travis-ci.org/Kikobeats/server-for-dummies.svg)
-![](https://camo.githubusercontent.com/03215f4e76fa846b6500901831e95fbdfd082717/687474703a2f2f696d672e736869656c64732e696f2f62616467652f756e69636f726e2d617070726f7665642d6666363962342e737667)
+![](https://api.travis-ci.org/Kikobeats/server-for-dummies.png)
+![](http://imgur.com/7Xir0aL.png)
 
 [Online](http://server-dummies.herokuapp.com) | [EPUB](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.epub) | [MOBI](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.mobi) | [PDF](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/pdf/server-for-dummies.pdf) | [Github](https://github.com/Kikobeats/server-for-dummies)
 
@@ -40,7 +40,7 @@ Have fun!
 
 ```
 ## DNS Settings
-DNS_NAME="st.um"
+DNS_NAME="st.um" 
 PRIMARY_DNS="172.16.22.135"
 SECONDARY_DNS="172.16.22.137"
 FORWARDERS="155.54.1.10;"
@@ -58,7 +58,7 @@ USERNAME="josefranciscoverdugambin"
 `sudo sh init.sh`
 
 ![](img/readme-main.png)
-
+	
 ## 1.2 Test services
 
 All services have been tested in VM VMWare under Ubuntu Server 12.04:
@@ -80,19 +80,19 @@ Include:
 	* www1.st.um – Basic domain
 	* www2.st.um – Domain with HTTP authentication ([authorized users here](https://github.com/Kikobeats/server-for-dummies/blob/master/Services/HTTP/groups))
 	* www3.st.um – Domain with HTTPS (check you are visiting https in the browser!)
-
+	
 * 2 mails accounts examples
-	* run `./Services/Mail/account.sh` to create it at first time
+	* run `./Services/Mail/account.sh` to create it at first time 
+	
+* LDAP 
+	* Sample data for check read and modify operations ([check here](https://github.com/Kikobeats/server-for-dummies/tree/master/Services/LDAP))	 
+	
 
-* LDAP
-	* Sample data for check read and modify operations ([check here](https://github.com/Kikobeats/server-for-dummies/tree/master/Services/LDAP))
-
-
-### 1.3.1 Example SSL
+### 1.3.1 Example SSL 
 
 ![](img/readme-https.png)
 
-### 1.3.2 Example Mails
+### 1.3.2 Example Mails 
 
 ![](img/readme-mail.png)
 

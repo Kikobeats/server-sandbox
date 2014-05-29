@@ -3,8 +3,8 @@
 <img src="img/cover.jpg" alt="" style="width: 50%;">
 
 
-![](https://travis-ci.org/Kikobeats/server-for-dummies.svg)
-![](https://camo.githubusercontent.com/03215f4e76fa846b6500901831e95fbdfd082717/687474703a2f2f696d672e736869656c64732e696f2f62616467652f756e69636f726e2d617070726f7665642d6666363962342e737667)
+![](https://api.travis-ci.org/Kikobeats/server-for-dummies.png)
+![](http://imgur.com/7Xir0aL.png)
 
 [Online](http://server-dummies.herokuapp.com) | [EPUB](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.epub) | [MOBI](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/epub/server-for-dummies.mobi) | [PDF](https://github.com/Kikobeats/server-for-dummies/raw/master/dist/pdf/server-for-dummies.pdf) | [Github](https://github.com/Kikobeats/server-for-dummies)
 
