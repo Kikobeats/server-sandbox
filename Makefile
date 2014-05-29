@@ -13,6 +13,9 @@ all: prepare markdown epub pdf mobi finish
 
 prepare:
 	cp -R Documentation/img/ img
+	rm README.md
+	cp Documentation/01_started.md .
+	mv 01_started.md README.md
 
 markdown:
 	mkdir -p $(markdown)
