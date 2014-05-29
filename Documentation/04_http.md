@@ -2,6 +2,38 @@
 
 HTTP (short for *HyperText Transfer Protocol*) is the underlying protocol used by the World Wide Web. HTTP defines how messages are formatted and transmitted, and what actions Web servers and browsers should take in response to various commands. For example, when you enter a URL in your browser, this actually sends an HTTP command to the Web server directing it to fetch and transmit the requested Web page.
 
+All parameter of the protocol are specified in the **HTTP header**
+
+Client Request:
+
+```
+GET /index.html HTTP/1.1
+Host: www.example.com
+```
+
+Server Response:
+
+```
+HTTP/1.1 200 OK
+Date: Mon, 23 May 2005 22:38:34 GMT
+Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux)
+Last-Modified: Wed, 08 Jan 2003 23:11:55 GMT
+ETag: "3f80f-1b6-3e1cb03b"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 131
+Accept-Ranges: bytes
+Connection: close
+
+<html>
+<head>
+  <title>An Example Page</title>
+</head>
+<body>
+  Hello World, this is a very simple HTML document.
+</body>
+</html>
+```
+
 
 A message in HTTP have 3 parts:
 
