@@ -2,11 +2,33 @@
 
 HTTP (short for *HyperText Transfer Protocol*) is the underlying protocol used by the World Wide Web. HTTP defines how messages are formatted and transmitted, and what actions Web servers and browsers should take in response to various commands. For example, when you enter a URL in your browser, this actually sends an HTTP command to the Web server directing it to fetch and transmit the requested Web page.
 
-You can use HTTP for differents actions:
+
+A message in HTTP have 3 parts:
+
+1. First line with *HTTP_Method*, *Resource ID* adn  *HTTP Version*.
+2. Information about the client and the petition.
+3. Body request if the client need to transfer data to the server.
+
+![image](img/http-format.png)
+
+The HTTP methods are different for different actions:
 
 ![](img/http-commands.png)
 
-And the actions reports a status code:
+And each client request is response with status code:
+
+* **1xx** Informational
+* **2xx** Success
+* **3xx** Redirection
+* **4xx** Client Error
+* **5xx** Server Error
+
+Special mention to:
+
+```
+418 I'm a teapot (RFC 2324)
+This code was defined in 1998 as one of the traditional IETF April Fools' jokes, in RFC 2324, Hyper Text Coffee Pot Control Protocol, and is not expected to be implemented by actual HTTP servers.
+```
 
 ![](img/http-code.png)
 

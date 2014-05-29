@@ -8,11 +8,60 @@ At first for to do it the first computers had a simply file called `host.txt` th
 
 This is simply if you have less than 10 computers in the world. But now, this is a bit complicated with too much computers.
 
-The DNS service is regulated by the [ICANN since 1988](https://en.wikipedia.org/wiki/ICANN)
+The DNS service is regulated by the [ICANN since 1988](https://en.wikipedia.org/wiki/ICANN).
 
 Basically for understand how ICANN regulated it you must know that she designates a root nodes to keep all information about how to resolve whatever domain. When you go to website to register a website name, actually you are recording your domain in the ICANN nodes.
 
 ![](img/dns-organization.png)
+
+Each domain have different **records** for the dommain. A record is the basic data component in DNS. Resource records define not only names and IP addresses but domains, servers, zone, and services as well. This list shows you the most common types of resource records:
+
+<table>
+<tbody><tr>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td><b>A</b></td>
+<td><i>Address</i> resource records match an IP address to a host
+name.</td>
+</tr>
+<tr>
+<td><b>CNAME</b></td>
+<td><i>Canonical name</i> resource records associate a nickname to
+a host name.</td>
+</tr>
+<tr>
+<td><b>MX</b></td>
+<td><i>Mail exchange</i> resource records identify mail servers for
+the specified domain.</td>
+</tr>
+<tr>
+<td><b>NS</b> <b></b></td>
+<td><i>Name server</i> resource records identify servers (other
+than the SOA server) that contain zone information files.</td>
+</tr>
+<tr>
+<td><b>PTR</b> </td>
+<td><i>Pointer resource</i> records match a host name to a given IP
+address. This is the opposite of an Address record, which matches
+an IP address to the supplied host name.</td>
+</tr>
+<tr>
+<td><b>SOA</b></td>
+<td><i>Start of authority</i> resource records specify which server
+contains the zone file for a domain.</td>
+</tr>
+<tr>
+<td><b>SRV</b> </td>
+<td><i>Service</i> resource records identify servers that provide
+special services to the domain.</td>
+</tr>
+</tbody></table>
+
+When you need to know the IP about a record, you request this at your DNS with a query. The query is recursive request and is completed when DNS found the record of the domain that you need:
+
+![](img/dns-quote.png)
 
 ## 3.1 Information
 
