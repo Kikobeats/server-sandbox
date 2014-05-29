@@ -9,7 +9,7 @@ markdown=dist/markdown
 epub=dist/epub
 pdf=dist/pdf
 
-all: prepare markdown epub pdf mobi finish
+all: prepare markdown epub pdf mobi
 
 prepare:
 	cp -R Documentation/img/ img
@@ -50,9 +50,6 @@ mobi:
 	# Download: http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211
 	# Symlink bin: ln -s /path/to/kindlegen /usr/local/bin
 	kindlegen $(epub)/$(filename).epub
-
-finish:
-	rm -rf img/
 
 clean:
 	rm -rf img
