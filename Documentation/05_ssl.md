@@ -51,7 +51,7 @@ We can resume all the process with two variants of message:
 The resume of the process in one image:
 
 
-![](img/ssl-works.png)
+![](img/ssl-handshake.png)
 
 The complexities of the SSL protocol remain invisible to your customers. Instead their browsers provide them with a key indicator to let them know they are currently protected by an SSL encrypted session - the lock icon in the lower right-hand corner, clicking on the lock icon displays your SSL Certificate and the details about it. All SSL Certificates are issued to either companies or legally accountable individuals.
 
