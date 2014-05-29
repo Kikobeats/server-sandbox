@@ -13,7 +13,7 @@ all: prepare markdown epub pdf mobi
 
 prepare:
 	cp -R Documentation/img/ img
-	rm README.md
+	rm -f README.md
 	cp Documentation/01_started.md .
 	mv 01_started.md README.md
 

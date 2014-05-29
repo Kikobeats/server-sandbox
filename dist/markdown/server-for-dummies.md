@@ -128,83 +128,79 @@ Now, is time to take action!
 
 ## 2.1 Important Files
 
-### DNS
+**DNS**
 
 * `/etc/resolv.conf`
 * `/etc/bind/named.conf.options`
 * `/etc/bind/named.conf.local`
 * `/etc/bind/db."$DNS_NAME".zone`
 
-### SMTP
+**SMTP**
 
 * `/etc/exim4/update-exim4.conf.conf` # Exim4 settings
 
-### POP
+**POP**
 
 * `/etc/dovecot/conf.d/10-mail.conf` # Dovecot settings
 * `/etc/dovecot/conf.d/10-auth.conf` # Dovecot settings
 
-### LDAP
+**LDAP**
 
 * `ldapmodify -Y EXTERNAL -H ldapi:/// -f FILE` # Modify LDAP settings
 * `ldapadd -Y EXTERNAL -H ldapi:/// -f FILE` # Load database data
 
-### HTTP
+**HTTP**
 
 * `/etc/apache2/sites-available` # Apache virtual hosts
 * `/var/www/` # Apache websites data
 * `/etc/apache2/groups` # Apache authentication
 
-### SSL
+**SSL**
 
 * `usr/lib/ssl/openssl.cnf` # Configuration file of SSL
 
-### SSH
+**SSH**
 
 * `~/.ssh` # Content SSH keys
 
 
 ## 2.2 Most use commands
 
-### General
+**General**
 
 `netstat -a | more` # show ports and services that you are using.
 
-### DNS
+**DNS**
 
 * `dig www.domain.com` # do DNS query
 * `host www.domain.com` # know the IP of a name
-* `nslookup www.domain.com` # check if DNS is resolve correctly 
+* `nslookup www.domain.com` # check if DNS is resolve correctly
 
-### SMTP
+**SMTP**
 
 * `telnet xxx.xxx.xxx.xxx 25` # basic query to SMTP service
 
-### POP
+**POP**
 
 * `telnet xxx.xxx.xxx.xxx 110` # basic query to POP service
 
-### LDAP
+**LDAP**
 
 * `ldapsearch -x -H ldap://LDAP_IP -b "cn='',ou='',o='',c=''" FIELD` # Search in the LDAP IP
 
-### HTTP
+**HTTP**
 
 *  `curl www.domain.com` # get HTTP source code of a domain
 
-### SSL
+**SSL**
 
 * `openssl version -d` # report your SSL directory
-* `openssl req -x509 -newkey rsa:2048 -keyout cakey.pem -days 3650 -out cacert.pem` # generate CA autosign in the server* `openssl x509 -in cacert.perm -text` # Check that your server certificate is standard by x509* `openssl rsa -in cakey.perm -text` # Cehck taht your server certificate is RSA correct* `openssl req -new -nodes -newkey rsa:1024 -keyout serverkey.pem -out servercsr.pem` # Generate certificate client* `openssl ca –keyfile cakey.pem -in servercsr.pem -out servercert.pem` # Sign certificate client by the server* `openssl s_server -cert servercert.pem -key serverkey.pem -www` # Check that your client certificate is valid
-
-
-
-
-
-
-
-
-
+* `openssl req -x509 -newkey rsa:2048 -keyout cakey.pem -days 3650 -out cacert.pem` # generate CA autosign in the server
+* `openssl x509 -in cacert.perm -text` # Check that your server certificate is standard by x509
+* `openssl rsa -in cakey.perm -text` # Cehck taht your server certificate is RSA correct
+* `openssl req -new -nodes -newkey rsa:1024 -keyout serverkey.pem -out servercsr.pem` # Generate certificate client
+* `openssl ca –keyfile cakey.pem -in servercsr.pem -out servercert.pem` # Sign certificate client by the server
+* `openssl s_server -cert servercert.pem -key serverkey.pem -www` # Check that your client certificate is valid
 
 # 3. DNS
 
@@ -669,15 +665,30 @@ LDAP *(Lightweight Directory Protocol)* concept is similar to use a address book
 
 As Internet, LDAP is your adress book. And you can use LDAP for this. Your Adress book online!
 
-LDAP is like database, but is specially designed for queries and put public information about employees of an organization or similar.
-
-LDAP also defines:
-
-* **Permissions**, set by the administrator to allow only certain people to access the LDAP database, and optionally keep certain data private.
-* **Schema**: a way to describe the format and attributes of data in the server. For example: a schema entered in an LDAP server might define a "groovyPerson" entry type, which has attributes of "instantMessageAddress", and "coffeeRoastPreference". The normal attributes of name, email address, etc., would be inherited from one of the standard schemas, which are rooted in X.500 (see below).
+LDAP is like database, but is specially designed for queries and put public information about employees of an organization or similar. The tree structure of a LDAP is known as **Directory Information Tree** (*DIT*):
 
 ![](img/ldap-node.png)
 
+LDAP object are referenced  by its **Distinguished Name** (*DN*). A DN is a sequence of **Relative Distinguished Names** (*RDN*) connected by commas.
+
+An RDN is an attribute with an associated value in the form attribute=value; normally expressed in a UTF-8 string format.
+
+![](img/ldap-tree.png)
+
+**Commonly Used Attributes**
+
+<table>
+<tbody><tr><th>String</th><th>Attribute type</th></tr>
+<tr><td><strong>DC</strong></td><td>domainComponent</td></tr>
+<tr><td><strong>CN</strong></td><td>commonName</td></tr>
+<tr><td><strong>OU</strong></td><td>organizationalUnitName</td></tr>
+<tr><td><strong>O</strong></td><td>organizationName</td></tr>
+<tr><td><strong>STREET</strong></td><td>streetAddress</td></tr>
+<tr><td><strong>L</strong></td><td>localityName</td></tr>
+<tr><td><strong>ST</strong></td><td>stateOrProvinceName</td></tr>
+<tr><td><strong>C</strong></td><td>countryName</td></tr>
+<tr><td><strong>UID</strong></td><td>userid</td></tr>
+</tbody></table>
 
 ## 6.1 Information
 
@@ -731,6 +742,8 @@ sudo ldapmodify -D "cn=admin,o=um,c=es" -W -H ldap:/// -f "$DIR"/st.ldif;
 
 ## 6.4 How LDAP works
 
+![](img/ldap-iteration.png)
+
 Resume:
 
 ![](img/ldap-resume.png)
@@ -761,17 +774,62 @@ Resume:
 ![](img/ldap-6.png)
 
 
-# 7. SMTP/POP
+# 7. Mail
 
 Mail is the basic, oldest and most popular service of the internet.
-
-For support mail, you need support DNS before. This is because mail is based on mailbox concept: All mail accounts need a mailbox for send (SMTP) and receive (POP3/IMAP).
 
 ![](img/mail-resume.png)
 
 When you want to send a mail, you going to deposit the mail in the receive mailbox of the receiver, but have a little problem: don't know the adress of the destination mailbox.
 
 For know it, you need to use DNS query of the server name of the mailbox adress, and he say you the direction where you cand send the mail. And also the process is similar when you want to check your mail account. You can see this more later when We analyze the traffic with wireshark.
+
+For support mail, you need support DNS before. This is because mail is based on mailbox concept: All mail accounts need a mailbox for send (**SMTP**) and receive (**POP3** or **IMAP**).
+
+**SMTP**
+
+Define the protocol necessary that transmit the message to the mailbox. 
+
+![image](img/smtp-travel.jpg)
+
+The options about how the message have to be interpreted is described in the **MIME** header.
+
+![](img/smtp-mime.jpg)
+
+`Content-Transfer-Encoding` s to avoid problems relaying the message for differents MTA. Can be:
+
+* base64
+* quoted-printable
+* 7bit
+* 8bit
+* binary
+
+The `Content-Type` can be:
+
+* text
+* image
+* audio
+* video
+* applitacion
+* message
+* multipart
+
+Is necesary define `Content-Type` for multipart messages that contains different type (for example text and attachment)
+
+![](img/smtp-multipart.png)
+
+**POP3**
+
+![](img/pop-state.png)
+
+**IMAP**
+
+IMAP keep more stuff in the server, for example, structure of folders and messages that you want to recovery for read it.
+
+The protocol established different states for the connection. Internally, when the connection is established, the server interprets the command that is contained in the messages and do the actions:
+
+![](img/imap-state.png)
+
 
 ## 7.1 Information
 
@@ -782,8 +840,6 @@ For know it, you need to use DNS query of the server name of the mailbox adress,
 | Transport		|	TCP
 | Network		|   IPv4/IPv6
 | Ports			|	25/TCP, 587/TCP (alternative), 465/TCP (SMTPS)
-
-
 
 | Description  | Service
 | -------------	|:-------------
