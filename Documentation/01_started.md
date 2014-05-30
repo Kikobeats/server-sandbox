@@ -1,4 +1,5 @@
-# 1. Get Started
+# 1. Introduction
+## 1.1 Get Started
 
 <img src="img/cover.jpg" alt="" style="width: 50%;">
 
@@ -30,7 +31,7 @@ Have fun!
 
 **NOTE:** This is only a educational example. Don't use in production.
 
-## 1.1 How to use
+### 1.1.1 How to use
 
 1) Clone the repo:
 
@@ -59,7 +60,7 @@ USERNAME="josefranciscoverdugambin"
 
 ![](img/readme-main.png)
 	
-## 1.2 Test services
+### 1.1.2 Test services
 
 All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
@@ -72,7 +73,7 @@ For test services connectivity run 'Test services'
 ![](img/readme-testing.png)
 
 
-## 1.3 Examples
+### 1.1.3 Examples
 
 Include:
 
@@ -87,15 +88,14 @@ Include:
 * LDAP 
 	* Sample data for check read and modify operations ([check here](https://github.com/Kikobeats/server-for-dummies/tree/master/Services/LDAP))	 
 	
-
-### 1.3.1 Example SSL 
+**Example SSL**
 
 ![](img/readme-https.png)
 
-### 1.3.2 Example Mails 
+**Example Mails** 
 
 ![](img/readme-mail.png)
 
-### 1.3.3 Example SSH
+**Example SSH**
 
 ![](img/readme-ssh.png)

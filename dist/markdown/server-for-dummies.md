@@ -1,5 +1,6 @@
 
-# 1. Get Started
+# 1. Introduction
+## 1.1 Get Started
 
 <img src="img/cover.jpg" alt="" style="width: 50%;">
 
@@ -31,7 +32,7 @@ Have fun!
 
 **NOTE:** This is only a educational example. Don't use in production.
 
-## 1.1 How to use
+### 1.1.1 How to use
 
 1) Clone the repo:
 
@@ -60,7 +61,7 @@ USERNAME="josefranciscoverdugambin"
 
 ![](img/readme-main.png)
 	
-## 1.2 Test services
+### 1.1.2 Test services
 
 All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
@@ -73,7 +74,7 @@ For test services connectivity run 'Test services'
 ![](img/readme-testing.png)
 
 
-## 1.3 Examples
+### 1.1.3 Examples
 
 Include:
 
@@ -88,20 +89,19 @@ Include:
 * LDAP 
 	* Sample data for check read and modify operations ([check here](https://github.com/Kikobeats/server-for-dummies/tree/master/Services/LDAP))	 
 	
-
-### 1.3.1 Example SSL 
+**Example SSL**
 
 ![](img/readme-https.png)
 
-### 1.3.2 Example Mails 
+**Example Mails** 
 
 ![](img/readme-mail.png)
 
-### 1.3.3 Example SSH
+**Example SSH**
 
 ![](img/readme-ssh.png)
 
-# 2. Understand
+## 1.2 Understand
 
 Internet is the best invent in the last 50 years, and maybe someone can say that is the best invention in the world.
 
@@ -126,7 +126,7 @@ At the end, all is a stack of abstraction. The purpose is having an application 
 
 Now, is time to take action!
 
-## 2.1 Files
+### 1.2.1 Files
 
 **DNS**
 
@@ -164,7 +164,7 @@ Now, is time to take action!
 * `~/.ssh` # Content SSH keys
 
 
-## 2.2 Commands
+### 1.2.2 Commands
 
 **General**
 
@@ -602,7 +602,7 @@ We can resume all the process with two variants of message:
 The resume of the process in one image:
 
 
-![](img/ssl-works.png)
+![](img/ssl-handshake.png)
 
 The complexities of the SSL protocol remain invisible to your customers. Instead their browsers provide them with a key indicator to let them know they are currently protected by an SSL encrypted session - the lock icon in the lower right-hand corner, clicking on the lock icon displays your SSL Certificate and the details about it. All SSL Certificates are issued to either companies or legally accountable individuals.
 
@@ -1339,21 +1339,85 @@ Resume of messages:
 
 # 9. DHCP
 
-Order of messages of the procotol are:
+The Dynamic Host Configuration Protocol (*DHCP*) is a standardized networking protocol used on Internet Protocol (IP) networks for dynamically distributing network configuration parameters, such as IP addresses for interfaces and services. With DHCP, computers request IP addresses and networking parameters automatically from a DHCP server, reducing the need for a network administrator or a user to configure these settings manually.
 
-**DHCP discovery**
-**DHCP offer**
-**DHCP request**
-**DHCP acknowledgement**
-**DHCP information**
-**DHCP releasing**
+![](img/dhcp-resume.jpg)
 
-Other importants points about DHCP:
+Normally is necessary that DHCP is in the same network, but is possible to set this in external network using **DHCP relay** like proxy:
 
-**DHCP realy**
+![](img/dhcp-relay.png)
 
-![image](img/dhcp-resume.png)
+The different message for DHCP protocol are:
 
+<table>
+<tbody><tr><th>
+<p>
+Message Type</p>
+</th><th>
+<p>
+Description</p>
+</th></tr>
+<tr><td>
+<p>
+DHCPDiscover</p>
+</td><td>
+<p>
+The first time a DHCP client computer attempts to log on to the network, it requests IP address information from a DHCP server by broadcasting a DHCPDiscover packet. The source IP address in the packet is 0.0.0.0 because the client does not yet have an IP address. The message is either 342 or 576 bytes long—older versions of Windows use a longer message frame.</p>
+</td></tr>
+<tr><td>
+<p>
+DHCPOffer</p>
+</td><td>
+<p>
+Each DHCP server that receives the client DHCPDiscover packet responds with a DHCPOffer packet containing an unleased IP address and additional TCP/IP configuration information, such as the subnet mask and default gateway. More than one DHCP server can respond with a DHCPOffer packet. The client will accept the first DHCPOffer packet it receives. The message is 342 bytes long.</p>
+</td></tr>
+<tr><td>
+<p>
+DHCPRequest</p>
+</td><td>
+<p>
+When a DHCP client receives a DHCPOffer packet, it responds by broadcasting a DHCPRequest packet that contains the offered IP address, and shows acceptance of the offered IP address. The message is either 342 or 576 bytes long, depending on the length of the corresponding DHCPDiscover message.</p>
+</td></tr>
+<tr><td>
+<p>
+DHCPAcknowledge (DHCPAck)</p>
+</td><td>
+<p>
+The selected DHCP server acknowledges the client DHCPRequest for the IP address by sending a DHCPAck packet. At this time the server also forwards any optional configuration parameters. Upon receipt of the DHCPAck, the client can participate on the TCP/IP network and complete its system startup. The message is 342 bytes long.</p>
+</td></tr>
+<tr><td>
+<p>
+DHCPNak</p>
+</td><td>
+<p>
+If the IP address cannot be used by the client because it is no longer valid or is now used by another computer, the DHCP server responds with a DHCPNak packet, and the client must begin the lease process again. Whenever a DHCP server receives a request for an IP address that is invalid according to the scopes that it is configured with, it sends a DHCPNak message to the client.</p>
+</td></tr>
+<tr><td>
+<p>
+DHCPDecline</p>
+</td><td>
+<p>
+If the DHCP client determines the offered configuration parameters are invalid, it sends a DHCPDecline packet to the server, and the client must begin the lease process again.</p>
+</td></tr>
+<tr><td>
+<p>
+DHCPRelease</p>
+</td><td>
+<p>
+A DHCP client sends a DHCPRelease packet to the server to release the IP address and cancel any remaining lease.</p>
+</td></tr>
+<tr><td>
+<p>
+DHCPInform</p>
+</td><td>
+<p>
+DHCPInform is a new DHCP message type, defined in RFC&nbsp;2131, used by computers on the network to request and obtain information from a DHCP server for use in their local configuration. When this message type is used, the sender is already externally configured for its IP address on the network, which may or may not have been obtained using DHCP. This message type is not currently supported by the DHCP service provided in earlier versions of Windows&nbsp;NT Server and may not be recognized by third-party implementations of DHCP software. </p>
+</td></tr>
+</tbody></table>
+
+Simply process in one image:
+
+![image](img/dhcp-works.png)
 
 ## 9.1 Information
 
@@ -1364,4 +1428,17 @@ Other importants points about DHCP:
 | Network		|   IPv4/IPv6
 | Port			|	68 (client) 67 (server)
 
-## 9.3 How SSH works
+# 10. FTP
+
+Other importants points about DHCP:
+
+## 10.1 Information
+
+| Description  | Service
+| -------------	|:-------------
+| Aplication	|	DHCP
+| Transport		|	UDP
+| Network		|   IPv4/IPv6
+| Port			|	68 (client) 67 (server)
+
+## 10.3 How FTP works

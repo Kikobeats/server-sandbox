@@ -1,4 +1,4 @@
-# 2. Understand
+## 1.2 Understand
 
 Internet is the best invent in the last 50 years, and maybe someone can say that is the best invention in the world.
 
@@ -23,7 +23,7 @@ At the end, all is a stack of abstraction. The purpose is having an application 
 
 Now, is time to take action!
 
-## 2.1 Files
+### 1.2.1 Files
 
 **DNS**
 
@@ -61,7 +61,7 @@ Now, is time to take action!
 * `~/.ssh` # Content SSH keys
 
 
-## 2.2 Commands
+### 1.2.2 Commands
 
 **General**
 
