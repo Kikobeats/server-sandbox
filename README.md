@@ -9,19 +9,19 @@
 
 `server for dummies` is an educational project to understand how typical web services work. It's focused in the application layout services, like:
 
-  | Services                     | Transport | Port                                                     | Package
-  | ---------------------------- |:---------:| --------------------------------------------------------:|
-  | DNS (Primary and secundary)  | TCP/UDP   | 53/UDP <br/> 53/TCP                                      | bind9
-  | SMTP                         | TCP       | 25/TCP <br/> 587/TCP (alternative) <br/> 465/TCP (SMTPS) | exim4
-  | POP3                         | TCP       | 110/TCP <br/> 995/TCP (encrypted)                        | dovecot-pop3
-  | IMAP                         | TCP       | 143/TCP <br/> 220/TCP (IMAP3) <br/> 993/TCP (IMAPS)      | soon
-  | LDAP                         | TCP/UDP   | 389 (TCP/UDP)                                            | slapd <br/> ldap-utils
-  | HTTP/HTTPS                   | TCP       | 80                                                       | apache2 <br/> php5
-  | SSH                          | TCP       | 21                                                       | openssh
-  | FTP                          | TCP       | 20/TCP DATA Port <br/> 21/TCP Control Port               | soon
-  | IPSEC                        |           |                                                          | soon
-  | TELNET                       | TCP       | 23                                                       | soon
-  | DHCP                         | UDP       | 67 (server) <br/>68 (client)                             | soon
+  | Services | Transport | Port | Package |
+  |----:|----:|----:|----:|
+  | DNS (Primary and secundary)  | TCP/UDP | 53/UDP <br/> 53/TCP | bind9 |
+  | SMTP | TCP | 25/TCP <br/> 587/TCP (alternative) <br/> 465/TCP (SMTPS) | exim4 |
+  | POP3 | TCP | 110/TCP <br/> 995/TCP (encrypted) | dovecot-pop3 |
+  | IMAP | TCP | 143/TCP <br/> 220/TCP (IMAP3) <br/> 993/TCP (IMAPS) | soon |
+  | LDAP | TCP/UDP | 389 (TCP/UDP) | slapd <br/> ldap-utils |
+  | HTTP/HTTPS | TCP | 80 | apache2 <br/> php5 |
+  | SSH | TCP | 21 | openssh |
+  | FTP | TCP | 20/TCP DATA Port <br/> 21/TCP Control Port | soon |
+  | IPSEC | | | soon |
+  | TELNET | TCP | 23 | soon |
+  | DHCP | UDP | 67 (server) <br/>68 (client) | soon |
 
 For installing all services and get ready your machine for the action, this project has a repository with the original source coude and it is available for everyone.
 
