@@ -11,7 +11,7 @@
 `server for dummies` is an educational project to understand how typical web services work. It's focused in the application layout services, like:
 
   | Services                     | Transport | Port                                                     | Package
-  |                              |           |                                                          | 
+  | ---------------------------- |:---------:| --------------------------------------------------------:|
   | DNS (Primary and secundary)  | TCP/UDP   | 53/UDP <br/> 53/TCP                                      | bind9
   | SMTP                         | TCP       | 25/TCP <br/> 587/TCP (alternative) <br/> 465/TCP (SMTPS) | exim4
   | POP3                         | TCP       | 110/TCP <br/> 995/TCP (encrypted)                        | dovecot-pop3
@@ -71,8 +71,7 @@ For test services connectivity run 'Test services'
 
 ![](img/readme-testing.png)
 
-
-# 1.3. Examples
+## 1.3. Examples
 
 Include:
 
