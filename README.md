@@ -1,7 +1,8 @@
 # 1. Get Started
 
-<img src="img/cover.jpg" alt="" style="width: 50%;">
+## 1.1. Information
 
+<img src="img/cover.jpg" alt="" style="width: 50%;">
 
 ![](https://api.travis-ci.org/Kikobeats/server-for-dummies.png)
 ![](http://imgur.com/7Xir0aL.png)
@@ -30,7 +31,7 @@ Have fun!
 
 **NOTE:** This is only a educational example. Don't use in production.
 
-## 1.1. How to use
+## 1.2. How to use
 
 1) Clone the repo:
 
@@ -59,7 +60,7 @@ USERNAME="josefranciscoverdugambin"
 
 ![](img/readme-main.png)
 	
-## 1.2. Test services
+## 1.3. Test services
 
 All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
@@ -71,7 +72,7 @@ For test services connectivity run 'Test services'
 
 ![](img/readme-testing.png)
 
-## 1.3. Examples
+## 1.4. Examples
 
 Include:
 

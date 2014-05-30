@@ -1,8 +1,9 @@
 
 # 1. Get Started
 
-<img src="img/cover.jpg" alt="" style="width: 50%;">
+## 1.1. Information
 
+<img src="img/cover.jpg" alt="" style="width: 50%;">
 
 ![](https://api.travis-ci.org/Kikobeats/server-for-dummies.png)
 ![](http://imgur.com/7Xir0aL.png)
@@ -31,7 +32,7 @@ Have fun!
 
 **NOTE:** This is only a educational example. Don't use in production.
 
-## 1.1. How to use
+## 1.2. How to use
 
 1) Clone the repo:
 
@@ -60,7 +61,7 @@ USERNAME="josefranciscoverdugambin"
 
 ![](img/readme-main.png)
 	
-## 1.2. Test services
+## 1.3. Test services
 
 All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
@@ -72,7 +73,7 @@ For test services connectivity run 'Test services'
 
 ![](img/readme-testing.png)
 
-## 1.3. Examples
+## 1.4. Examples
 
 Include:
 
@@ -101,6 +102,8 @@ Include:
 
 # 2. Understand
 
+# 2.1. How Internet works
+
 Internet is the best invent in the last 50 years, and maybe someone can say that is the best invention in the world.
 
 First, relax. Internet is not perfect and needs much human value to make it a secure service for daily things, for example, reading your mail, visiting a cats' website, downloading creative commons music and films...
@@ -124,7 +127,7 @@ At the end, all is a stack of abstraction. The purpose is having an application 
 
 Now, is time to take action!
 
-## 2.1. Files
+## 2.2. Files
 
 **DNS**
 
@@ -162,7 +165,7 @@ Now, is time to take action!
 * `~/.ssh` # Content SSH keys
 
 
-## 2.2. Commands
+## 2.3. Commands
 
 **General**
 
