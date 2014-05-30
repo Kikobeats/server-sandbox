@@ -1,6 +1,5 @@
 
-# 1. Introduction
-## 1.1 Get Started
+# 1. Get Started
 
 <img src="img/cover.jpg" alt="" style="width: 50%;">
 
@@ -12,19 +11,19 @@
 
 `server for dummies` is an educational project to understand how typical web services work. It's focused in the application layout services, like:
 
-| Services                     | Transport | Port | Package |
-| -----------------------------|:----------|:-----|:--------|
-| DNS (Primary and secundary)  | TCP/UDP | 53/UDP <br/> 53/TCP | bind9
-| SMTP							| TCP | 25/TCP <br/> 587/TCP (alternative) <br/> 465/TCP (SMTPS) | exim4
-| POP3							| TCP | 110/TCP <br/> 995/TCP (encrypted) | dovecot-pop3
-| IMAP						    | TCP | 143/TCP <br/> 220/TCP (IMAP3) <br/> 993/TCP (IMAPS) | soon
-| LDAP						    | TCP/UDP| 389 (TCP/UDP) | slapd <br/> ldap-utils
-| HTTP/HTTPS   				    | TCP | 80 | apache2 <br/> php5
-| SSH						    | TCP | 21 | openssh
-| FTP						    | TCP | 20/TCP DATA Port <br/> 21/TCP Control Port| soon
-| IPSEC						    | | | soon
-| TELNET					    | TCP | 23 | soon
-| DHCP							| UDP | 67 (server) <br/>68 (client) | soon
+  | Services                     | Transport | Port                                                     | Package
+  |                              |           |                                                          | 
+  | DNS (Primary and secundary)  | TCP/UDP   | 53/UDP <br/> 53/TCP                                      | bind9
+  | SMTP                         | TCP       | 25/TCP <br/> 587/TCP (alternative) <br/> 465/TCP (SMTPS) | exim4
+  | POP3                         | TCP       | 110/TCP <br/> 995/TCP (encrypted)                        | dovecot-pop3
+  | IMAP                         | TCP       | 143/TCP <br/> 220/TCP (IMAP3) <br/> 993/TCP (IMAPS)      | soon
+  | LDAP                         | TCP/UDP   | 389 (TCP/UDP)                                            | slapd <br/> ldap-utils
+  | HTTP/HTTPS                   | TCP       | 80                                                       | apache2 <br/> php5
+  | SSH                          | TCP       | 21                                                       | openssh
+  | FTP                          | TCP       | 20/TCP DATA Port <br/> 21/TCP Control Port               | soon
+  | IPSEC                        |           |                                                          | soon
+  | TELNET                       | TCP       | 23                                                       | soon
+  | DHCP                         | UDP       | 67 (server) <br/>68 (client)                             | soon
 
 For installing all services and get ready your machine for the action, this project has a repository with the original source coude and it is available for everyone.
 
@@ -32,7 +31,7 @@ Have fun!
 
 **NOTE:** This is only a educational example. Don't use in production.
 
-### 1.1.1 How to use
+## 1.1. How to use
 
 1) Clone the repo:
 
@@ -61,7 +60,7 @@ USERNAME="josefranciscoverdugambin"
 
 ![](img/readme-main.png)
 	
-### 1.1.2 Test services
+## 1.2. Test services
 
 All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
@@ -74,7 +73,7 @@ For test services connectivity run 'Test services'
 ![](img/readme-testing.png)
 
 
-### 1.1.3 Examples
+# 1.3. Examples
 
 Include:
 
@@ -101,7 +100,7 @@ Include:
 
 ![](img/readme-ssh.png)
 
-## 1.2 Understand
+# 2. Understand
 
 Internet is the best invent in the last 50 years, and maybe someone can say that is the best invention in the world.
 
@@ -126,7 +125,7 @@ At the end, all is a stack of abstraction. The purpose is having an application 
 
 Now, is time to take action!
 
-### 1.2.1 Files
+## 2.1. Files
 
 **DNS**
 
@@ -164,7 +163,7 @@ Now, is time to take action!
 * `~/.ssh` # Content SSH keys
 
 
-### 1.2.2 Commands
+## 2.2. Commands
 
 **General**
 
@@ -267,23 +266,13 @@ When you need to know the IP about a record, you request this at your DNS with a
 
 ![](img/dns-quote.png)
 
-## 3.1 Information
-
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	DNS
-| Transport		|	TCP/UDP
-| Network		|   IPv4/IPv6
-| Ports			|	53/UDP, 53/TCP
-
-
 Check typical DNS records [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types).
 
-## 3.2 Mount your own DNS
+## 3.1. Mount your own DNS
 
 Only need have set up your service locally and this will connect with ICANN nodes to resolve web adress. And you can resolve custom name locally if you have not bought the domain name.
 
-### 3.2.1 Your DNS in the client
+### 3.1.1. Your DNS in the client
 
 You need to say at your client that use your DNS to resolve names. Run the script and select this options:
 
@@ -305,7 +294,7 @@ nameserver $SECONDARY_DNS
 
 In my case have two servers for primary and secondary DNS.
 
-### 3.2.2 Your DNS in the server
+### 3.1.2. Your DNS in the server
 
 Server configuration is also simple, but it requires a few extra steps.
 
@@ -373,7 +362,7 @@ echo "zone \"$DNS_NAME.\" IN {
 }
 ```
 
-## 3.3 Check connectivity
+## 3.2. Check connectivity
 
 You can check connectivity in the client with two commands:
 
@@ -381,11 +370,11 @@ You can check connectivity in the client with two commands:
 
 ![](img/dns-look.png)
 
-## 3.4 How DNS works
+## 3.3. How DNS works
 
 ![](img/dns-header.jpg)
 
-### 3.4.1 Internal query
+### 3.3.1. Internal query
 
 For the example, I runt `dig st.um` command and see in the wireshark what happens:
 
@@ -397,7 +386,7 @@ The server respond me. In the `answer` entry of the header you can see the IP of
 
 ![](img/dns-2.png)
 
-### 3.4.2 External query
+### 3.3.2. External query
 
 This process is similar to internal query, but now depend of external DNS.
 
@@ -477,24 +466,13 @@ This code was defined in 1998 as one of the traditional IETF April Fools' jokes,
 
 ![](img/http-code.png)
 
-## 4.1 Information
+## 4.1. Mount your HTTP
 
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	HTTP
-| Transport		|	TCP
-| Network		|   IPv4/IPv6
-| Port   		|	80
-
-
-## 4.2 Mount your HTTP
-
-### 4.2.1 Your HTTP in the client
+### 4.1.1. Your HTTP in the client
 
 If you have a Browser and/or terminal, you don't need additional things.
 
-
-### 4.2.1 Your HTTP in the server
+### 4.1.2. Your HTTP in the server
 
 We use **apache** and **php**.
 
@@ -513,7 +491,7 @@ This files are defined in `Services/example/` and with the script we go to copy 
 * We copy the files of the apache authentication methd  `Services/example/groups` to `/etc/apache2/groups`
 
 
-## 4.3 Check connectivity
+## 4.2. Check connectivity
 
 Run client browser and go to url examples:
 
@@ -534,7 +512,7 @@ Alternative you can do it with terminal and you get the source code of the websi
 
 ![](img/http-terminal.png)
 
-## 4.4 How HTTP works
+## 4.3. How HTTP works
 
 ![](img/http-works.png)
 
@@ -606,21 +584,12 @@ The resume of the process in one image:
 
 The complexities of the SSL protocol remain invisible to your customers. Instead their browsers provide them with a key indicator to let them know they are currently protected by an SSL encrypted session - the lock icon in the lower right-hand corner, clicking on the lock icon displays your SSL Certificate and the details about it. All SSL Certificates are issued to either companies or legally accountable individuals.
 
-## 5.1 Information
-
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	SSL
-| Transport		|	TCP
-| Network		|   IPv4/IPv6
-| Ports			|	80 (with HTTP)
-
-## 5.2 Mount your SSL
-### 5.2.1 SSL in the client
+## 5.1. Mount your SSL
+### 5.1.1. SSL in the client
 
 If the server has done its homework anything is necessary in the client, only have a modern browser and the `*.pem` to load it (see part of SSL in the server).
 
-### 5.2.2 SSL in the server
+### 5.1.2. SSL in the server
 
 For have SSL in HTTP known as HTTPS first you need to have HTTP service.
 
@@ -711,9 +680,9 @@ openssl s_server -cert servercert.pem -key serverkey.pem -CAfile clientcert.pem
 
 ![](img/ssl-test.png)
 
-## 5.3 Check connectivity
+## 5.2. Check connectivity
 
-## 5.4 How SSL Works
+## 5.3. How SSL Works
 
 Resume of the process:
 
@@ -793,22 +762,13 @@ An RDN is an attribute with an associated value in the form attribute=value; nor
 <tr><td><strong>UID</strong></td><td>userid</td></tr>
 </tbody></table>
 
-## 6.1 Information
 
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	LDAP
-| Transport		|	TCP/UDP
-| Network		|   IPv4/IPv6
-| Ports			|	389 (TCP/UDP)
-
-
-## 6.2 Mount your LDAP
-### 6.2.1 Your LDAP in the client
+## 6.1. Mount your LDAP
+### 6.1.1. Your LDAP in the client
 
 For search in the LDAP client need to install **ldap-utils** command. Later We can configure your typical mail client (Thunderbild, for example) to search in the LDAP when you need a compose a mail and need to know the destination account.
 
-### 6.2.2 Your LDAP in the server
+### 6.1.2. Your LDAP in the server
 
 In the server need to install **slapd** service configue the database schema and insert sample data. In this case we have the defintions of the data and the information in the `Services/LDAP/*.dif` files and use `Services/LDAP/server.sh` for boostrapping process. This is set up when you choice install LDAP:
 
@@ -838,19 +798,17 @@ echo " * Inserting LDAP data..."
 sudo ldapmodify -D "cn=admin,o=um,c=es" -W -H ldap:/// -f "$DIR"/st.ldif;
 ```
 
-
-## 6.3 Check connectivity
+## 6.2. Check connectivity
 
 ![](img/ldap-search.png)
 
-## 6.4 How LDAP works
+## 6.3. How LDAP works
 
 ![](img/ldap-iteration.png)
 
 Resume:
 
 ![](img/ldap-resume.png)
-
 
 1) BindRequest (Authentication)
 
@@ -875,7 +833,6 @@ Resume:
 6) unbinRequest
 
 ![](img/ldap-6.png)
-
 
 # 7. Mail
 
@@ -933,35 +890,9 @@ The protocol established different states for the connection. Internally, when t
 
 ![](img/imap-state.png)
 
+## 7.1. Mount your Mail
 
-## 7.1 Information
-
-
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	SMTP
-| Transport		|	TCP
-| Network		|   IPv4/IPv6
-| Ports			|	25/TCP, 587/TCP (alternative), 465/TCP (SMTPS)
-
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	POP3
-| Transport		|	TCP
-| Network		|   IPv4/IPv6
-| Ports			|	110/TCP, 995/TCP (encrypted)
-
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	IMAP
-| Transport		|	TCP
-| Network		|   IPv4/IPv6
-| Ports			|	143/TCP, 220/TCP (IMAP3), 993/TCP (IMAPS)
-
-
-## 7.2 Mount your Mail
-
-### 7.2.1 Your Mail in the server
+### 7.1.1 Your Mail in the server
 
 we will set up two typical services for mail:
 
@@ -1041,14 +972,14 @@ The differences between POP3 and IMAP are littles but importants:
 
 
 
-### 7.2.3 Configuring POP3
+### 7.1.2. Configuring POP3
 
 ![](img/pop.png)
 
 1. Install the service **dovecot** for use POP3 in your server.
 2. Configure defaults options in `/etc/dovecot/conf.d/10-auth.conf` and `/etc/dovecot/conf.d/10-mail.conf`.
 
-### 7.2.2 Configuring SMTP
+### 7.1.3. Configuring SMTP
 
 ![](img/smtp.png)
 
@@ -1071,22 +1002,22 @@ dc_mailname_in_oh='true'
 dc_localdelivery='maildir_home'
 ```
 
-## 7.3 Check connectivity
+## 7.2. Check connectivity
 
 For the test first we ping the DNS service and later do a telnet in the port of the service.
 
-### 7.3.1 SMTP
+### 7.2.1. SMTP
 
 ![](img/telnet-smtp.png)
 
-### 7.3.2 POP3
+### 7.2.2. POP3
 
 ![](img/telnet-pop.png)
 
 
-## 7.4 How Mail Works
+## 7.3. How Mail Works
 
-### 7.4.1 SMTP
+### 7.3.1. SMTP
 
 ![](img/smtp-header.jpg)
 
@@ -1146,9 +1077,7 @@ Resume
 
 ![](img/smtp-14.png)
 
-
-
-### 7.4.1 POP3
+### 7.3.2. POP3
 
 The most commonly used commands in a POP3 connection are as follows:
 
@@ -1255,18 +1184,9 @@ SSH (*Secure Shell*)  is a cryptographic network protocol for secure data commun
 
 It was designed as a replacement for Telnet and other insecure remote shell protocols such as the Berkeley rsh and rexec protocols, which send information, notably passwords, in plaintext, rendering them susceptible to interception and disclosure using packet analysis. The encryption used by SSH is intended to provide confidentiality and integrity of data over an unsecured network, such as the Internet.
 
-## 8.1 Information
+## 8.1. Mount your SSH
 
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	SSH
-| Transport		|	TCP
-| Network		|   IPv4/IPv6
-| Port			|	21
-
-## 8.2 Mount your SSH
-
-### 8.2.2 Your SSH in the client
+### 8.1.1. Your SSH in the client
 
 The client needs **openssh-client** that is usually installed on UNIX systems default
 
@@ -1295,15 +1215,15 @@ Your identification has been saved in /Users/you/.ssh/id_rsa.
 # 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com
 ```
 
-### 8.2.1 Your SSH in the server
+### 8.1.2. Your SSH in the server
 
 Only need to install **openssh-server**.
 
-## 8.3 Check connectivity
+## 8.2. Check connectivity
 
 ![](img/ssh-connect.png)
 
-## 8.3 How SSH works
+## 8.3. How SSH works
 
 Resume of messages:
 
@@ -1419,26 +1339,4 @@ Simply process in one image:
 
 ![image](img/dhcp-works.png)
 
-## 9.1 Information
-
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	DHCP
-| Transport		|	UDP
-| Network		|   IPv4/IPv6
-| Port			|	68 (client) 67 (server)
-
 # 10. FTP
-
-Other importants points about DHCP:
-
-## 10.1 Information
-
-| Description  | Service
-| -------------	|:-------------
-| Aplication	|	DHCP
-| Transport		|	UDP
-| Network		|   IPv4/IPv6
-| Port			|	68 (client) 67 (server)
-
-## 10.3 How FTP works

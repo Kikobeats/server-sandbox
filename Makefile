@@ -9,13 +9,16 @@ markdown=dist/markdown
 epub=dist/epub
 pdf=dist/pdf
 
+# other
+readme='01. Started.md'
+
 all: prepare markdown epub pdf mobi
 
 prepare:
 	cp -R Documentation/img/ img
 	rm -f README.md
-	cp Documentation/01_started.md .
-	mv 01_started.md README.md
+	cp Documentation/$(readme) .
+	mv $(readme) README.md
 
 markdown:
 	mkdir -p $(markdown)
