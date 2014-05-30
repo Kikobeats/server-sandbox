@@ -1,8 +1,6 @@
 
 # 1. Get Started
 
-## 1.1. Information
-
 <img src="img/cover.jpg" alt="" style="width: 50%;">
 
 ![](https://api.travis-ci.org/Kikobeats/server-for-dummies.png)
@@ -32,7 +30,7 @@ Have fun!
 
 **NOTE:** This is only a educational example. Don't use in production.
 
-## 1.2. How to use
+## 1.1. How to use
 
 1) Clone the repo:
 
@@ -61,7 +59,7 @@ USERNAME="josefranciscoverdugambin"
 
 ![](img/readme-main.png)
 	
-## 1.3. Test services
+## 1.2. Test services
 
 All services have been tested in VM VMWare under Ubuntu Server 12.04:
 
@@ -73,7 +71,7 @@ For test services connectivity run 'Test services'
 
 ![](img/readme-testing.png)
 
-## 1.4. Examples
+## 1.3. Examples
 
 Include:
 
@@ -102,8 +100,6 @@ Include:
 
 # 2. Understand
 
-## 2.1. How Internet works
-
 Internet is the best invent in the last 50 years, and maybe someone can say that is the best invention in the world.
 
 First, relax. Internet is not perfect and needs much human value to make it a secure service for daily things, for example, reading your mail, visiting a cats' website, downloading creative commons music and films...
@@ -127,7 +123,7 @@ At the end, all is a stack of abstraction. The purpose is having an application 
 
 Now, is time to take action!
 
-## 2.2. Files
+## 2.1. Files
 
 **DNS**
 
@@ -165,7 +161,7 @@ Now, is time to take action!
 * `~/.ssh` # Content SSH keys
 
 
-## 2.3. Commands
+## 2.2. Commands
 
 **General**
 
@@ -1342,3 +1338,109 @@ Simply process in one image:
 ![image](img/dhcp-works.png)
 
 # 10. FTP
+
+The **File Transfer Protocol** (*FTP*) is a standard network protocol used to transfer computer files from one host to another host over a TCP-based network, such as the Internet.
+
+The FTP protocol is divided in two ways: **Protcol interpreter** and **data transfer process**.
+
+![](img/ftp-works.png)
+
+In the client, the ports for PI and DTP are not established. Can be any free port. In the server is typical use 21 and 20 port respectively.
+Aslo, FTP can work in two modes:
+
+**FTP in Active mode**
+
+In active mode, the client have to open a port to communicate with the server.
+
+* Client init connection with server PI and send command `PORT` to indicate the port that server need to init a TCP connection.
+* Server create TCP connection and delegate in DTP to send the data.
+
+![](img/ftp-active.png)
+
+This mode has two inconvenients:
+
+* The client connection is not secure. Client have to accept all trafic in the port of the data, and this is very dangerous.
+* Don't work fine if client have a firewall.
+
+**FTP in Passive mode**
+
+The idea is fix problem in active mode. In this case, the client negotiate the TCP connection with the server and say him that open a port for transfer data.
+
+* The process is similar to Active mode but in the case client send the command `PASV` to indicate passive mode and the server response with the number of port that can be use. (>1024).
+* The client init the TCP connection with the server port.
+
+![](img/ftp-passive.png)
+
+<table class="ccm" cellspacing="0" cellpadding="0" width="550">
+<tbody><tr>
+<th height="22" colspan="2" width="100%">Access control commands
+</th></tr>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>USER</td>
+<td>Character string allowing the user to be identified. User identification is necessary to establish communication over the data channel.</td>
+</tr>
+<tr>
+<td>PASS</td>
+<td>Character string specifying the user's password. This command must immediately precede the <i>USER</i> command. It falls to the client to hide the display of this command for security reasons.</td>
+</tr>
+<tr>
+<td>ACCT</td>
+<td>Character string representing the user's account. The command is generally not necessary. During the response accepting the password, if the response is 230 this stage is not necessary, if the response is 332, it is.</td>
+</tr>
+<tr>
+<td>CWD</td>
+<td><i>Change Working Directory</i>: this command enables the current directory to be changed. This command requires the directory's access path 
+
+to be fulfilled as an argument.</td>
+</tr>
+<tr>
+<td>CDUP</td>
+<td><i>Change to Parent Directory</i>: this command allows you to go back to the parent directory. It was introduced to solve problems of naming the parent directory according to the system (generally "<i>..</i>").</td>
+</tr>
+<tr>
+<td>SMNT</td>
+<td><i>Structure Mount</i>: </td>
+</tr>
+<tr>
+<td>REIN</td>
+<td><i>Reinitialize</i>: </td>
+</tr>
+<tr>
+<td>QUIT</td>
+<td>Command enabling the current session to be terminated. The server waits to finish the transfer in progress if the need arises, then supplies a response before closing the connection.</td>
+</tr>
+</tbody></table>
+
+<table class="ccm" cellspacing="0" cellpadding="0" width="550">
+<tbody><tr>
+<th height="22" colspan="2" width="100%">Transfer parameter commands
+</th></tr>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>PORT</td>
+<td>Character string allowing the port number used to be specified.</td>
+</tr>
+<tr>
+<td>PASV</td>
+<td>Command making it possible to indicate to the DTP server to stand by for a connection on a specific port chosen randomly from among the available ports. The response to this command is the IP address of the machine and port.</td>
+</tr>
+<tr>
+<td>TYPE</td>
+<td>This command enables the type of format in which the data will be sent to be specified.</td>
+</tr>
+<tr>
+<td>STRU</td>
+<td>Telnet character specifying the file structure (F for <i>File</i>, R for <i>Record</i>, P for <i>Page</i>).</td>
+</tr>
+<tr>
+<td>MODE</td>
+<td>Telnet character specifying data transfer method (S for <i>Stream</i>, B for <i>Block</i>, C for <i>Compressed</i>).</td>
+</tr>
+</tbody></table>
