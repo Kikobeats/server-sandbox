@@ -7,7 +7,7 @@ module.exports = (grunt) ->
     "gh-pages":
       options:
         base: 'build/website'
-        branch: 'master'
+        branch: 'gh-pages'
         repo: 'https://github.com/Kikobeats/server-for-dummies.git'
       src: ['**/*']
 
