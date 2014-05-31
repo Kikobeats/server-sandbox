@@ -1,12 +1,14 @@
 CACHE MANIFEST
-# Revision 1401547518763
+# Revision 1401548521499
 
 CACHE:
-index.html
 01. Started/01. Introduction.html
 01. Started/02. How to use.html
 01. Started/03. Test services.html
 01. Started/04. Examples.html
+02. Understand/01. Introduction.html
+02. Understand/02. Files.html
+02. Understand/03. Commands.html
 03. Services/DHCP/01. Introduction.html
 03. Services/DNS/01. Introduction.html
 03. Services/DNS/02. Client.html
@@ -34,9 +36,7 @@ index.html
 03. Services/SSL/03. Server.html
 03. Services/SSL/04. Connectivity.html
 03. Services/SSL/05. How works.html
-02. Understand/01. Introduction.html
-02. Understand/02. Files.html
-02. Understand/03. Commands.html
+index.html
 gitbook/app.js
 gitbook/fonts/anonymouspro/400.woff
 gitbook/fonts/anonymouspro/400i.woff
