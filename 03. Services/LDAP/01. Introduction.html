@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="6" data-basepath="../.." data-revision="1401548521499">
+    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="6" data-basepath="../.." data-revision="1401571290538">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -709,6 +709,84 @@
 <p>LDAP object are referenced  by its <strong>Distinguished Name</strong> (<em>DN</em>). A DN is a sequence of <strong>Relative Distinguished Names</strong> (<em>RDN</em>) connected by commas.</p>
 <p>An RDN is an attribute with an associated value in the form attribute=value; normally expressed in a UTF-8 string format.</p>
 <p><img src="../../assets/ldap-tree.png" alt=""></p>
+<p>Each entry is a <strong>ObjectClass</strong> that can contain a define type of attributes.</p>
+<h2 id="ldap-structure">LDAP Structure</h2>
+<p>LDAP is structured in entry. The first entry of a LDAP is simulated. </p>
+<p>Typically LDAP have the form of a tree, but not always is it because can be entries that are <em>alias</em> of a other entry.</p>
+<p>The entry of a LDAP is limited:</p>
+<ul>
+<li><strong>STRUCTURAL</strong>: Is the ObjectClass that define the entry</li>
+<li><strong>AUXILIARY</strong>: When the Objectclass is a parent of a other ObjectClass. The <em>root ObjectClass</em> is <code>top</code></li>
+<li><strong>ABSTRACT</strong>: Optional ObjectClass that the entry can be container.</li>
+</ul>
+<p><img src="../../assets/ldap-structure.png" alt="image"></p>
+<p><strong>Commonly Used ObjectClass</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Top</th>
+<th>Atribute required</th>
+<th>Atribute Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>top</td>
+<td></td>
+<td>objectClass</td>
+<td></td>
+</tr>
+<tr>
+<td>alias</td>
+<td>top</td>
+<td>aliasedObjectClass</td>
+<td></td>
+</tr>
+<tr>
+<td>person</td>
+<td>top</td>
+<td></td>
+<td>description, seeAlso,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>telephoneNumber,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>userPassword</td>
+</tr>
+<tr>
+<td>organizationalPerson</td>
+<td>person</td>
+<td></td>
+<td>l, ou, postalAdress,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>postalCode, st, street, title</td>
+</tr>
+<tr>
+<td>inetOrgPerson</td>
+<td>organizationalPerson</td>
+<td></td>
+<td>jpegPhoto, mail,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>uid, o, userCertificate,...</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Commonly Used Attributes</strong></p>
 <table>
 <tbody><tr><th>String</th><th>Attribute type</th></tr>
@@ -722,6 +800,7 @@
 <tr><td><strong>C</strong></td><td>countryName</td></tr>
 <tr><td><strong>UID</strong></td><td>userid</td></tr>
 </tbody></table>
+
                     
                     </section>
                 

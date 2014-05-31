@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="3" data-basepath="../.." data-revision="1401548521499">
+    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="3" data-basepath="../.." data-revision="1401571290538">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -752,8 +752,14 @@ special services to the domain.</td>
 </tr>
 </tbody></table>
 
-<p>When you need to know the IP about a record, you request this at your DNS with a query. The query is recursive request and is completed when DNS found the record of the domain that you need:</p>
+<h2 id="dns-query">DNS Query</h2>
+<p>The better way to explain the process is with a example.</p>
+<p>You need to know the resolve of <code>www.google.com</code> domain. You do a query of your server and this first search in the local database with <code>.com</code> then <code>google</code> and then the record <code>www</code>. This is known as <strong>iterative query</strong>: you first search a general node, and later descent for the node and search the next element. </p>
+<p>If the domain can&#39;t be resolve in this DNS, the DNS can be delegate in other server. This is known as <strong>recursive query</strong>: Delegate in other dns server to resolve the query.</p>
+<p>The rerve that respond the query is indicate in the <strong>AA</strong> (<em>Authoritative Answer</em>). Its possible that for each zone have more than one DNS name server. This is known as <strong>Primary</strong> and <strong>Secondary</strong> DNS of the zone and data redundancy is a measure of safety and reliability.</p>
 <p><img src="../../assets/dns-quote.png" alt=""></p>
+<p>In easy see this in the DNS response message:</p>
+<p><img src="../../assets/dns-response.png" alt=""></p>
 <p>Check typical DNS records <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types" target="_blank">here</a>.</p>
 
                     
