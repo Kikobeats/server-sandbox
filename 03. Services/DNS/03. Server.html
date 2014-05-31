@@ -1,0 +1,785 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../../manifest.appcache">
+    
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        
+        <meta charset="UTF-8">
+        <title>Server | Server for dummies</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="">
+        <meta name="description" content="Configure a server to provide typical services">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="../../03. Services/DNS/04. Connectivity.html" />
+        
+        
+        <link rel="prev" href="../../03. Services/DNS/02. Client.html" />
+        
+
+        <meta property="og:title" content="Server | Server for dummies">
+        <meta property="og:site_name" content="Server for dummies">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    </head>
+    <body>
+        
+        
+
+        <link rel="stylesheet" href="../../gitbook/style.css">
+        
+
+
+        
+    <div class="book"  data-level="3.2" data-basepath="../.." data-revision="1401547518762">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../../" >Server for dummies</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+
+        
+
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="01. Started/01. Introduction.html">
+            
+            <a href="../../01. Started/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>1.</b> Started
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01. Started/02. How to use.html">
+            
+            <a href="../../01. Started/02. How to use.html">
+                <i class="fa fa-check"></i> <b>1.1.</b> How to use
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01. Started/03. Test services.html">
+            
+            <a href="../../01. Started/03. Test services.html">
+                <i class="fa fa-check"></i> <b>1.2.</b> Test services
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="01. Started/04. Examples.html">
+            
+            <a href="../../01. Started/04. Examples.html">
+                <i class="fa fa-check"></i> <b>1.3.</b> Examples
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="02. Understand/01. Introduction.html">
+            
+            <a href="../../02. Understand/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>2.</b> Understand
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="02. Understand/02. Files.html">
+            
+            <a href="../../02. Understand/02. Files.html">
+                <i class="fa fa-check"></i> <b>2.1.</b> Files
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="02. Understand/03. Commands.html">
+            
+            <a href="../../02. Understand/03. Commands.html">
+                <i class="fa fa-check"></i> <b>2.2.</b> Commands
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="03. Services/DNS/01. Introduction.html">
+            
+            <a href="../../03. Services/DNS/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>3.</b> DNS
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="03. Services/DNS/02. Client.html">
+            
+            <a href="../../03. Services/DNS/02. Client.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> Client
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="03. Services/DNS/03. Server.html">
+            
+            <a href="../../03. Services/DNS/03. Server.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> Server
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="03. Services/DNS/04. Connectivity.html">
+            
+            <a href="../../03. Services/DNS/04. Connectivity.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> Connectivity
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="03. Services/DNS/05. How works.html">
+            
+            <a href="../../03. Services/DNS/05. How works.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> How works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="03. Services/HTTP/01. Introduction.html">
+            
+            <a href="../../03. Services/HTTP/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>4.</b> HTTP
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="03. Services/HTTP/02. Client.html">
+            
+            <a href="../../03. Services/HTTP/02. Client.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> Client
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="03. Services/HTTP/03. Server.html">
+            
+            <a href="../../03. Services/HTTP/03. Server.html">
+                <i class="fa fa-check"></i> <b>4.2.</b> Server
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="03. Services/HTTP/04. Connectivity.html">
+            
+            <a href="../../03. Services/HTTP/04. Connectivity.html">
+                <i class="fa fa-check"></i> <b>4.3.</b> Connectivity
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="03. Services/HTTP/05. How works.html">
+            
+            <a href="../../03. Services/HTTP/05. How works.html">
+                <i class="fa fa-check"></i> <b>4.4.</b> How works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="03. Services/SSL/01. Introduction.html">
+            
+            <a href="../../03. Services/SSL/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>5.</b> SSL
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="03. Services/SSL/02. Client.html">
+            
+            <a href="../../03. Services/SSL/02. Client.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> Client
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="03. Services/SSL/03. Server.html">
+            
+            <a href="../../03. Services/SSL/03. Server.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> Server
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="03. Services/SSL/04. Connectivity.html">
+            
+            <a href="../../03. Services/SSL/04. Connectivity.html">
+                <i class="fa fa-check"></i> <b>5.3.</b> Connectivity
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="03. Services/SSL/05. How works.html">
+            
+            <a href="../../03. Services/SSL/05. How works.html">
+                <i class="fa fa-check"></i> <b>5.4.</b> How works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="03. Services/LDAP/01. Introduction.html">
+            
+            <a href="../../03. Services/LDAP/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>6.</b> LDAP
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="03. Services/LDAP/02. Client.html">
+            
+            <a href="../../03. Services/LDAP/02. Client.html">
+                <i class="fa fa-check"></i> <b>6.1.</b> Client
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="03. Services/LDAP/03. Server.html">
+            
+            <a href="../../03. Services/LDAP/03. Server.html">
+                <i class="fa fa-check"></i> <b>6.2.</b> Server
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="03. Services/LDAP/04. Connectivity.html">
+            
+            <a href="../../03. Services/LDAP/04. Connectivity.html">
+                <i class="fa fa-check"></i> <b>6.3.</b> Connectivity
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="03. Services/LDAP/05. How works.html">
+            
+            <a href="../../03. Services/LDAP/05. How works.html">
+                <i class="fa fa-check"></i> <b>6.4.</b> How works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="03. Services/Mai/01. Introduction.html">
+            
+            <a href="../../03. Services/Mai/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>7.</b> Mail
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="03. Services/Mai/02. Client.html">
+            
+            <a href="../../03. Services/Mai/02. Client.html">
+                <i class="fa fa-check"></i> <b>7.1.</b> Client
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="03. Services/Mai/03. Server.html">
+            
+            <a href="../../03. Services/Mai/03. Server.html">
+                <i class="fa fa-check"></i> <b>7.2.</b> Server
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="03. Services/Mai/04. Connectivity.html">
+            
+            <a href="../../03. Services/Mai/04. Connectivity.html">
+                <i class="fa fa-check"></i> <b>7.3.</b> Connectivity
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="03. Services/Mai/05. How works.html">
+            
+            <a href="../../03. Services/Mai/05. How works.html">
+                <i class="fa fa-check"></i> <b>7.4.</b> How works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="03. Services/SSL/01. Introduction.html">
+            
+            <a href="../../03. Services/SSL/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>8.</b> SSL
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="03. Services/SSL/02. Client.html">
+            
+            <a href="../../03. Services/SSL/02. Client.html">
+                <i class="fa fa-check"></i> <b>8.1.</b> Client
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="03. Services/SSL/03. Server.html">
+            
+            <a href="../../03. Services/SSL/03. Server.html">
+                <i class="fa fa-check"></i> <b>8.2.</b> Server
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="03. Services/SSL/04. Connectivity.html">
+            
+            <a href="../../03. Services/SSL/04. Connectivity.html">
+                <i class="fa fa-check"></i> <b>8.3.</b> Connectivity
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="03. Services/SSL/05. How works.html">
+            
+            <a href="../../03. Services/SSL/05. How works.html">
+                <i class="fa fa-check"></i> <b>8.4.</b> How works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="03. Services/SSH/01. Introduction.html">
+            
+            <a href="../../03. Services/SSH/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>9.</b> SSH
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="03. Services/SSH/02. Client.html">
+            
+            <a href="../../03. Services/SSH/02. Client.html">
+                <i class="fa fa-check"></i> <b>9.1.</b> Client
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="03. Services/SSH/03. Server.html">
+            
+            <a href="../../03. Services/SSH/03. Server.html">
+                <i class="fa fa-check"></i> <b>9.2.</b> Server
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="03. Services/SSH/04. Connectivity.html">
+            
+            <a href="../../03. Services/SSH/04. Connectivity.html">
+                <i class="fa fa-check"></i> <b>9.3.</b> Connectivity
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="03. Services/SSH/05. How works.html">
+            
+            <a href="../../03. Services/SSH/05. How works.html">
+                <i class="fa fa-check"></i> <b>9.4.</b> How works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="03. Services/DHCP/01. Introduction.html">
+            
+            <a href="../../03. Services/DHCP/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>10.</b> DHCP
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="03. Services/FTP/01. Introduction.html">
+            
+            <a href="../../03. Services/FTP/01. Introduction.html">
+                <i class="fa fa-check"></i> <b>11.</b> FTP
+            </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 25.641025641025642%;min-width: 23.076923076923077%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../../01. Started/01. Introduction.html" title="Started" class="chapter done new-chapter" data-progress="1" style="left: 2.5641025641025643%;"></a>
+    
+        <a href="../../01. Started/02. How to use.html" title="How to use" class="chapter done " data-progress="1.1" style="left: 5.128205128205129%;"></a>
+    
+        <a href="../../01. Started/03. Test services.html" title="Test services" class="chapter done " data-progress="1.2" style="left: 7.6923076923076925%;"></a>
+    
+        <a href="../../01. Started/04. Examples.html" title="Examples" class="chapter done " data-progress="1.3" style="left: 10.256410256410257%;"></a>
+    
+        <a href="../../02. Understand/01. Introduction.html" title="Understand" class="chapter done new-chapter" data-progress="2" style="left: 12.820512820512821%;"></a>
+    
+        <a href="../../02. Understand/02. Files.html" title="Files" class="chapter done " data-progress="2.1" style="left: 15.384615384615385%;"></a>
+    
+        <a href="../../02. Understand/03. Commands.html" title="Commands" class="chapter done " data-progress="2.2" style="left: 17.94871794871795%;"></a>
+    
+        <a href="../../03. Services/DNS/01. Introduction.html" title="DNS" class="chapter done new-chapter" data-progress="3" style="left: 20.512820512820515%;"></a>
+    
+        <a href="../../03. Services/DNS/02. Client.html" title="Client" class="chapter done " data-progress="3.1" style="left: 23.076923076923077%;"></a>
+    
+        <a href="../../03. Services/DNS/03. Server.html" title="Server" class="chapter done " data-progress="3.2" style="left: 25.641025641025642%;"></a>
+    
+        <a href="../../03. Services/DNS/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="3.3" style="left: 28.205128205128204%;"></a>
+    
+        <a href="../../03. Services/DNS/05. How works.html" title="How works" class="chapter  " data-progress="3.4" style="left: 30.76923076923077%;"></a>
+    
+        <a href="../../03. Services/HTTP/01. Introduction.html" title="HTTP" class="chapter  new-chapter" data-progress="4" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../../03. Services/HTTP/02. Client.html" title="Client" class="chapter  " data-progress="4.1" style="left: 35.8974358974359%;"></a>
+    
+        <a href="../../03. Services/HTTP/03. Server.html" title="Server" class="chapter  " data-progress="4.2" style="left: 38.46153846153846%;"></a>
+    
+        <a href="../../03. Services/HTTP/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="4.3" style="left: 41.02564102564103%;"></a>
+    
+        <a href="../../03. Services/HTTP/05. How works.html" title="How works" class="chapter  " data-progress="4.4" style="left: 43.58974358974359%;"></a>
+    
+        <a href="../../03. Services/LDAP/01. Introduction.html" title="LDAP" class="chapter  new-chapter" data-progress="6" style="left: 46.15384615384615%;"></a>
+    
+        <a href="../../03. Services/LDAP/02. Client.html" title="Client" class="chapter  " data-progress="6.1" style="left: 48.717948717948715%;"></a>
+    
+        <a href="../../03. Services/LDAP/03. Server.html" title="Server" class="chapter  " data-progress="6.2" style="left: 51.282051282051285%;"></a>
+    
+        <a href="../../03. Services/LDAP/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="6.3" style="left: 53.84615384615385%;"></a>
+    
+        <a href="../../03. Services/LDAP/05. How works.html" title="How works" class="chapter  " data-progress="6.4" style="left: 56.41025641025641%;"></a>
+    
+        <a href="../../03. Services/Mai/01. Introduction.html" title="Mail" class="chapter  new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
+    
+        <a href="../../03. Services/Mai/02. Client.html" title="Client" class="chapter  " data-progress="7.1" style="left: 61.53846153846154%;"></a>
+    
+        <a href="../../03. Services/Mai/03. Server.html" title="Server" class="chapter  " data-progress="7.2" style="left: 64.1025641025641%;"></a>
+    
+        <a href="../../03. Services/Mai/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="7.3" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../../03. Services/Mai/05. How works.html" title="How works" class="chapter  " data-progress="7.4" style="left: 69.23076923076923%;"></a>
+    
+        <a href="../../03. Services/SSL/01. Introduction.html" title="SSL" class="chapter  new-chapter" data-progress="8" style="left: 71.7948717948718%;"></a>
+    
+        <a href="../../03. Services/SSL/02. Client.html" title="Client" class="chapter  " data-progress="8.1" style="left: 74.35897435897436%;"></a>
+    
+        <a href="../../03. Services/SSL/03. Server.html" title="Server" class="chapter  " data-progress="8.2" style="left: 76.92307692307692%;"></a>
+    
+        <a href="../../03. Services/SSL/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="8.3" style="left: 79.48717948717949%;"></a>
+    
+        <a href="../../03. Services/SSL/05. How works.html" title="How works" class="chapter  " data-progress="8.4" style="left: 82.05128205128206%;"></a>
+    
+        <a href="../../03. Services/SSH/01. Introduction.html" title="SSH" class="chapter  new-chapter" data-progress="9" style="left: 84.61538461538461%;"></a>
+    
+        <a href="../../03. Services/SSH/02. Client.html" title="Client" class="chapter  " data-progress="9.1" style="left: 87.17948717948718%;"></a>
+    
+        <a href="../../03. Services/SSH/03. Server.html" title="Server" class="chapter  " data-progress="9.2" style="left: 89.74358974358974%;"></a>
+    
+        <a href="../../03. Services/SSH/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="9.3" style="left: 92.3076923076923%;"></a>
+    
+        <a href="../../03. Services/SSH/05. How works.html" title="How works" class="chapter  " data-progress="9.4" style="left: 94.87179487179488%;"></a>
+    
+        <a href="../../03. Services/DHCP/01. Introduction.html" title="DHCP" class="chapter  " data-progress="10" style="left: 97.43589743589743%;"></a>
+    
+        <a href="../../03. Services/FTP/01. Introduction.html" title="FTP" class="chapter  " data-progress="11" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_9">
+                    
+                        <h1 id="your-dns-in-the-server">Your DNS in the server</h1>
+<p>Server configuration is also simple, but it requires a few extra steps.</p>
+<pre><code>1. Install Services &gt; client &gt; DNS &gt; [Select primary or secondary]
+</code></pre><p>The script do this:</p>
+<ol>
+<li>Install <strong>bind9</strong>, a application to provide DNS services</li>
+<li>Edit <code>/etc/resolv.conf</code> file and add your own direction</li>
+<li>Set up <strong>bind9</strong> to define your domain database and your secondary IP if is defined.</li>
+</ol>
+<pre><code>write_config_local_server(){
+echo &quot;zone \&quot;$DNS_NAME.\&quot; IN {
+  type master;
+  file \&quot;/etc/bind/db.$DNS_NAME.zone\&quot;;
+  allow-transfer {$SECONDARY_DNS;};
+  }; &quot; &gt; /etc/bind/named.conf.local
+}
+</code></pre><ol>
+<li>In the domain database write entries to be resolubles main services that use DNS to access it:</li>
+</ol>
+<pre><code>write_database(){
+echo &quot;\$TTL  604800
+@ IN  SOA ns1.$DNS_NAME. root.ns1.$DNS_NAME. (
+            1   ; Serial
+       604800   ; Refresh
+        86400   ; Retry
+      2419200   ; Expire
+       604800 ) ; Negative Cache TTL
+
+@             IN      NS         ns1.$DNS_NAME.
+ns1           IN      A          $PRIMARY_DNS
+@             IN      NS         ns2.$DNS_NAME.
+
+ns2           IN      A          $SECONDARY_DNS
+$DNS_NAME.    IN      A          $PRIMARY_DNS
+
+smtp          IN      CNAME      $DNS_NAME.
+pop3          IN      CNAME      $DNS_NAME.
+ldap          IN      CNAME      $DNS_NAME.
+www           IN      CNAME      $DNS_NAME.
+www1          IN      CNAME      $DNS_NAME.
+www2          IN      CNAME      $DNS_NAME.
+www3          IN      CNAME      $DNS_NAME.
+&quot; &gt; /etc/bind/db.&quot;$DNS_NAME&quot;.zone
+}
+</code></pre><p>For the secondary server, the configuration is more easy because this use primary server to get information and don&#39;t need too more:</p>
+<pre><code>write_config_local_client(){
+echo &quot;zone \&quot;$DNS_NAME.\&quot; IN {
+  type slave;
+  file \&quot;/var/cache/bind/db.$DNS_NAME.zone\&quot;;
+  masters {$PRIMARY_DNS;};
+};
+&quot; &gt; /etc/bind/named.conf.local
+}
+</code></pre>
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../03. Services/DNS/02. Client.html" class="navigation navigation-prev " aria-label="Previous page: Client"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../03. Services/DNS/04. Connectivity.html" class="navigation navigation-next " aria-label="Next page: Connectivity"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../../gitbook/app.js"></script>
+        
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"ga":{"token":"UA-51526054-1"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-51526054-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>
