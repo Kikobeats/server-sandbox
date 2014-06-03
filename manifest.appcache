@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Revision 1401784743163
+# Revision 1401785114358
 
 CACHE:
 01. Started/01. Introduction.html
@@ -29,6 +29,8 @@ CACHE:
 03. Services/Mail/01. Introduction.html
 03. Services/Mail/02. Client.html
 03. Services/Mail/03. Server.html
+03. Services/Mail/04. Connectivity.html
+03. Services/Mail/05. How works.html
 03. Services/SSH/01. Introduction.html
 03. Services/SSH/02. Client.html
 03. Services/SSH/03. Server.html
