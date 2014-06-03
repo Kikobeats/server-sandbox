@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="3" data-basepath="../.." data-revision="1401727462213">
+    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="3" data-basepath="../.." data-revision="1401784743131">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -422,9 +422,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7" data-path="03. Services/Mai/01. Introduction.html">
+        <li class="chapter " data-level="7" data-path="03. Services/Mail/01. Introduction.html">
             
-            <a href="../../03. Services/Mai/01. Introduction.html">
+            <a href="../../03. Services/Mail/01. Introduction.html">
                 <i class="fa fa-check"></i> <b>7.</b> Mail
             </a>
             
@@ -432,18 +432,18 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="7.1" data-path="03. Services/Mai/02. Client.html">
+        <li class="chapter " data-level="7.1" data-path="03. Services/Mail/02. Client.html">
             
-            <a href="../../03. Services/Mai/02. Client.html">
+            <a href="../../03. Services/Mail/02. Client.html">
                 <i class="fa fa-check"></i> <b>7.1.</b> Client
             </a>
             
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="03. Services/Mai/03. Server.html">
+        <li class="chapter " data-level="7.2" data-path="03. Services/Mail/03. Server.html">
             
-            <a href="../../03. Services/Mai/03. Server.html">
+            <a href="../../03. Services/Mail/03. Server.html">
                 <i class="fa fa-check"></i> <b>7.2.</b> Server
             </a>
             
@@ -659,11 +659,11 @@
     
         <a href="../../03. Services/LDAP/05. How works.html" title="How works" class="chapter  " data-progress="6.4" style="left: 56.41025641025641%;"></a>
     
-        <a href="../../03. Services/Mai/01. Introduction.html" title="Mail" class="chapter  new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
+        <a href="../../03. Services/Mail/01. Introduction.html" title="Mail" class="chapter  new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
     
-        <a href="../../03. Services/Mai/02. Client.html" title="Client" class="chapter  " data-progress="7.1" style="left: 61.53846153846154%;"></a>
+        <a href="../../03. Services/Mail/02. Client.html" title="Client" class="chapter  " data-progress="7.1" style="left: 61.53846153846154%;"></a>
     
-        <a href="../../03. Services/Mai/03. Server.html" title="Server" class="chapter  " data-progress="7.2" style="left: 64.1025641025641%;"></a>
+        <a href="../../03. Services/Mail/03. Server.html" title="Server" class="chapter  " data-progress="7.2" style="left: 64.1025641025641%;"></a>
     
         <a href="../../03. Services/Mai/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="7.3" style="left: 66.66666666666667%;"></a>
     
@@ -754,23 +754,10 @@ special services to the domain.</td>
 
 <h2 id="dns-query">DNS Query</h2>
 <p>The better way to explain the process is with a example.</p>
-<p>You need to know the resolve of <code>www.google.com</code> domain.</p>
-<h3 id="iterative-query">Iterative Query</h3>
-<ul>
-<li>Client query here local DNS. (1) </li>
-<li>If the local DNS don&#39;t know the domain, answer the root nameserver. (2)</li>
-<li>Root Nameserves indicate the node that have <code>.com</code> &gt; <code>google</code> register.</li>
-<li>Local DNS talk with the node and obtain the DNS authority nameserver. (4)(5)</li>
-<li>Local DNS contact with DNS authority nameserver for resolve <code>www</code></li>
-<li>DNS authority nameserver respond local DNS.</li>
-</ul>
-<p><img src="../../assets/dns-iterative.png" alt=""></p>
-<p>This is normally to process to resolve a query.</p>
-<h3 id="recursive-query">Recursive Query</h3>
-<p>The process with recusive query is similar, but now the DNS local doesn&#39;t handle all calls: The DNS servers delegate in others DNS server to resolve the query.</p>
-<p><img src="../../assets/dns-recursive.png" alt=""></p>
-<h2 id="dns-respond">DNS Respond</h2>
-<p>The server that respond the query is indicate in the <strong>AA</strong> (<em>Authoritative Answer</em>). Its possible that for each zone have more than one DNS name server. This is known as <strong>Primary</strong> and <strong>Secondary</strong> DNS of the zone and data redundancy is a measure of safety and reliability.</p>
+<p>You need to know the resolve of <code>www.google.com</code> domain. You do a query of your server and this first search in the local database with <code>.com</code> then <code>google</code> and then the record <code>www</code>. This is known as <strong>iterative query</strong>: you first search a general node, and later descent for the node and search the next element. </p>
+<p>If the domain can&#39;t be resolve in this DNS, the DNS can be delegate in other server. This is known as <strong>recursive query</strong>: Delegate in other dns server to resolve the query.</p>
+<p>The rerve that respond the query is indicate in the <strong>AA</strong> (<em>Authoritative Answer</em>). Its possible that for each zone have more than one DNS name server. This is known as <strong>Primary</strong> and <strong>Secondary</strong> DNS of the zone and data redundancy is a measure of safety and reliability.</p>
+<p><img src="../../assets/dns-quote.png" alt=""></p>
 <p>In easy see this in the DNS response message:</p>
 <p><img src="../../assets/dns-response.png" alt=""></p>
 

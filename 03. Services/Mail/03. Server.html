@@ -15,10 +15,10 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../../03. Services/LDAP/04. Connectivity.html" />
+        <link rel="next" href="../../03. Services/Mai/04. Connectivity.html" />
         
         
-        <link rel="prev" href="../../03. Services/LDAP/02. Client.html" />
+        <link rel="prev" href="../../03. Services/Mail/02. Client.html" />
         
 
         <meta property="og:title" content="Server | Server for dummies">
@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="6.2" data-basepath="../.." data-revision="1401784743131">
+    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="7.2" data-basepath="../.." data-revision="1401784743131">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -130,7 +130,7 @@
         
         
         <li>
-            <a href="https://github.com/Kikobeats/server-for-dummies/edit/master/03. Services/LDAP/03. Server.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/Kikobeats/server-for-dummies/edit/master/03. Services/Mail/03. Server.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -609,7 +609,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 51.282051282051285%;min-width: 48.717948717948715%;"></div>
+        <div class="inner" style="width: 64.1025641025641%;min-width: 61.53846153846154%;"></div>
     </div>
     <div class="chapters">
     
@@ -655,15 +655,15 @@
     
         <a href="../../03. Services/LDAP/03. Server.html" title="Server" class="chapter done " data-progress="6.2" style="left: 51.282051282051285%;"></a>
     
-        <a href="../../03. Services/LDAP/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="6.3" style="left: 53.84615384615385%;"></a>
+        <a href="../../03. Services/LDAP/04. Connectivity.html" title="Connectivity" class="chapter done " data-progress="6.3" style="left: 53.84615384615385%;"></a>
     
-        <a href="../../03. Services/LDAP/05. How works.html" title="How works" class="chapter  " data-progress="6.4" style="left: 56.41025641025641%;"></a>
+        <a href="../../03. Services/LDAP/05. How works.html" title="How works" class="chapter done " data-progress="6.4" style="left: 56.41025641025641%;"></a>
     
-        <a href="../../03. Services/Mail/01. Introduction.html" title="Mail" class="chapter  new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
+        <a href="../../03. Services/Mail/01. Introduction.html" title="Mail" class="chapter done new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
     
-        <a href="../../03. Services/Mail/02. Client.html" title="Client" class="chapter  " data-progress="7.1" style="left: 61.53846153846154%;"></a>
+        <a href="../../03. Services/Mail/02. Client.html" title="Client" class="chapter done " data-progress="7.1" style="left: 61.53846153846154%;"></a>
     
-        <a href="../../03. Services/Mail/03. Server.html" title="Server" class="chapter  " data-progress="7.2" style="left: 64.1025641025641%;"></a>
+        <a href="../../03. Services/Mail/03. Server.html" title="Server" class="chapter done " data-progress="7.2" style="left: 64.1025641025641%;"></a>
     
         <a href="../../03. Services/Mai/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="7.3" style="left: 66.66666666666667%;"></a>
     
@@ -698,30 +698,108 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_22">
+                    <section class="normal" id="section-gitbook_27">
                     
-                        <h1 id="your-ldap-in-the-server">Your LDAP in the server</h1>
-<p>In the server need to install <strong>slapd</strong> service configue the database schema and insert sample data. In this case we have the defintions of the data and the information in the <code>Services/LDAP/*.dif</code> files and use <code>Services/LDAP/server.sh</code> for boostrapping process. This is set up when you choice install LDAP:</p>
-<p>```
-echo &quot; * Installing LDAP...&quot;
-apt-get -y install slapd ldap-utils</p>
-<p>echo &quot; * Adding LDAP database...&quot;</p>
-<h1 id="load-database">Load database</h1>
-<p>sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/loadDBD.ldif;</p>
-<p>echo &quot; * Loading LDAP example schema...&quot;</p>
-<h1 id="load-database-models-schema">Load database models schema</h1>
-<p>sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif;
-sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif;</p>
-<p>echo &quot; * Adding LDAP custom schema ...&quot;</p>
-<h1 id="load-own-schema-for-the-example">Load own schema for the example</h1>
-<p>sudo ldapadd -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/stSchema.ldif;</p>
-<p>echo &quot; * Configuring LDAP database...&quot;</p>
-<h1 id="load-database-configuration">Load database configuration</h1>
-<p>sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/confDatabase.ldif;</p>
-<p>echo &quot; * Inserting LDAP data...&quot;</p>
-<h1 id="insert-fake-data-for-the-example">Insert fake data for the example</h1>
-<p>sudo ldapmodify -D &quot;cn=admin,o=um,c=es&quot; -W -H ldap:/// -f &quot;$DIR&quot;/st.ldif;</p>
+                        <h1 id="your-mail-in-the-server">Your Mail in the server</h1>
+<p>we will set up two typical services for mail:</p>
+<ul>
+<li><strong>SMTP</strong> is the protocol to can send emails.</li>
+<li><strong>POP3</strong> is one of the posibles protrocols to receive mails that we are to use. The other common protocol is <strong>IMAP</strong>.</li>
+</ul>
+<p>The differences between POP3 and IMAP are littles but importants:</p>
+<table border="1" cellspacing="1" cellpadding="7" width="568">
+  <tbody><tr>
+    <td width="50%" valign="top" bgcolor="#FFFFFF" background="bg.gif">
+      <p align="center"><b>POP3</b></p></td>
+    <td width="50%" valign="TOP" bgcolor="#ffffff" background="bg.gif">
+      <p align="center"><b>IMAP</b></p></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">Since email needs to be downloaded into
+      desktop PC before being displayed, you may have the following problems for
+      POP3 access:
+      <ul>
+        <li>You need to download all email again when using another desktop PC
+          to check your email.</li>
+        <li>May get confused if you need to check email both in the office and
+          at home.</li>
+      </ul>
+      <p>The downloaded email may be deleted from the server depending on the
+      setting of your email client.</p></td>
+    <td width="50%" valign="TOP">Since email is kept on server, it would gain
+      the following benefits for IMAP access:
+      <ul>
+        <li>No need to download all email when using other desktop PC to check
+          your email.</li>
+        <li>Easier to identify the unread email.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">All messages as well as their attachments will
+      be downloaded into desktop PC during the &#39;check new email&#39; process.</td>
+    <td width="50%" valign="TOP">A whole message will be downloaded only when it
+      is opened for display from its content.</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">Mailboxes can only be created on desktop PC.
+      There is only one mailbox (INBOX) exists on the server.</td>
+    <td width="50%" valign="TOP">Multiple mailboxes can be created on the
+      desktop PC as well as on the server.</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">Filters can transfer incoming/outgoing messages
+      only to local mailboxes.</td>
+    <td width="50%" valign="TOP">Filters can transfer incoming/outgoing messages
+      to other mailboxes no matter where the mailboxes locate (on the server or
+      the PC).</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">Outgoing email is stored only locally on the
+      desktop PC.</td>
+    <td width="50%" valign="TOP">Outgoing email can be filtered to a mailbox on
+      server for accessibility from other machine.</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">Messages are deleted on the desktop PC.
+      Comparatively, it is inconvenient to clean up your mailbox on the server.</td>
+    <td width="50%" valign="TOP">Messages can be deleted directly on the server
+      to make it more convenient to clean up your mailbox on the server.</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="TOP">Messages may be reloaded onto desktop PC
+      several times due to the corruption of system files.</td>
+    <td width="50%" valign="TOP">The occurrence of reloading messages from the
+      server to PC is much less when compared to POP3.</td>
+  </tr>
+</tbody></table>
 
+<h2 id="configuring-pop3">Configuring POP3</h2>
+<p><img src="../../assets/pop.png" alt=""></p>
+<ol>
+<li>Install the service <strong>dovecot</strong> for use POP3 in your server.</li>
+<li>Configure defaults options in <code>/etc/dovecot/conf.d/10-auth.conf</code> and <code>/etc/dovecot/conf.d/10-mail.conf</code>.</li>
+</ol>
+<h2 id="configuring-smtp">Configuring SMTP</h2>
+<p><img src="../../assets/smtp.png" alt=""></p>
+<ol>
+<li>Install the service <strong>exim4</strong></li>
+<li>Configure standards options in <code>/etc/exim4/update-exim4.conf.conf</code> about your DNS:</li>
+</ol>
+<pre><code>dc_eximconfig_configtype=&#39;internet&#39;
+dc_other_hostnames=&#39;$DNS_NAME&#39;
+dc_local_interfaces=&#39;&#39;
+dc_readhost=&#39;&#39;
+dc_relay_domains=&#39;$RELAY_DOMAINS&#39;
+dc_minimaldns=&#39;false&#39;
+dc_relay_nets=&#39;$LOCAL_NETWORK&#39;
+dc_smarthost=&#39;&#39;
+CFILEMODE=&#39;644&#39;
+dc_use_split_config=&#39;false&#39;
+dc_hide_mailname=&#39;&#39;
+dc_mailname_in_oh=&#39;true&#39;
+dc_localdelivery=&#39;maildir_home&#39;
+</code></pre>
                     
                     </section>
                 
@@ -730,10 +808,10 @@ sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif;</p>
         </div>
 
         
-        <a href="../../03. Services/LDAP/02. Client.html" class="navigation navigation-prev " aria-label="Previous page: Client"><i class="fa fa-angle-left"></i></a>
+        <a href="../../03. Services/Mail/02. Client.html" class="navigation navigation-prev " aria-label="Previous page: Client"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../03. Services/LDAP/04. Connectivity.html" class="navigation navigation-next " aria-label="Next page: Connectivity"><i class="fa fa-angle-right"></i></a>
+        <a href="../../03. Services/Mai/04. Connectivity.html" class="navigation navigation-next " aria-label="Next page: Connectivity"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

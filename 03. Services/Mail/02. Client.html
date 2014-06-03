@@ -5,7 +5,7 @@
         
         
         <meta charset="UTF-8">
-        <title>Server | Server for dummies</title>
+        <title>Client | Server for dummies</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -15,13 +15,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../../03. Services/LDAP/04. Connectivity.html" />
+        <link rel="next" href="../../03. Services/Mail/03. Server.html" />
         
         
-        <link rel="prev" href="../../03. Services/LDAP/02. Client.html" />
+        <link rel="prev" href="../../03. Services/Mail/01. Introduction.html" />
         
 
-        <meta property="og:title" content="Server | Server for dummies">
+        <meta property="og:title" content="Client | Server for dummies">
         <meta property="og:site_name" content="Server for dummies">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="6.2" data-basepath="../.." data-revision="1401784743131">
+    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="7.1" data-basepath="../.." data-revision="1401784743131">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -130,7 +130,7 @@
         
         
         <li>
-            <a href="https://github.com/Kikobeats/server-for-dummies/edit/master/03. Services/LDAP/03. Server.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/Kikobeats/server-for-dummies/edit/master/03. Services/Mail/02. Client.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -609,7 +609,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 51.282051282051285%;min-width: 48.717948717948715%;"></div>
+        <div class="inner" style="width: 61.53846153846154%;min-width: 58.97435897435897%;"></div>
     </div>
     <div class="chapters">
     
@@ -655,13 +655,13 @@
     
         <a href="../../03. Services/LDAP/03. Server.html" title="Server" class="chapter done " data-progress="6.2" style="left: 51.282051282051285%;"></a>
     
-        <a href="../../03. Services/LDAP/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="6.3" style="left: 53.84615384615385%;"></a>
+        <a href="../../03. Services/LDAP/04. Connectivity.html" title="Connectivity" class="chapter done " data-progress="6.3" style="left: 53.84615384615385%;"></a>
     
-        <a href="../../03. Services/LDAP/05. How works.html" title="How works" class="chapter  " data-progress="6.4" style="left: 56.41025641025641%;"></a>
+        <a href="../../03. Services/LDAP/05. How works.html" title="How works" class="chapter done " data-progress="6.4" style="left: 56.41025641025641%;"></a>
     
-        <a href="../../03. Services/Mail/01. Introduction.html" title="Mail" class="chapter  new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
+        <a href="../../03. Services/Mail/01. Introduction.html" title="Mail" class="chapter done new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
     
-        <a href="../../03. Services/Mail/02. Client.html" title="Client" class="chapter  " data-progress="7.1" style="left: 61.53846153846154%;"></a>
+        <a href="../../03. Services/Mail/02. Client.html" title="Client" class="chapter done " data-progress="7.1" style="left: 61.53846153846154%;"></a>
     
         <a href="../../03. Services/Mail/03. Server.html" title="Server" class="chapter  " data-progress="7.2" style="left: 64.1025641025641%;"></a>
     
@@ -698,29 +698,9 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_22">
+                    <section class="normal" id="section-gitbook_26">
                     
-                        <h1 id="your-ldap-in-the-server">Your LDAP in the server</h1>
-<p>In the server need to install <strong>slapd</strong> service configue the database schema and insert sample data. In this case we have the defintions of the data and the information in the <code>Services/LDAP/*.dif</code> files and use <code>Services/LDAP/server.sh</code> for boostrapping process. This is set up when you choice install LDAP:</p>
-<p>```
-echo &quot; * Installing LDAP...&quot;
-apt-get -y install slapd ldap-utils</p>
-<p>echo &quot; * Adding LDAP database...&quot;</p>
-<h1 id="load-database">Load database</h1>
-<p>sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/loadDBD.ldif;</p>
-<p>echo &quot; * Loading LDAP example schema...&quot;</p>
-<h1 id="load-database-models-schema">Load database models schema</h1>
-<p>sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif;
-sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif;</p>
-<p>echo &quot; * Adding LDAP custom schema ...&quot;</p>
-<h1 id="load-own-schema-for-the-example">Load own schema for the example</h1>
-<p>sudo ldapadd -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/stSchema.ldif;</p>
-<p>echo &quot; * Configuring LDAP database...&quot;</p>
-<h1 id="load-database-configuration">Load database configuration</h1>
-<p>sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/confDatabase.ldif;</p>
-<p>echo &quot; * Inserting LDAP data...&quot;</p>
-<h1 id="insert-fake-data-for-the-example">Insert fake data for the example</h1>
-<p>sudo ldapmodify -D &quot;cn=admin,o=um,c=es&quot; -W -H ldap:/// -f &quot;$DIR&quot;/st.ldif;</p>
+                        <h1 id="your-mail-in-the-client">Your Mail in the client</h1>
 
                     
                     </section>
@@ -730,10 +710,10 @@ sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif;</p>
         </div>
 
         
-        <a href="../../03. Services/LDAP/02. Client.html" class="navigation navigation-prev " aria-label="Previous page: Client"><i class="fa fa-angle-left"></i></a>
+        <a href="../../03. Services/Mail/01. Introduction.html" class="navigation navigation-prev " aria-label="Previous page: Mail"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../03. Services/LDAP/04. Connectivity.html" class="navigation navigation-next " aria-label="Next page: Connectivity"><i class="fa fa-angle-right"></i></a>
+        <a href="../../03. Services/Mail/03. Server.html" class="navigation navigation-next " aria-label="Next page: Server"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

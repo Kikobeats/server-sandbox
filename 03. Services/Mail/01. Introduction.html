@@ -5,7 +5,7 @@
         
         
         <meta charset="UTF-8">
-        <title>Server | Server for dummies</title>
+        <title>Mail | Server for dummies</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -15,13 +15,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../../03. Services/LDAP/04. Connectivity.html" />
+        <link rel="next" href="../../03. Services/Mail/02. Client.html" />
         
         
-        <link rel="prev" href="../../03. Services/LDAP/02. Client.html" />
+        <link rel="prev" href="../../03. Services/LDAP/05. How works.html" />
         
 
-        <meta property="og:title" content="Server | Server for dummies">
+        <meta property="og:title" content="Mail | Server for dummies">
         <meta property="og:site_name" content="Server for dummies">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="6.2" data-basepath="../.." data-revision="1401784743131">
+    <div class="book" data-github="Kikobeats/server-for-dummies" data-level="7" data-basepath="../.." data-revision="1401784743131">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -130,7 +130,7 @@
         
         
         <li>
-            <a href="https://github.com/Kikobeats/server-for-dummies/edit/master/03. Services/LDAP/03. Server.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/Kikobeats/server-for-dummies/edit/master/03. Services/Mail/01. Introduction.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -609,7 +609,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 51.282051282051285%;min-width: 48.717948717948715%;"></div>
+        <div class="inner" style="width: 58.97435897435897%;min-width: 56.41025641025641%;"></div>
     </div>
     <div class="chapters">
     
@@ -655,11 +655,11 @@
     
         <a href="../../03. Services/LDAP/03. Server.html" title="Server" class="chapter done " data-progress="6.2" style="left: 51.282051282051285%;"></a>
     
-        <a href="../../03. Services/LDAP/04. Connectivity.html" title="Connectivity" class="chapter  " data-progress="6.3" style="left: 53.84615384615385%;"></a>
+        <a href="../../03. Services/LDAP/04. Connectivity.html" title="Connectivity" class="chapter done " data-progress="6.3" style="left: 53.84615384615385%;"></a>
     
-        <a href="../../03. Services/LDAP/05. How works.html" title="How works" class="chapter  " data-progress="6.4" style="left: 56.41025641025641%;"></a>
+        <a href="../../03. Services/LDAP/05. How works.html" title="How works" class="chapter done " data-progress="6.4" style="left: 56.41025641025641%;"></a>
     
-        <a href="../../03. Services/Mail/01. Introduction.html" title="Mail" class="chapter  new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
+        <a href="../../03. Services/Mail/01. Introduction.html" title="Mail" class="chapter done new-chapter" data-progress="7" style="left: 58.97435897435897%;"></a>
     
         <a href="../../03. Services/Mail/02. Client.html" title="Client" class="chapter  " data-progress="7.1" style="left: 61.53846153846154%;"></a>
     
@@ -698,29 +698,45 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_22">
+                    <section class="normal" id="section-gitbook_25">
                     
-                        <h1 id="your-ldap-in-the-server">Your LDAP in the server</h1>
-<p>In the server need to install <strong>slapd</strong> service configue the database schema and insert sample data. In this case we have the defintions of the data and the information in the <code>Services/LDAP/*.dif</code> files and use <code>Services/LDAP/server.sh</code> for boostrapping process. This is set up when you choice install LDAP:</p>
-<p>```
-echo &quot; * Installing LDAP...&quot;
-apt-get -y install slapd ldap-utils</p>
-<p>echo &quot; * Adding LDAP database...&quot;</p>
-<h1 id="load-database">Load database</h1>
-<p>sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/loadDBD.ldif;</p>
-<p>echo &quot; * Loading LDAP example schema...&quot;</p>
-<h1 id="load-database-models-schema">Load database models schema</h1>
-<p>sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif;
-sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif;</p>
-<p>echo &quot; * Adding LDAP custom schema ...&quot;</p>
-<h1 id="load-own-schema-for-the-example">Load own schema for the example</h1>
-<p>sudo ldapadd -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/stSchema.ldif;</p>
-<p>echo &quot; * Configuring LDAP database...&quot;</p>
-<h1 id="load-database-configuration">Load database configuration</h1>
-<p>sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/confDatabase.ldif;</p>
-<p>echo &quot; * Inserting LDAP data...&quot;</p>
-<h1 id="insert-fake-data-for-the-example">Insert fake data for the example</h1>
-<p>sudo ldapmodify -D &quot;cn=admin,o=um,c=es&quot; -W -H ldap:/// -f &quot;$DIR&quot;/st.ldif;</p>
+                        <h1 id="mail">Mail</h1>
+<p>Mail is the basic, oldest and most popular service of the internet.</p>
+<p><img src="../../assets/mail-resume.png" alt=""></p>
+<p>When you want to send a mail, you going to deposit the mail in the receive mailbox of the receiver, but have a little problem: don&#39;t know the adress of the destination mailbox.</p>
+<p>For know it, you need to use DNS query of the server name of the mailbox adress, and he say you the direction where you cand send the mail. And also the process is similar when you want to check your mail account. You can see this more later when We analyze the traffic with wireshark.</p>
+<p>For support mail, you need support DNS before. This is because mail is based on mailbox concept: All mail accounts need a mailbox for send (<strong>SMTP</strong>) and receive (<strong>POP3</strong> or <strong>IMAP</strong>).</p>
+<p><strong>SMTP</strong></p>
+<p>Define the protocol necessary that transmit the message to the mailbox.</p>
+<p><img src="../../assets/smtp-travel.jpg" alt="image"></p>
+<p>The options about how the message have to be interpreted is described in the <strong>MIME</strong> header.</p>
+<p><img src="../../assets/smtp-mime.jpg" alt=""></p>
+<p><code>Content-Transfer-Encoding</code> s to avoid problems relaying the message for differents MTA. Can be:</p>
+<ul>
+<li>base64</li>
+<li>quoted-printable</li>
+<li>7bit</li>
+<li>8bit</li>
+<li>binary</li>
+</ul>
+<p>The <code>Content-Type</code> can be:</p>
+<ul>
+<li>text</li>
+<li>image</li>
+<li>audio</li>
+<li>video</li>
+<li>applitacion</li>
+<li>message</li>
+<li>multipart</li>
+</ul>
+<p>Is necesary define <code>Content-Type</code> for multipart messages that contains different type (for example text and attachment)</p>
+<p><img src="../../assets/smtp-multipart.png" alt=""></p>
+<p><strong>POP3</strong></p>
+<p><img src="../../assets/pop-state.png" alt=""></p>
+<p><strong>IMAP</strong></p>
+<p>IMAP keep more stuff in the server, for example, structure of folders and messages that you want to recovery for read it.</p>
+<p>The protocol established different states for the connection. Internally, when the connection is established, the server interprets the command that is contained in the messages and do the actions:</p>
+<p><img src="../../assets/imap-state.png" alt=""></p>
 
                     
                     </section>
@@ -730,10 +746,10 @@ sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif;</p>
         </div>
 
         
-        <a href="../../03. Services/LDAP/02. Client.html" class="navigation navigation-prev " aria-label="Previous page: Client"><i class="fa fa-angle-left"></i></a>
+        <a href="../../03. Services/LDAP/05. How works.html" class="navigation navigation-prev " aria-label="Previous page: How works"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../03. Services/LDAP/04. Connectivity.html" class="navigation navigation-next " aria-label="Next page: Connectivity"><i class="fa fa-angle-right"></i></a>
+        <a href="../../03. Services/Mail/02. Client.html" class="navigation navigation-next " aria-label="Next page: Client"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
