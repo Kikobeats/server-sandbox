@@ -1,11 +1,12 @@
 CACHE MANIFEST
-# Revision 1401785114358
+# Revision 1402050249324
 
 CACHE:
 01. Started/01. Introduction.html
 01. Started/02. How to use.html
-01. Started/03. Test services.html
-01. Started/04. Examples.html
+01. Started/03. Configure environment.html
+01. Started/04. Test services.html
+01. Started/05. Examples.html
 02. Understand/01. Introduction.html
 02. Understand/02. Files.html
 02. Understand/03. Commands.html
@@ -13,34 +14,28 @@ CACHE:
 03. Services/DNS/01. Introduction.html
 03. Services/DNS/02. Client.html
 03. Services/DNS/03. Server.html
-03. Services/DNS/04. Connectivity.html
-03. Services/DNS/05. How works.html
+03. Services/DNS/04. How works.html
 03. Services/FTP/01. Introduction.html
 03. Services/HTTP/01. Introduction.html
 03. Services/HTTP/02. Client.html
 03. Services/HTTP/03. Server.html
-03. Services/HTTP/04. Connectivity.html
-03. Services/HTTP/05. How works.html
+03. Services/HTTP/04. How works.html
 03. Services/LDAP/01. Introduction.html
 03. Services/LDAP/02. Client.html
 03. Services/LDAP/03. Server.html
-03. Services/LDAP/04. Connectivity.html
-03. Services/LDAP/05. How works.html
+03. Services/LDAP/04. How works.html
 03. Services/Mail/01. Introduction.html
 03. Services/Mail/02. Client.html
 03. Services/Mail/03. Server.html
-03. Services/Mail/04. Connectivity.html
-03. Services/Mail/05. How works.html
+03. Services/Mail/04. How works.html
 03. Services/SSH/01. Introduction.html
 03. Services/SSH/02. Client.html
 03. Services/SSH/03. Server.html
-03. Services/SSH/04. Connectivity.html
-03. Services/SSH/05. How works.html
+03. Services/SSH/04. How works.html
 03. Services/SSL/01. Introduction.html
 03. Services/SSL/02. Client.html
 03. Services/SSL/03. Server.html
-03. Services/SSL/04. Connectivity.html
-03. Services/SSL/05. How works.html
+03. Services/SSL/04. How works.html
 index.html
 gitbook/app.js
 gitbook/fonts/anonymouspro/400.woff
