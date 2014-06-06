@@ -97,4 +97,4 @@ else
 fi
 
 echo " * Removing temporals files..."
-sudo apt-get autoremove
+sudo apt-get autoremove -y

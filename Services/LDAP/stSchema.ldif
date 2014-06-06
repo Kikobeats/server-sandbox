@@ -1,10 +1,6 @@
-#Definición de ObjectClass "stPerson" y atributo "mail"
+#Definición de ObjectClass "stPerson" y atributo "correo"
 
 dn: cn=stSchema,cn=schema,cn=config
 objectClass: olcSchemaConfig
-olcObjectClasses: ( 1.3.6.1.4.1.4203.666.1.1 NAME 'stPerson' SUP inetOrgPerson STRUCTURAL MUST mail)
-olcAttributeTypes: ( 1.3.6.1.4.1.4203.666.1.2 NAME 'mail' SUP mail)
-
-
-
-
+olcObjectClasses: ( 1.3.6.1.4.1.4203.666.1.1 NAME 'stPerson' SUP inetOrgPerson STRUCTURAL MUST correo)
+olcAttributeTypes: ( 1.3.6.1.4.1.4203.666.1.2 NAME 'correo' SUP mail)

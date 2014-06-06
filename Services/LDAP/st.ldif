@@ -7,19 +7,19 @@ objectclass: organization
 dn: ou=st, o=um,c=es
 changetype: add
 objectclass: organizationalunit
-description: Server for dummies
+description: Free Sandbox
 
 # Second level of the hierarchy (Users)
-dn: cn=Server Administrator, ou=st, o=um,c=es
+dn: cn=User One, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
-sn: Server
+sn: Servidor
 correo: user1@st.um
-mobile: 611111111
+mobile: 627182818
 
-dn: cn=Client Administrator, ou=st, o=um,c=es
+dn: cn=User Two, ou=st, o=um,c=es
 changetype: add
 objectclass: stPerson
-sn: Client
+sn: Cliente
 correo: user2@st.um
-mobile: 622222222
+mobile: 627182819
