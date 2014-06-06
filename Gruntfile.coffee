@@ -8,7 +8,7 @@ module.exports = (grunt) ->
       options:
         base: 'build/website'
         branch: 'gh-pages'
-        repo: 'https://github.com/Kikobeats/server-for-dummies.git'
+        repo: 'https://github.com/Kikobeats/server-sandbox'
       src: ['**/*']
 
     clean:
