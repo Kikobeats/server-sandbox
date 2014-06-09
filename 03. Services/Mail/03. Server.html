@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-sandbox" data-level="7.2" data-basepath="../.." data-revision="1402050249323">
+    <div class="book" data-github="Kikobeats/server-sandbox" data-level="7.2" data-basepath="../.." data-revision="1402334747005">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -636,7 +636,7 @@
                 
                     <section class="normal" id="section-gitbook_25">
                     
-                        <h1 id="your-mail-in-the-server">Your Mail in the server</h1>
+                        <h2 id="your-mail-in-the-server">Your Mail in the server</h2>
 <p>we will set up two typical services for mail:</p>
 <ul>
 <li><strong>SMTP</strong> is the protocol to can send emails.</li>
@@ -710,32 +710,33 @@
   </tr>
 </tbody></table>
 
-<h2 id="configuring-pop3">Configuring POP3</h2>
+<h3 id="configuring-pop3">Configuring POP3</h3>
 <p><img src="../../assets/pop.png" alt=""></p>
 <ol>
 <li>Install the service <strong>dovecot</strong> for use POP3 in your server.</li>
 <li>Configure defaults options in <code>/etc/dovecot/conf.d/10-auth.conf</code> and <code>/etc/dovecot/conf.d/10-mail.conf</code>.</li>
 </ol>
-<h2 id="configuring-smtp">Configuring SMTP</h2>
+<h3 id="configuring-smtp">Configuring SMTP</h3>
 <p><img src="../../assets/smtp.png" alt=""></p>
 <ol>
 <li>Install the service <strong>exim4</strong></li>
 <li>Configure standards options in <code>/etc/exim4/update-exim4.conf.conf</code> about your DNS:</li>
 </ol>
-<pre><code>dc_eximconfig_configtype=&#39;internet&#39;
-dc_other_hostnames=&#39;$DNS_NAME&#39;
-dc_local_interfaces=&#39;&#39;
-dc_readhost=&#39;&#39;
-dc_relay_domains=&#39;$RELAY_DOMAINS&#39;
-dc_minimaldns=&#39;false&#39;
-dc_relay_nets=&#39;$LOCAL_NETWORK&#39;
-dc_smarthost=&#39;&#39;
-CFILEMODE=&#39;644&#39;
-dc_use_split_config=&#39;false&#39;
-dc_hide_mailname=&#39;&#39;
-dc_mailname_in_oh=&#39;true&#39;
-dc_localdelivery=&#39;maildir_home&#39;
+<pre><code class="lang-bash">dc_eximconfig_configtype=<span class="hljs-string">'internet'</span>
+dc_other_hostnames=<span class="hljs-string">'$DNS_NAME'</span>
+dc_local_interfaces=<span class="hljs-string">''</span>
+dc_readhost=<span class="hljs-string">''</span>
+dc_relay_domains=<span class="hljs-string">'$RELAY_DOMAINS'</span>
+dc_minimaldns=<span class="hljs-string">'false'</span>
+dc_relay_nets=<span class="hljs-string">'$LOCAL_NETWORK'</span>
+dc_smarthost=<span class="hljs-string">''</span>
+CFILEMODE=<span class="hljs-string">'644'</span>
+dc_use_split_config=<span class="hljs-string">'false'</span>
+dc_hide_mailname=<span class="hljs-string">''</span>
+dc_mailname_<span class="hljs-keyword">in</span>_oh=<span class="hljs-string">'true'</span>
+dc_localdelivery=<span class="hljs-string">'maildir_home'</span>
 </code></pre>
+
                     
                     </section>
                 
@@ -762,10 +763,6 @@ dc_localdelivery=&#39;maildir_home&#39;
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
     
 
     

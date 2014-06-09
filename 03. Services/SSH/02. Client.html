@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-sandbox" data-level="9.1" data-basepath="../.." data-revision="1402050249323">
+    <div class="book" data-github="Kikobeats/server-sandbox" data-level="9.1" data-basepath="../.." data-revision="1402334747005">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -636,25 +636,27 @@
                 
                     <section class="normal" id="section-gitbook_28">
                     
-                        <h1 id="your-ssh-in-the-client">Your SSH in the client</h1>
+                        <h2 id="your-ssh-in-the-client">Your SSH in the client</h2>
 <p>The client needs <strong>openssh-client</strong> that is usually installed on UNIX systems default</p>
 <p>Also need to generate a <strong>SSH public key</strong> to identify the computer. SSH keys are a way to identify trusted computers, without involving passwords.</p>
 <p><strong>Check your SSH keys</strong></p>
-<pre><code>cd ~/.ssh
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ~/.ssh
 ls -al
-# Lists the files in your .ssh directory
-</code></pre><p><strong>Generate a new SSH key</strong></p>
-<pre><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;
-# Creates a new ssh key, using the provided email as a label
-# Generating public/private rsa key pair.
-# Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
-Enter passphrase (empty for no passphrase): [Type a passphrase]
-# Enter same passphrase again: [Type passphrase again]
-Your identification has been saved in /Users/you/.ssh/id_rsa.
-# Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
-# The key fingerprint is:
-# 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com
-</code></pre><p>Now you can connect with your server with <code>ssh</code> command:</p>
+<span class="hljs-comment"># Lists the files in your .ssh directory</span>
+</code></pre>
+<p><strong>Generate a new SSH key</strong></p>
+<pre><code class="lang-bash">ssh-keygen -t rsa -C <span class="hljs-string">"your_email@example.com"</span>
+<span class="hljs-comment"># Creates a new ssh key, using the provided email as a label</span>
+<span class="hljs-comment"># Generating public/private rsa key pair.</span>
+<span class="hljs-comment"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</span>
+Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase): [Type a passphrase]
+<span class="hljs-comment"># Enter same passphrase again: [Type passphrase again]</span>
+Your identification has been saved <span class="hljs-keyword">in</span> /Users/you/.ssh/id_rsa.
+<span class="hljs-comment"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span>
+<span class="hljs-comment"># The key fingerprint is:</span>
+<span class="hljs-comment"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span>
+</code></pre>
+<p>Now you can connect with your server with <code>ssh</code> command:</p>
 <p><img src="../../assets/ssh-connect.png" alt=""></p>
 
                     
@@ -683,10 +685,6 @@ Your identification has been saved in /Users/you/.ssh/id_rsa.
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
     
 
     

@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-sandbox" data-level="6.2" data-basepath="../.." data-revision="1402050249323">
+    <div class="book" data-github="Kikobeats/server-sandbox" data-level="6.2" data-basepath="../.." data-revision="1402334747005">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -636,33 +636,34 @@
                 
                     <section class="normal" id="section-gitbook_21">
                     
-                        <h1 id="your-ldap-in-the-server">Your LDAP in the server</h1>
+                        <h2 id="your-ldap-in-the-server">Your LDAP in the server</h2>
 <p>In the server need to install <strong>slapd</strong> service configue the database schema and insert sample data. In this case we have the defintions of the data and the information in the <code>Services/LDAP/*.dif</code> files and use <code>Services/LDAP/server.sh</code> for boostrapping process.</p>
 <p>This is set up when you choice install LDAP:</p>
-<pre><code>echo &quot; * Installing LDAP...&quot;
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">" * Installing LDAP..."</span>
 apt-get -y install slapd ldap-utils
 
-echo &quot; * Adding LDAP database...&quot;
-# Load database
-sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/loadDBD.ldif;
+<span class="hljs-built_in">echo</span> <span class="hljs-string">" * Adding LDAP database..."</span>
+<span class="hljs-comment"># Load database</span>
+<span class="hljs-built_in">sudo</span> ldapmodify -Y EXTERNAL -H ldapi:/// <span class="hljs-operator">-f</span> <span class="hljs-string">"<span class="hljs-variable">$DIR</span>"</span>/loadDBD.ldif;
 
-echo &quot; * Loading LDAP example schema...&quot;
-# Load database models schema
-sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif;
-sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif;
+<span class="hljs-built_in">echo</span> <span class="hljs-string">" * Loading LDAP example schema..."</span>
+<span class="hljs-comment"># Load database models schema</span>
+<span class="hljs-built_in">sudo</span> ldapadd -Y EXTERNAL -H ldapi:/// <span class="hljs-operator">-f</span> /etc/ldap/schema/inetorgperson.ldif;
+<span class="hljs-built_in">sudo</span> ldapadd -Y EXTERNAL -H ldapi:/// <span class="hljs-operator">-f</span> /etc/ldap/schema/cosine.ldif;
 
-echo &quot; * Adding LDAP custom schema ...&quot;
-# Load own schema for the example
-sudo ldapadd -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/stSchema.ldif;
+<span class="hljs-built_in">echo</span> <span class="hljs-string">" * Adding LDAP custom schema ..."</span>
+<span class="hljs-comment"># Load own schema for the example</span>
+<span class="hljs-built_in">sudo</span> ldapadd -Y EXTERNAL -H ldapi:/// <span class="hljs-operator">-f</span> <span class="hljs-string">"<span class="hljs-variable">$DIR</span>"</span>/stSchema.ldif;
 
-echo &quot; * Configuring LDAP database...&quot;
-# Load database configuration
-sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f &quot;$DIR&quot;/confDatabase.ldif;
+<span class="hljs-built_in">echo</span> <span class="hljs-string">" * Configuring LDAP database..."</span>
+<span class="hljs-comment"># Load database configuration</span>
+<span class="hljs-built_in">sudo</span> ldapmodify -Y EXTERNAL -H ldapi:/// <span class="hljs-operator">-f</span> <span class="hljs-string">"<span class="hljs-variable">$DIR</span>"</span>/confDatabase.ldif;
 
-echo &quot; * Inserting LDAP data...&quot;
-# Insert fake data for the example
-sudo ldapmodify -D &quot;cn=admin,o=um,c=es&quot; -W -H ldap:/// -f &quot;$DIR&quot;/st.ldif;
+<span class="hljs-built_in">echo</span> <span class="hljs-string">" * Inserting LDAP data..."</span>
+<span class="hljs-comment"># Insert fake data for the example</span>
+<span class="hljs-built_in">sudo</span> ldapmodify -D <span class="hljs-string">"cn=admin,o=um,c=es"</span> -W -H ldap:/// <span class="hljs-operator">-f</span> <span class="hljs-string">"<span class="hljs-variable">$DIR</span>"</span>/st.ldif;
 </code></pre>
+
                     
                     </section>
                 
@@ -689,10 +690,6 @@ sudo ldapmodify -D &quot;cn=admin,o=um,c=es&quot; -W -H ldap:/// -f &quot;$DIR&q
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
     
 
     

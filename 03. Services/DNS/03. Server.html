@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-sandbox" data-level="3.2" data-basepath="../.." data-revision="1402050249323">
+    <div class="book" data-github="Kikobeats/server-sandbox" data-level="3.2" data-basepath="../.." data-revision="1402334747005">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -636,64 +636,67 @@
                 
                     <section class="normal" id="section-gitbook_12">
                     
-                        <h1 id="your-dns-in-the-server">Your DNS in the server</h1>
+                        <h2 id="your-dns-in-the-server">Your DNS in the server</h2>
 <p>Server configuration is also simple, but it requires a few extra steps.</p>
 <pre><code>1. Install Services &gt; client &gt; DNS &gt; [Select primary or secondary]
 </code></pre><p><img src="../../assets/dns-install-server.png" alt=""></p>
-<h2 id="primary-dns">Primary DNS</h2>
+<h3 id="primary-dns">Primary DNS</h3>
 <p><img src="../../assets/dns-install-primary.png" alt=""></p>
 <ol>
 <li>Install <strong>bind9</strong>, a application to provide DNS services</li>
 <li>Edit <code>/etc/resolv.conf</code> file and add your own direction</li>
 <li>Set up <strong>bind9</strong> to define your domain database and your secondary IP if is defined.</li>
 </ol>
-<pre><code>write_config_local_server(){
-echo &quot;zone \&quot;$DNS_NAME.\&quot; IN {
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">write_config_local_server</span></span>(){
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"zone \"<span class="hljs-variable">$DNS_NAME</span>.\" IN {
   type master;
-  file \&quot;/etc/bind/db.$DNS_NAME.zone\&quot;;
-  allow-transfer {$SECONDARY_DNS;};
-  }; &quot; &gt; /etc/bind/named.conf.local
+  file \"/etc/bind/db.<span class="hljs-variable">$DNS_NAME</span>.zone\";
+  allow-transfer {<span class="hljs-variable">$SECONDARY_DNS</span>;};
+  }; "</span> &gt; /etc/<span class="hljs-built_in">bind</span>/named.conf.local
 }
-</code></pre><ol>
+</code></pre>
+<ol>
 <li>In the domain database write entries to be resolubles main services that use DNS to access it:</li>
 </ol>
-<pre><code>write_database(){
-echo &quot;\$TTL  604800
-@ IN  SOA ns1.$DNS_NAME. root.ns1.$DNS_NAME. (
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">write_database</span></span>(){
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"\$TTL  604800
+@ IN  SOA ns1.<span class="hljs-variable">$DNS_NAME</span>. root.ns1.<span class="hljs-variable">$DNS_NAME</span>. (
             1   ; Serial
        604800   ; Refresh
         86400   ; Retry
       2419200   ; Expire
        604800 ) ; Negative Cache TTL
 
-@             IN      NS         ns1.$DNS_NAME.
-ns1           IN      A          $PRIMARY_DNS
-@             IN      NS         ns2.$DNS_NAME.
+@             IN      NS         ns1.<span class="hljs-variable">$DNS_NAME</span>.
+ns1           IN      A          <span class="hljs-variable">$PRIMARY_DNS</span>
+@             IN      NS         ns2.<span class="hljs-variable">$DNS_NAME</span>.
 
-ns2           IN      A          $SECONDARY_DNS
-$DNS_NAME.    IN      A          $PRIMARY_DNS
+ns2           IN      A          <span class="hljs-variable">$SECONDARY_DNS</span>
+<span class="hljs-variable">$DNS_NAME</span>.    IN      A          <span class="hljs-variable">$PRIMARY_DNS</span>
 
-smtp          IN      CNAME      $DNS_NAME.
-pop3          IN      CNAME      $DNS_NAME.
-ldap          IN      CNAME      $DNS_NAME.
-www           IN      CNAME      $DNS_NAME.
-www1          IN      CNAME      $DNS_NAME.
-www2          IN      CNAME      $DNS_NAME.
-www3          IN      CNAME      $DNS_NAME.
-&quot; &gt; /etc/bind/db.&quot;$DNS_NAME&quot;.zone
-}
-</code></pre><h2 id="secondary-dns">Secondary DNS</h2>
-<p><img src="../../assets/dns-install-secondary.png" alt=""></p>
-<p>For the secondary server, the configuration is more easy because this use primary server to get information and don&#39;t need too more:</p>
-<pre><code>write_config_local_client(){
-echo &quot;zone \&quot;$DNS_NAME.\&quot; IN {
-  type slave;
-  file \&quot;/var/cache/bind/db.$DNS_NAME.zone\&quot;;
-  masters {$PRIMARY_DNS;};
-};
-&quot; &gt; /etc/bind/named.conf.local
+smtp          IN      CNAME      <span class="hljs-variable">$DNS_NAME</span>.
+pop3          IN      CNAME      <span class="hljs-variable">$DNS_NAME</span>.
+ldap          IN      CNAME      <span class="hljs-variable">$DNS_NAME</span>.
+www           IN      CNAME      <span class="hljs-variable">$DNS_NAME</span>.
+www1          IN      CNAME      <span class="hljs-variable">$DNS_NAME</span>.
+www2          IN      CNAME      <span class="hljs-variable">$DNS_NAME</span>.
+www3          IN      CNAME      <span class="hljs-variable">$DNS_NAME</span>.
+"</span> &gt; /etc/<span class="hljs-built_in">bind</span>/db.<span class="hljs-string">"<span class="hljs-variable">$DNS_NAME</span>"</span>.zone
 }
 </code></pre>
+<h3 id="secondary-dns">Secondary DNS</h3>
+<p><img src="../../assets/dns-install-secondary.png" alt=""></p>
+<p>For the secondary server, the configuration is more easy because this use primary server to get information and don&#39;t need too more:</p>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">write_config_local_client</span></span>(){
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"zone \"<span class="hljs-variable">$DNS_NAME</span>.\" IN {
+  type slave;
+  file \"/var/cache/bind/db.<span class="hljs-variable">$DNS_NAME</span>.zone\";
+  masters {<span class="hljs-variable">$PRIMARY_DNS</span>;};
+};
+"</span> &gt; /etc/<span class="hljs-built_in">bind</span>/named.conf.local
+}
+</code></pre>
+
                     
                     </section>
                 
@@ -720,10 +723,6 @@ echo &quot;zone \&quot;$DNS_NAME.\&quot; IN {
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
     
 
     

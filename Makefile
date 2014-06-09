@@ -5,9 +5,6 @@ filename='server-sandbox'
 
 all: markdown website pdf mobi epub
 
-
-section_1="01.\ Started/*.md"
-
 markdown:
 	mkdir -p build/markdown
 	awk 'FNR==1{print ""}{print}' 01.\ Started/*.md 02.\ Understand/*.md 03.\ Services/*/*.md  > build/markdown/$(filename).md

@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-sandbox" data-level="3.3" data-basepath="../.." data-revision="1402050249323">
+    <div class="book" data-github="Kikobeats/server-sandbox" data-level="3.3" data-basepath="../.." data-revision="1402334747005">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -636,13 +636,13 @@
                 
                     <section class="normal" id="section-gitbook_13">
                     
-                        <h1 id="how-dns-works">How DNS works</h1>
+                        <h2 id="how-dns-works">How DNS works</h2>
 <p><img src="../../assets/dns-header.jpg" alt=""></p>
-<h2 id="internal-query">Internal query</h2>
+<h3 id="internal-query">Internal query</h3>
 <p>For the example, I run <code>dig st.um</code> command and see in the wireshark what happens:</p>
 <p>The client do standard query connection at default DNS server (my server). In the header I say that I want to translate <code>st.um</code> adress (of type <code>A</code>)</p>
 <p><img src="../../assets/dns-1.png" alt=""></p>
-<p>The server respond me with same useful information: </p>
+<p>The server respond me with same useful information:</p>
 <ul>
 <li>In <code>Answer</code> section, server response my query and say &#39;Hey, the register A of the domain is <code>172.16.22.135.</code></li>
 <li>In <code>AA nameserver</code> section indicate what server responde the query. In this case, my primary (<code>ns1.st.um</code>) and secondary (<code>ns2.st.um</code>) server.</li>
@@ -650,7 +650,7 @@
 </ul>
 <p>. In the <code>answer</code> entry of the header you can see the IP of my request name, and the adress of the DNS server that serve the information:</p>
 <p><img src="../../assets/dns-2.png" alt=""></p>
-<h2 id="external-query">External query</h2>
+<h3 id="external-query">External query</h3>
 <p>This process is similar to internal query, but now depend of external DNS.</p>
 <p>In this case, I do a <code>ping google.com</code> and in this process I need first translate <code>google.com</code> name into a IP name:</p>
 <p><img src="../../assets/dns-3.png" alt=""></p>
@@ -684,10 +684,6 @@
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
     
 
     

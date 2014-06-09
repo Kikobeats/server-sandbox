@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-sandbox" data-level="8.2" data-basepath="../.." data-revision="1402050249323">
+    <div class="book" data-github="Kikobeats/server-sandbox" data-level="8.2" data-basepath="../.." data-revision="1402334747005">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -636,7 +636,7 @@
                 
                     <section class="normal" id="section-gitbook_33">
                     
-                        <h1 id="ssl-in-the-server">SSL in the server</h1>
+                        <h2 id="ssl-in-the-server">SSL in the server</h2>
 <p>For have SSL in HTTP known as HTTPS first you need to have HTTP service.</p>
 <p>For have HTTPS you need a certificate to expose that your domain is secure and you are your owner.</p>
 <p>Now we are to explain how to generate your certificate for do a illustrative example, but in the practice the SSL certificate is created by <strong>Certification Authority</strong> (<em>CA</em>) that typically are companies of hosting. Remember this.</p>
@@ -647,18 +647,20 @@
 <p>Typically an SSL Certificate will contain your domain name, your company name, your address, your city, your state and your country. It will also contain the expiration date of the Certificate and details of the Certification Authority responsible for the issuance of the Certificate. When a browser connects to a secure site it will retrieve the site&#39;s SSL Certificate and check that it has not expired, it has been issued by a Certification Authority the browser trusts, and that it is being us.</p>
 <p><strong>CA Certificate in the server</strong></p>
 <p>first need to know OpenSSL directory. In terminal type:</p>
-<pre><code>openssl version -d
-</code></pre><p>And report you the directory, typically <code>usr/lib/ssl</code>. Now we need to edit <code>openssl.cnf</code> and update this entries with your values. In my case this are my values:</p>
-<pre><code>....
+<pre><code class="lang-bash">openssl version <span class="hljs-operator">-d</span>
+</code></pre>
+<p>And report you the directory, typically <code>usr/lib/ssl</code>. Now we need to edit <code>openssl.cnf</code> and update this entries with your values. In my case this are my values:</p>
+<pre><code class="lang-bash">....
 [ CA_default ]
 ...
 dir = ./demoCA
 countryName_default = ES
 stateOrProvinceName_default =
-0. organizationalName_default = UMU
+<span class="hljs-number">0</span>. organizationalName_default = UMU
 organizationalUnitName_default = ST
 ...
-</code></pre><p>because my domain is a Spanish domain and the domian for the exmaple is <code>st@um</code>.</p>
+</code></pre>
+<p>because my domain is a Spanish domain and the domian for the exmaple is <code>st@um</code>.</p>
 <p>Now go to adjust options to generate a certificate. in the same file and go to <code>[ policy_match ]</code> section and update set <code>stateOrProvinceName</code> value to <code>optional</code>.</p>
 <p>Go to the path of CA_default and create <code>demoCA</code> folder with this structure:</p>
 <pre><code>cd $HOME
@@ -669,20 +671,25 @@ touch index.txt
 echo &quot;00&quot; &gt; clrnumber
 echo &quot;01&quot; &gt; serial
 </code></pre><p>Now you are ready to generate the certificate. To do it, run the appropriate command:</p>
-<pre><code>openssl req -x509 -newkey rsa:2048 -keyout cakey.pem -days 3650 -out
+<pre><code class="lang-bash">openssl req -x509 -newkey rsa:<span class="hljs-number">2048</span> -keyout cakey.pem -days <span class="hljs-number">3650</span> -out
 cacert.pem
-</code></pre><p>You can check that your certificate is correct with this commands:</p>
-<pre><code>openssl x509 -in cacert.perm -text
+</code></pre>
+<p>You can check that your certificate is correct with this commands:</p>
+<pre><code class="lang-bash">openssl x509 -in cacert.perm -text
 openssl rsa -in cakey.perm -text
-</code></pre><p><strong>CA Certificate in the client</strong></p>
+</code></pre>
+<p><strong>CA Certificate in the client</strong></p>
 <p>First generate it:</p>
-<pre><code>openssl req -new -nodes -newkey rsa:1024 -keyout serverkey.pem -out servercsr.pem
-</code></pre><p>And later sign it:</p>
-<pre><code>openssl ca –keyfile cakey.pem -in servercsr.pem -out servercert.pem
-</code></pre><p>The certificate on <code>*.pem</code> is necessary because is the format that the browser can read the certificate.</p>
+<pre><code class="lang-bash">openssl req -new -nodes -newkey rsa:<span class="hljs-number">1024</span> -keyout serverkey.pem -out servercsr.pem
+</code></pre>
+<p>And later sign it:</p>
+<pre><code class="lang-bash">openssl ca –keyfile cakey.pem -in servercsr.pem -out servercert.pem
+</code></pre>
+<p>The certificate on <code>*.pem</code> is necessary because is the format that the browser can read the certificate.</p>
 <p>You can check that certificate is valid running this command:</p>
-<pre><code>openssl s_server -cert servercert.pem -key serverkey.pem -CAfile clientcert.pem
-</code></pre><p><img src="../../assets/ssl-test.png" alt=""></p>
+<pre><code class="lang-bash">openssl s_server -cert servercert.pem -key serverkey.pem -CAfile clientcert.pem
+</code></pre>
+<p><img src="../../assets/ssl-test.png" alt=""></p>
 
                     
                     </section>
@@ -710,10 +717,6 @@ openssl rsa -in cakey.perm -text
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
     
 
     

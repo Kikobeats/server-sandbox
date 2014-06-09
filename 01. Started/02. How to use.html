@@ -46,7 +46,7 @@
 
 
         
-    <div class="book" data-github="Kikobeats/server-sandbox" data-level="1.2" data-basepath=".." data-revision="1402050249323">
+    <div class="book" data-github="Kikobeats/server-sandbox" data-level="1.2" data-basepath=".." data-revision="1402334747005">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -636,28 +636,30 @@
                 
                     <section class="normal" id="section-gitbook_2">
                     
-                        <h1 id="install-the-script">Install the script</h1>
+                        <h2 id="install-the-script">Install the script</h2>
 <p>For each machine yo need to install the script. The steps to install the scripts are very easy.</p>
 <p>1) Open a terminal and go to a <code>PATH</code> for store the script. <code>cd $HOME</code> path is a good place.</p>
 <p>2) Clone the repository from Github</p>
-<pre><code>git clone https://github.com/Kikobeats/server-sandbox.git server-sandbox
-</code></pre><p><img src="../assets/configure-trick.png" alt=""></p>
+<pre><code class="lang-bash">git clone https://github.com/Kikobeats/server-sandbox.git server-sandbox
+</code></pre>
+<p><img src="../assets/configure-trick.png" alt=""></p>
 <p>Now is the moment to clone one virtual machine in two more :-)</p>
 <p>2) Join in the folder with <code>cd server-sandbox</code> and edit <code>settings.sh</code> with your favorite editor. (If you haven&#39;t idea, you can use <code>gedit settings.sh</code>)</p>
 <p>This are the following options:</p>
-<pre><code>## DNS Settings
-DNS_NAME=&quot;st.um&quot;
-PRIMARY_DNS=&quot;172.16.22.135&quot;
-SECONDARY_DNS=&quot;172.16.22.137&quot;
-FORWARDERS=&quot;&quot;
+<pre><code class="lang-bash"><span class="hljs-comment">## DNS Settings</span>
+DNS_NAME=<span class="hljs-string">"st.um"</span>
+PRIMARY_DNS=<span class="hljs-string">"172.16.22.135"</span>
+SECONDARY_DNS=<span class="hljs-string">"172.16.22.137"</span>
+FORWARDERS=<span class="hljs-string">""</span>
 
-## SMTP Settings
-LOCAL_NETWORK=&quot;172.16.22.0/24&quot;
-RELAY_DOMAINS=&quot;$DNS_NAME; um.es&quot;
+<span class="hljs-comment">## SMTP Settings</span>
+LOCAL_NETWORK=<span class="hljs-string">"172.16.22.0/24"</span>
+RELAY_DOMAINS=<span class="hljs-string">"<span class="hljs-variable">$DNS_NAME</span>; um.es"</span>
 
-## OPENSSL Settings
-USERNAME=&quot;josefranciscoverdugambin&quot;
-</code></pre><p>Set the values:</p>
+<span class="hljs-comment">## OPENSSL Settings</span>
+USERNAME=<span class="hljs-string">"josefranciscoverdugambin"</span>
+</code></pre>
+<p>Set the values:</p>
 <ul>
 <li><strong>DNS_NAME</strong>: Name that you can use for you DNS. We are use <code>st.um</code> but you can use others like <code>server.dummie</code>, <code>server.dev</code> or whatever.</li>
 </ul>
@@ -682,10 +684,11 @@ USERNAME=&quot;josefranciscoverdugambin&quot;
 </ul>
 <p>3) Run the script with administrator privileges <code>sudo sh init.sh</code></p>
 <p><img src="../assets/configure-init.png" alt=""></p>
-<h1 id="extra-installation">Extra installation</h1>
+<h2 id="extra-installation">Extra installation</h2>
 <p>In the Mail service, the mail account is associate with mail user account in the machine. For testing the mail, we recommended you create two accounts in the primary server. You can run:</p>
-<pre><code>sh ./Services/Mail/account
-</code></pre><p>to create <strong>user1</strong> and <strong>user2</strong> accounts.</p>
+<pre><code class="lang-bash">sh ./Services/Mail/account
+</code></pre>
+<p>to create <strong>user1</strong> and <strong>user2</strong> accounts.</p>
 
                     
                     </section>
@@ -713,10 +716,6 @@ USERNAME=&quot;josefranciscoverdugambin&quot;
 
     
     <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
     
 
     
