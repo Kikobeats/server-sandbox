@@ -9,7 +9,7 @@
     "load-grunt-tasks": "*",
     "gitbook-plugin-ga": "*"
   },
-  "homepage": "https://kikobeats.github.io/server-sandbox",
+  "homepage": "https://www.gitbook.io/book/kikobeats/server-sandbox",
   "license": "MIT",
 
   "repository": {
